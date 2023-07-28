@@ -15,9 +15,8 @@ const AdminPage = () => {
 
 
 
-        <LeftBoard getFarmerList={() => {}}></LeftBoard>
-        <CenterBoard getConsumerList={() => {}}></CenterBoard>
-        <RigthBoard getFarmerList={() => {}}></CenterBoard>
+        {/* <LeftBoard getFarmerList={() => {}}></LeftBoard>
+        <CenterBoard getConsumerList={() => {}}></CenterBoard> */}
 
 
 

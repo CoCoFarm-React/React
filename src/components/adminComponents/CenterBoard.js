@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-const CenterBoard = () => {
 const CenterBoard = ({getList}) => {
 
     getList.then( data => {
