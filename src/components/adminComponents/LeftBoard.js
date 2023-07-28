@@ -1,36 +1,47 @@
-const CenterBoard = ({getList}) => {
+import { useEffect, useState } from "react";
+import { getFarmerList } from "../../api/adminAPI";
 
-    getList.then( data => {
+const LeftBoard = ({}) => {
 
-        console.log(data)
-        console.dir(data)
+    const {farmer , setFarmer} = useState([]);
 
-    })
-  
+    
 
+    useEffect(()=>{
+
+        getFarmerList().then( data =>  {
+            console.log(data)
+            setFarmer(data)
+        })
+
+    },[])
+
+    
 
     return ( 
-    <div>
-        <div className='border-2 border-black border-solid rounded-2xl m-10 mt-2 mb-2 flex justify-between '>
-            
-            <div className='w-1/3 border-2 border-black border-solid rounded-2xl m-2 h-[400px]'>
-                <h1>
-                    게시글1
-                </h1>
-                <ul className='text-left pl-4 pt-4'>
-                    <li className='text-left pt-2'>
+    <div className="w-1/3">
+        <div className='border-2 border-black border-solid rounded-2xl m-2 h-[400px]'>
+            <h1>
+                게시글1
+            </h1>
+            <table className='text-left pl-4 pt-4'>
+                <tr>
+                    <td className='text-left pt-2'>
                         재배자 가이드 - 
-                    </li>
-                    <li className='text-left pt-2'>
+                    </td>
+                    <td className='text-left pt-2'>
                         안녕하세요 재배게시판 입니다.
-                    </li>
-                </ul>
-                {/* <KakaoMap></KakaoMap> */}
-            </div>
-
+                    </td>
+                    <td className='text-left pt-2'>
+                        안녕하세요 재배게시판 입니다.
+                    </td>
+                </tr>
+            </table>
+            {/* <KakaoMap></KakaoMap> */}
         </div>
+
     </div>
     );
 }
  
-export default CenterBoard;
+export default LeftBoard;
