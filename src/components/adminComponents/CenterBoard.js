@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const CenterBoard = () => {
     return ( 
     <div>
@@ -7,7 +9,10 @@ const CenterBoard = () => {
         <div className='border-2 border-black border-solid rounded-2xl m-10 mt-2 mb-2 flex justify-between '>
             <div className='w-1/3 border-2 border-black border-solid rounded-2xl m-2 h-[400px]'>
                 <h1>
-                게시글1
+                    게시글1
+                    <button className="text-gray-400 float-right mr-5 pt-1">
+                        <Link to={"/farmer/list"}>more+</Link>
+                    </button>
                 </h1>
                 <ul className='text-left pl-4 pt-4'>
                     <li className='text-left pt-2'>
