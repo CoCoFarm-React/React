@@ -10,7 +10,7 @@ export const getFarmerList = async () =>{
 
 export const getConsumerList = async () =>{
 
-    const res = await axios.get(`http://192.168.0.48:8080/api/admin/farmer`)
+    const res = await axios.get(`http://192.168.0.48:8080/api/admin/consumer`)
 
     return res.data
 
