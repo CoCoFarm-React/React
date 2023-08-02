@@ -1,10 +1,9 @@
 import { createBrowserRouter } from"react-router-dom";
 
 import AdminPage from "../page/admin/AdminPage";
-import FarmerList from "../components/adminComponents/farmer/FarmerListComponent";
 import FarmerListPage from "../page/farmer/FarmerListPage";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter([ 
     {
         path: "",
         element: <AdminPage></AdminPage>

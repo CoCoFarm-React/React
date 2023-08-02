@@ -1,13 +1,12 @@
 import { useState } from "react";
-import AdminHeader from "../../components/adminComponents/AdminHeader";
-
-import CenterBoard from "../../components/adminComponents/CenterBoard";
+import AdminHeaderComponent from "../../components/adminComponents/AdminHeaderComponent";
+import CenterBoardComponent from "../../components/adminComponents/CenterBoardComponent";
 
 
 import Footer from "../../components/commonComponents/Footer";
-import LeftBoard from "../../components/adminComponents/LeftBoard";
-import RightBoard from "../../components/adminComponents/RightBoard";
-import TopCenterBoard from "../../components/adminComponents/TopCenterBoard";
+import LeftBoardComponent from "../../components/adminComponents/LeftBoardComponent";
+import RightBoardComponent from "../../components/adminComponents/RightBoardComponent";
+import TopCenterBoardComponent from "../../components/adminComponents/TopCenterBoardComponent";
 import useQueryObj from "../../hooks/useQueryObj";
 
 
@@ -17,19 +16,18 @@ const AdminPage = () => {
 
     const [list , setlist] = useState({});
 
-    const { queryObj } = useQueryObj();
-
+    const { queryObj , moveboardReadPage } = useQueryObj();
 
     return ( 
      <div>
-        <AdminHeader></AdminHeader>
+        <AdminHeaderComponent></AdminHeaderComponent>
 
 
-        <TopCenterBoard></TopCenterBoard> 
+        <TopCenterBoardComponent></TopCenterBoardComponent> 
         <div className='border-2 border-black border-solid rounded-2xl m-10 mt-2 mb-2 flex justify-between '>
-            <LeftBoard>  </LeftBoard>
-            <CenterBoard>  </CenterBoard>
-            <RightBoard queryObj={queryObj}>  </RightBoard>
+            <LeftBoardComponent>  </LeftBoardComponent>
+            <CenterBoardComponent>  </CenterBoardComponent>
+            <RightBoardComponent queryObj={queryObj} moveboardReadPage={moveboardReadPage}> </RightBoardComponent>
         </div>
         <Footer></Footer>
      </div>

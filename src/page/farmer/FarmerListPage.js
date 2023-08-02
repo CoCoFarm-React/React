@@ -1,5 +1,4 @@
-import AdminHeader from "../../components/adminComponents/AdminHeader";
-import CenterBoard from "../../components/adminComponents/CenterBoard";
+import AdminHeader from "../../components/adminComponents/AdminHeaderComponent";
 import FarmerListComponent from "../../components/adminComponents/farmer/FarmerListComponent";
 import Footer from "../../components/commonComponents/Footer";
 

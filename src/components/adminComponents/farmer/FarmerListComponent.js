@@ -34,7 +34,7 @@ const FarmerListComponent = () => {
                 </div>
                 <div className="bg-pink-300">
                     <ul>
-                        {listData.map(({email, nickname}) => <li key={email}>{email} - {nickname} </li>)}
+                        {/* {listData.map(({email, nickname}) => <li key={email}>{email} - {nickname} </li>)} */}
                     </ul>
                 </div>
             </div>
