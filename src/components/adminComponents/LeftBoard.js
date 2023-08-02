@@ -9,10 +9,7 @@ const LeftBoard = ({}) => {
 
     useEffect(()=>{
 
-        getFarmerList().then( data =>  {
-            console.log(data)
-            setFarmer(data)
-        })
+      
 
     },[])
 

@@ -13,10 +13,10 @@ const FarmerListComponent = () => {
     useEffect(() => {
 
         // axios로 회원데이터 받아옴
-        getFarmerList().then(data => {
-            console.dir(data)
-            setListData(data)
-        })
+        // getFarmerList().then(data => {
+        //     console.dir(data)
+        //     setListData(data)
+        // })
     }, [])
     
 
