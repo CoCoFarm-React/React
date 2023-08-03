@@ -16,8 +16,7 @@ const AdminPage = () => {
 
     const [list , setlist] = useState({});
 
-    const { queryObj , moveboardReadPage } = useQueryObj();
-
+    const { queryObj , moveboardReadPage, moveMemberReadPage } = useQueryObj();
     
 
 
@@ -28,8 +27,8 @@ const AdminPage = () => {
 
         <TopCenterBoardComponent></TopCenterBoardComponent> 
         <div className='border-2 border-black border-solid rounded-2xl m-10 mt-2 mb-2 flex justify-between '>
-            <LeftBoardComponent queryObj={queryObj}  moveboardReadPage={moveboardReadPage}>  </LeftBoardComponent>
-            <CenterBoardComponent queryObj={queryObj} moveboardReadPage={moveboardReadPage}>  </CenterBoardComponent>
+            <LeftBoardComponent queryObj={queryObj}  moveMemberReadPage={moveMemberReadPage}>  </LeftBoardComponent>
+            <CenterBoardComponent queryObj={queryObj} moveMemberReadPage={moveMemberReadPage}>  </CenterBoardComponent>
             <RightBoardComponent queryObj={queryObj} moveboardReadPage={moveboardReadPage}> </RightBoardComponent>
         </div>
         <Footer></Footer>

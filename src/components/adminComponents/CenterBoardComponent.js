@@ -4,10 +4,12 @@ import { getConsumerList } from "../../api/adminAPI";
 
 const initState = [{
     email: '',
-    nickname: ''
+    nickname: '',
+    mno: 0,
+    intro: ''
 }]
 
-const CenterBoard = ({queryObj, moveboardReadPage}) => {
+const CenterBoard = ({queryObj, moveMemberReadPage}) => {
 
     const [consumer, setConsumer] = useState(initState)
 
@@ -45,10 +47,10 @@ const CenterBoard = ({queryObj, moveboardReadPage}) => {
                         </tr>
                         </thead>
                         <tbody>
-                            {consumer.map(({email, nickname}, idx) => 
+                            {consumer.map(({email, nickname, mno, intro}, idx) => 
                                 idx > 6 ? <></> : (
                                    
-                                    <tr key={idx} className="hover:bg-gray-200">
+                                    <tr key={idx} className="hover:bg-gray-200" onClick={() => moveMemberReadPage(mno)}>
                                         <td className="m-2 p-2 border-b-2 w-4/12 text-center">{email}</td>    
                                         <td className="m-2 p-2 border-b-2 w-3/12 text-center">{nickname}</td> 
                                     </tr>
