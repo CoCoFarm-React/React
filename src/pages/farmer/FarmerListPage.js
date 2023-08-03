@@ -1,12 +1,11 @@
-import AdminHeader from "../../components/adminComponents/AdminHeader";
-import CenterBoard from "../../components/adminComponents/CenterBoard";
+import AdminHeaderComponent from "../../components/adminComponents/AdminHeaderComponent";
 import FarmerListComponent from "../../components/adminComponents/farmer/FarmerListComponent";
 import Footer from "../../components/commonComponents/Footer";
 
 const FarmerListPage = () => {
-    return (  
+    return (
         <div>
-            <AdminHeader></AdminHeader>
+            <AdminHeaderComponent></AdminHeaderComponent>
             <FarmerListComponent></FarmerListComponent>
             <Footer></Footer>
         </div>

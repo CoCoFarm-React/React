@@ -34,29 +34,39 @@ const useQueryObj = () => {
     // object로  묶어주기
     const queryObj = checkNull({ page, size, cateno, type, keyword })
     
-    const moveList = () => {
-        const queryString = createSearchParams(queryObj).toString()
-        navigate(`../list/?${queryString}`)
-    }
+    // const moveList = () => {
+    //     const queryString = createSearchParams(queryObj).toString()
+    //     navigate(`../list/?${queryString}`)
+    // }
 
-    const moveRead = (bno)=>{
+    // const moveRead = (bno)=>{
 
-        console.log("moveRead: " + bno)
+    //     console.log("moveRead: " + bno)
 
-        const queryString = createSearchParams(queryObj).toString()
+    //     const queryString = createSearchParams(queryObj).toString()
         
-        navigate(`../read/${bno}?${queryString}`)
-    }
+    //     navigate(`../read/${bno}?${queryString}`)
+    // }
 
-    const moveModify = (bno) => {
+    // const moveModify = (bno) => {
 
+    //     console.log("moveModify: " + bno)
+
+    //     const queryString = createSearchParams(queryObj).toString()
+        
+    //     navigate(`../modify/${bno}?${queryString}`)
+    // }
+
+
+    
+    //값을 가지고 가는 함수
+    const moveboardReadPage = (bno) => {
         console.log("moveModify: " + bno)
-
         const queryString = createSearchParams(queryObj).toString()
-        
-        navigate(`../modify/${bno}?${queryString}`)
+        navigate(`../farmer/list/${bno}?${queryString}`)
     }
-    return {queryObj,setSearch, moveList, moveRead ,moveModify}
+
+    return {queryObj, setSearch, moveboardReadPage}
 }
 
 export default useQueryObj
