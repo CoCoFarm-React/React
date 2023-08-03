@@ -31,16 +31,11 @@ const FarmerListComponent = ({}) => {
     return (
         <div className="container m-auto">
             <div>
-                <h1 className="text-3xl ml-12">FarmerList</h1>
-                <div className='border-2 border-black border-solid rounded-2xl m-10 mb-2 mt-0 h-[750px]'>
-                    <div className="mr-1 ml-auto pt-2 h-[50px] w-[280px]">
-                        <input type="text" className="m-2 p-1 bg-slate-200"></input>
-                        <button><Link>검색</Link></button>
-                    </div>
+            <div className='border-2 border-black border-solid rounded-2xl m-10 mb-2 mt-2 h-[700px]'>
                     <div className="m-2 p-2">
-                    <table className="w-full">
+                    <table className="w-full mt-3">
                         <thead className="border-t-2 border-b">
-                        <tr className="bg-[#f6f6f6]">
+                        <tr className="bg-gray-200">
                             <th className="w-4/12">이메일</th>
                             <th className="w-3/12">닉네임</th>
                         </tr>
@@ -49,7 +44,7 @@ const FarmerListComponent = ({}) => {
                             {farmer.map(({email, nickname}, idx) => 
                                 idx > 14 ? <></> : (
                                    
-                                    <tr key={idx} className="hover:bg-[#f6f6f6]">
+                                    <tr key={idx} className="hover:bg-gray-200">
                                         <td className="m-2 p-2 border-b-2 w-4/12 text-center">{email}</td>    
                                         <td className="m-2 p-2 border-b-2 w-3/12 text-center">{nickname}</td> 
                                     </tr>
