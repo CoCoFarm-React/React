@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const initState = [{}]
 
-const FarmerListComponent = ({queryObj , moveboardReadPage , }) => {
+const SupportListComponent = ({queryObj , moveboardReadPage , }) => {
 
     // 처음 목록 뿌릴 때 에러 안 나도록 initState 넣어줌
     const [listData, setListData] = useState(initState)
@@ -35,7 +35,7 @@ const FarmerListComponent = ({queryObj , moveboardReadPage , }) => {
                 </div>
                 <div className="bg-pink-300">
                     <ul>
-                        {/* {listData.map(({email, nickname}) => <li key={email}>{email} - {nickname} </li>)} */}
+                        {listData.map(({email, nickname}) => <li key={email}>{email} - {nickname} </li>)}
                     </ul>
                 </div>
             </div>
@@ -43,4 +43,4 @@ const FarmerListComponent = ({queryObj , moveboardReadPage , }) => {
     );
 }
  
-export default FarmerListComponent;
+export default SupportListComponent;

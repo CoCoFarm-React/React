@@ -5,12 +5,10 @@ import useQueryObj from "../../hooks/useQueryObj";
 
 const FarmerListPage = () => {
 
-
     const { queryObj , moveboardReadPage } = useQueryObj();
 
-
-
-
+    
+    
     return (
         <div className="container m-auto">
             <div>

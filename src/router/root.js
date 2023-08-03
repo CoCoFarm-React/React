@@ -5,7 +5,7 @@ import SupportListPage from "../pages/support/SupportListPage";
 import FarmerListComponent from "../components/adminComponents/farmer/FarmerListComponent";
 
 
-const router = createBrowserRouter([ 
+const router = createBrowserRouter([
     {
         path: "",
         element: <AdminPage></AdminPage>
