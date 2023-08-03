@@ -1,14 +1,14 @@
 import axios from "axios"
 import { createSearchParams } from "react-router-dom"
 
-export const getFarmerList = async () =>{
+export const getFarmerList = async (queryObj) =>{
 
     const res = await axios.get(`http://192.168.0.48:8080/api/admin/farmer`)
     return res.data
     
 }
 
-export const getConsumerList = async () =>{
+export const getConsumerList = async (queryObj) =>{
 
     const res = await axios.get(`http://192.168.0.48:8080/api/admin/consumer`)
     return res.data

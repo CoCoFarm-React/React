@@ -25,8 +25,8 @@ const AdminPage = () => {
 
         <TopCenterBoardComponent></TopCenterBoardComponent> 
         <div className='border-2 border-black border-solid rounded-2xl m-10 mt-2 mb-2 flex justify-between '>
-            <LeftBoardComponent>  </LeftBoardComponent>
-            <CenterBoardComponent>  </CenterBoardComponent>
+            <LeftBoardComponent queryObj={queryObj}  moveboardReadPage={moveboardReadPage}>  </LeftBoardComponent>
+            <CenterBoardComponent queryObj={queryObj} moveboardReadPage={moveboardReadPage}>  </CenterBoardComponent>
             <RightBoardComponent queryObj={queryObj} moveboardReadPage={moveboardReadPage}> </RightBoardComponent>
         </div>
         <Footer></Footer>
