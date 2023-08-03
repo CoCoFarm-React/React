@@ -4,7 +4,7 @@ import AdminPage from "../pages/admin/AdminPage";
 import SupportListPage from "../pages/support/SupportListPage";
 
 
-const router = createBrowserRouter([ 
+const router = createBrowserRouter([
     {
         path: "",
         element: <AdminPage></AdminPage>
