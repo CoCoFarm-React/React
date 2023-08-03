@@ -63,7 +63,7 @@ const useQueryObj = () => {
     const moveboardReadPage = (bno) => {
         console.log("moveModify: " + bno)
         const queryString = createSearchParams(queryObj).toString()
-        navigate(`../farmer/list/${bno}?${queryString}`)
+        navigate(`../support/list/${bno}?${queryString}`)
     }
 
     return {queryObj, setSearch, moveboardReadPage}
