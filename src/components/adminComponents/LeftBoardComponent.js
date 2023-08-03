@@ -4,10 +4,12 @@ import { getFarmerList } from "../../api/adminAPI";
 
 const initState = [{
     email: '',
-    nickname: ''
+    nickname: '',
+    mno: 0,
+    intro: ''
 }]
 
-const LeftBoard = ({queryObj, moveboardReadPage}) => {
+const LeftBoard = ({queryObj, moveMemberReadPage}) => {
 
     const [farmer , setFarmer] = useState(initState);
 
@@ -17,6 +19,8 @@ const LeftBoard = ({queryObj, moveboardReadPage}) => {
 
             console.log("get Farmer List....................")
             console.log([...data])
+            console.log("query Obj.................")
+            console.log(queryObj)
 
             setFarmer(data)
             
@@ -39,16 +43,16 @@ const LeftBoard = ({queryObj, moveboardReadPage}) => {
                 <div className="m-2 p-2">
                     <table className="w-full">
                         <thead className="border-t-2 border-b">
-                        <tr className="bg-[#f6f6f6]">
+                        <tr className="bg-gray-200">
                             <th className="w-4/12">이메일</th>
                             <th className="w-3/12">닉네임</th>
                         </tr>
                         </thead>
                         <tbody>
-                            {farmer.map(({email, nickname}, idx) => 
+                            {farmer.map(({email, nickname, mno, intro}, idx) => 
                                 idx > 6 ? <></> : (
                                    
-                                    <tr key={idx} className="hover:bg-[#f6f6f6]">
+                                    <tr key={mno} className="hover:bg-gray-200" onClick={() => moveMemberReadPage(mno)}>
                                         <td className="m-2 p-2 border-b-2 w-4/12 text-center">{email}</td>    
                                         <td className="m-2 p-2 border-b-2 w-3/12 text-center">{nickname}</td> 
                                     </tr>

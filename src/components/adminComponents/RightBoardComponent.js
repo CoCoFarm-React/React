@@ -59,7 +59,7 @@ const RightBoard = ({queryObj , moveboardReadPage}) => {
                 <div className="m-2 p-2">
                     <table className="w-full">
                         <thead className="border-t-2 border-b">
-                        <tr className="bg-[#f6f6f6]">
+                        <tr className="bg-gray-200">
                             <th className="w-1/12">번호</th>
                             <th className="w-6/12">제목</th>
                             <th className="w-1/12">댓글</th>
@@ -70,7 +70,7 @@ const RightBoard = ({queryObj , moveboardReadPage}) => {
                             {(board.dtoList).filter(board => board.cateno === 1).map(({bno, title,  rcnt, regDate} , idx) => 
                                 idx > 6 ? <></> : (
                                     
-                                    <tr key={bno} className="hover:bg-[#f6f6f6]" onClick={() => moveboardReadPage(bno)}>
+                                    <tr key={bno} className="hover:bg-gray-200" onClick={() => moveboardReadPage(bno)}>
                                         <td className="m-2 p-2 border-b-2 w-1/12 text-center">{bno}</td>    
                                         <td className="m-2 p-2 border-b-2 w-6/12">{title}</td> 
                                         <td className="m-2 p-2 border-b-2 w-1/12 text-center">{rcnt}</td>

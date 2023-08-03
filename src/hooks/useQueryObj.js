@@ -66,7 +66,13 @@ const useQueryObj = () => {
         navigate(`../support/read/${bno}?${queryString}`)
     }
 
-    return {queryObj, setSearch, moveboardReadPage, moveList}
+    const moveMemberReadPage = (mno) => {
+        console.log("Member Number: " + mno)
+        const queryString = createSearchParams(queryObj).toString()
+        navigate(`../member/read/${mno}?${queryString}`)
+    }
+
+    return {queryObj, setSearch, moveboardReadPage, moveMemberReadPage}
 }
 
 export default useQueryObj
