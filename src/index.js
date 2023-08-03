@@ -5,11 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider } from 'react-router-dom';
 import router from './router/root';
+import router2 from './router/root2';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-    <RouterProvider router={router}>
+    <RouterProvider router2={router2} router={router}>
       <App />
     </RouterProvider>
 );

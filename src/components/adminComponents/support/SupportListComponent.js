@@ -2,7 +2,18 @@ import { Link, useParams } from "react-router-dom";
 import { getFarmerList } from "../../../api/adminAPI";
 import { useEffect, useState } from "react";
 
-const initState = [{}]
+const initState = {
+    dtoList:[],
+    end:0,
+    start:0,
+    next:false,
+    prev:false,
+    pageNums:[],
+    page:0,
+    size:0,
+    requestDTO: null,
+    cateno: 1
+  }
 
 const SupportListComponent = ({queryObj , moveboardReadPage , }) => {
 
@@ -13,7 +24,7 @@ const SupportListComponent = ({queryObj , moveboardReadPage , }) => {
     useEffect(() => {
         
         //axios로 회원데이터 받아옴
-        getFarmerList().then(data => {
+        getFarmerList(queryObj).then(data => {
             console.dir(data)
             setListData(data)
         })

@@ -5,15 +5,15 @@ import SupportListPage from "../pages/support/SupportListPage";
 import FarmerListComponent from "../components/adminComponents/farmer/FarmerListComponent";
 
 
-const router = createBrowserRouter([
+const router2 = createBrowserRouter([
     {
-        path: "",
-        element: <AdminPage></AdminPage>
+        path: "/support/list",
+        element: <SupportListPage></SupportListPage>
     },
     {
-        path: "/farmer/list",
-        element: <FarmerListComponent></FarmerListComponent>
+        path: "/support/list/:bno",
+        element: <SupportListPage></SupportListPage>
     }
 ]);
 
-export default router;
+export default router2;
