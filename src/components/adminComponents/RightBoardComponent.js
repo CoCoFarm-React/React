@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const date = new Date();
 const day = date.getDate();
+const month = date.getMonth()
 
 const initState = {
     dtoList:[],
@@ -46,10 +47,10 @@ const RightBoard = ({queryObj , moveboardReadPage}) => {
     return ( 
     <div className="w-1/3 ">
         <div className='border-2 border-black border-solid rounded-2xl m-2  h-[400px] overflow-hidden'>
-            <div className="flex">
-                <div className="ml-2 mt-2">문의게시판</div>
+            <div className="flex justify-between">
+                <div className="ml-6 mt-2" style={{fontSize:"20px"}}>문의게시판</div>
                 <Link to={"/farmer/list"}>
-                    <button className="ml-auto mr-3 mt-1 text-gray-400">
+                    <button className="mt-1 mr-6 text-gray-400">
                         more+      
                     </button>
                 </Link>
@@ -73,7 +74,7 @@ const RightBoard = ({queryObj , moveboardReadPage}) => {
                                         <td className="m-2 p-2 border-b-2 w-6/12">{title}</td> 
                                         <td className="m-2 p-2 border-b-2 w-1/12 text-center">{rcnt}</td>
                                         <td className="m-2 p-2 border-b-2 w-4/12 text-center">
-                                            {regDate.slice(  -11 , -9) === (day.toString().size === 1 ? <></> : "0" + day) ? regDate.slice(11) : regDate.slice( 5 , 11 )  }
+                                            {regDate.slice(5,7)===(0+(month+1).toString())&&regDate.slice(8,10)===0+day.toString()? regDate.slice(11) :regDate.slice(0,10)}
                                         </td>
                                     </tr>
 

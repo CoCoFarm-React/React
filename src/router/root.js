@@ -3,6 +3,7 @@ import { createBrowserRouter } from"react-router-dom";
 import AdminPage from "../page/admin/AdminPage";
 import FarmerListPage from "../page/farmer/FarmerListPage";
 
+
 const router = createBrowserRouter([ 
     {
         path: "",
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
     },
     {
         path: "/farmer/list",
+        element: <FarmerListPage></FarmerListPage>
+    },
+    {
+        path: "/farmer/list/:pno",
         element: <FarmerListPage></FarmerListPage>
     }
 ]);
