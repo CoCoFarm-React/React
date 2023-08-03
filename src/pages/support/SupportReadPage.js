@@ -6,12 +6,12 @@ import useQueryObj from "../../hooks/useQueryObj";
 
 const SupportReadPage = () => {
 
-    const {queryObj,moveList} = useQueryObj()
+    const {moveList} = useQueryObj()
     const {bno} =useParams()
     return (  
         <div className="container m-auto">
         <div>
-            Admin Board Read Pagge
+           
             <AdminHeader></AdminHeader>
             <SupportReadComponent bno={bno} moveList={moveList}></SupportReadComponent>
           
