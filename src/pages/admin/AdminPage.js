@@ -18,6 +18,9 @@ const AdminPage = () => {
 
     const { queryObj , moveboardReadPage } = useQueryObj();
 
+    
+
+
     return ( 
      <div>
         <AdminHeaderComponent></AdminHeaderComponent>

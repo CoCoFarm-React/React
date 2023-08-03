@@ -1,7 +1,7 @@
 import { createBrowserRouter } from"react-router-dom";
 
 import AdminPage from "../pages/admin/AdminPage";
-import FarmerListPage from "../pages/farmer/FarmerListPage";
+import SupportListPage from "../pages/support/SupportListPage";
 
 
 const router = createBrowserRouter([ 
@@ -10,12 +10,12 @@ const router = createBrowserRouter([
         element: <AdminPage></AdminPage>
     },
     {
-        path: "/farmer/list",
-        element: <FarmerListPage></FarmerListPage>
+        path: "/support/list",
+        element: <SupportListPage></SupportListPage>
     },
     {
-        path: "/farmer/list/:pno",
-        element: <FarmerListPage></FarmerListPage>
+        path: "/support/list/:bno",
+        element: <SupportListPage></SupportListPage>
     }
 ]);
 

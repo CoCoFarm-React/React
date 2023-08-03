@@ -2,21 +2,22 @@ import { Link, useParams } from "react-router-dom";
 import { getFarmerList } from "../../../api/adminAPI";
 import { useEffect, useState } from "react";
 
-const initState = []
+const initState = [{}]
 
-const FarmerListComponent = () => {
+const FarmerListComponent = ({queryObj , moveboardReadPage , }) => {
 
     // 처음 목록 뿌릴 때 에러 안 나도록 initState 넣어줌
     const [listData, setListData] = useState(initState)
 
     // 비동기 통신은 항상 useEffect
     useEffect(() => {
-
-        // axios로 회원데이터 받아옴
-        // getFarmerList().then(data => {
-        //     console.dir(data)
-        //     setListData(data)
-        // })
+        
+        //axios로 회원데이터 받아옴
+        getFarmerList().then(data => {
+            console.dir(data)
+            setListData(data)
+        })
+        
     }, [])
     
 
