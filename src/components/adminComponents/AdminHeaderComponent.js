@@ -1,7 +1,7 @@
 const AdminHeader = () => {
     return ( 
         <div>
-            <div className='border-2 bg-orange-500 border-solid rounded-2xl m-10 mt-0 mb-0 flex justify-between h-[70px] px-96 pt-5'>
+            <div className='border-2 bg-lime-200 border-solid rounded-2xl m-10 mt-0 mb-0 flex justify-between h-[70px] px-96 pt-5'>
                 <div>1</div>
                 <div>6</div>
                 
