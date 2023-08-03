@@ -22,7 +22,7 @@ const AdminPage = () => {
 
 
     return ( 
-     <div>
+     <div className="container m-auto">
         <AdminHeaderComponent></AdminHeaderComponent>
 
 
