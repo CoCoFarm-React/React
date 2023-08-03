@@ -85,6 +85,7 @@ const RightBoard = ({queryObj , moveboardReadPage}) => {
                         </tbody>
                     </table>
                 </div>
+                
         </div>
     </div>
     );

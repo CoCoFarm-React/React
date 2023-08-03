@@ -32,7 +32,7 @@ export const getBoardList = async (queryObj) =>{
 
 export const getBoardOne = async (bno) =>{
 
-    const res = await axios.get(`http://192.168.0.48:8080/api/board/${bno}}`)
+    const res = await axios.get(`http://192.168.0.48:8080/api/board/${bno}`)
     return res.data
 
 }

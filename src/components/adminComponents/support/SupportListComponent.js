@@ -1,7 +1,10 @@
 import { Link, useParams } from "react-router-dom";
-import { getFarmerList } from "../../../api/adminAPI";
+import { getBoardList, getFarmerList } from "../../../api/adminAPI";
 import { useEffect, useState } from "react";
-
+import PagingComponent from "../../commonComponents/PagingComponent";
+const date = new Date();
+const day = date.getDate();
+const month = date.getMonth()
 const initState = {
     dtoList:[],
     end:0,
@@ -15,7 +18,7 @@ const initState = {
     cateno: 1
   }
 
-const SupportListComponent = ({queryObj , moveboardReadPage , }) => {
+const SupportListComponent = ({queryObj, movePage, moveboardReadPage}) => {
 
     // 처음 목록 뿌릴 때 에러 안 나도록 initState 넣어줌
     const [listData, setListData] = useState(initState)
@@ -23,13 +26,15 @@ const SupportListComponent = ({queryObj , moveboardReadPage , }) => {
     // 비동기 통신은 항상 useEffect
     useEffect(() => {
         
-        //axios로 회원데이터 받아옴
-        getFarmerList(queryObj).then(data => {
-            console.dir(data)
+        queryObj.cateno = 1
+        //axios로 데이터 가져오기
+        getBoardList(queryObj).then(data => {
+           
             setListData(data)
-        })
+        }
+        )
         
-    }, [])
+    }, [queryObj])
     
 
     console.log("----------------------out --------------------")
@@ -38,18 +43,38 @@ const SupportListComponent = ({queryObj , moveboardReadPage , }) => {
 
     return (  
         <div>
-            <h1 className="text-3xl ml-12">FarmerList</h1>
+            <h1 className="text-3xl ml-12">관리자 문의 리스트</h1>
             <div className='border-2 border-black border-solid rounded-2xl m-10 mb-2 mt-0 h-[750px]'>
-                <div className="mr-1 ml-auto pt-2 h-[50px] w-[280px]">
-                    <input type="text" className="m-2 p-1 bg-slate-200"></input>
-                    <button><Link>검색</Link></button>
-                </div>
+            
                 <div className="bg-pink-300">
-                    <ul>
-                        {listData.map(({email, nickname}) => <li key={email}>{email} - {nickname} </li>)}
-                    </ul>
+                <table className="w-full">
+                        <thead className="border-t-2 border-b">
+                        <tr className="bg-[#f6f6f6]">
+                            <th className="w-1/12">번호</th>
+                            <th className="w-6/12">제목</th>
+                            <th className="w-1/12">댓글</th>
+                            <th className="w-4/12">게시일</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {(listData.dtoList).map(({bno, title,  rcnt, regDate}) => 
+                               
+                                    
+                                    <tr key={bno} className="hover:bg-[#f6f6f6]" onClick={() => moveboardReadPage(bno)}>
+                                        <td className="m-2 p-2 border-b-2 w-1/12 text-center">{bno}</td>    
+                                        <td className="m-2 p-2 border-b-2 w-6/12">{title}</td> 
+                                        <td className="m-2 p-2 border-b-2 w-1/12 text-center">{rcnt}</td>
+                                        <td className="m-2 p-2 border-b-2 w-4/12 text-center">
+                                            {regDate.slice(5,7)===(0+(month+1).toString())&&regDate.slice(8,10)===0+day.toString()? regDate.slice(11) :regDate.slice(0,10)}
+                                        </td>
+                                    </tr>
+                            ) 
+                            }
+                        </tbody>
+                    </table>
                 </div>
             </div>
+            <PagingComponent movePage={movePage} {...listData}></PagingComponent>
         </div>
     );
 }

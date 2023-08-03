@@ -34,10 +34,10 @@ const useQueryObj = () => {
     // object로  묶어주기
     const queryObj = checkNull({ page, size, cateno, type, keyword })
     
-    // const moveList = () => {
-    //     const queryString = createSearchParams(queryObj).toString()
-    //     navigate(`../list/?${queryString}`)
-    // }
+    const moveList = () => {
+        const queryString = createSearchParams(queryObj).toString()
+        navigate(`../list?${queryString}`)
+    }
 
     // const moveRead = (bno)=>{
 
@@ -63,10 +63,10 @@ const useQueryObj = () => {
     const moveboardReadPage = (bno) => {
         console.log("moveModify: " + bno)
         const queryString = createSearchParams(queryObj).toString()
-        navigate(`../support/list/${bno}?${queryString}`)
+        navigate(`../support/read/${bno}?${queryString}`)
     }
 
-    return {queryObj, setSearch, moveboardReadPage}
+    return {queryObj, setSearch, moveboardReadPage, moveList}
 }
 
 export default useQueryObj
