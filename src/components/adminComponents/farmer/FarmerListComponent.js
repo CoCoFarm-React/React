@@ -10,7 +10,7 @@ const initState = [{
     nickname: ''
 }]
 
-const FarmerListComponent = ({}) => {
+const FarmerListComponent = ({queryObj, movePage, moveMemberReadPage}) => {
 
     const [farmer, setFarmer] = useState(initState)
 

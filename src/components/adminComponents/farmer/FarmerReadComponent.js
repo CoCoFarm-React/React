@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getMemberOne } from "../../../api/adminAPI";
 
 const initState = []
 
@@ -8,7 +9,7 @@ const FarmerReadComponent = () => {
 
     useEffect(() => {
 
-        
+        // getMemberOne(mno)
 
     })
 

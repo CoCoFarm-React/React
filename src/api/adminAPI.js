@@ -44,6 +44,12 @@ export const addBoard = async () =>{
 
 }
 
+export const getMemberOne = async (mno) => {
+
+    const res = await axios.get(`http://192.168.0.48:8080/api/admin/memberOne`)
+    return res.data
+}
+
 // export const  = async () =>{
 
 //     const res = await axios.get(`http://192.168.0.48:8080/api/admin/consumer`)
