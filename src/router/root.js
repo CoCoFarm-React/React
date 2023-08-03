@@ -2,7 +2,8 @@ import { createBrowserRouter } from"react-router-dom";
 
 import AdminPage from "../pages/admin/AdminPage";
 import SupportListPage from "../pages/support/SupportListPage";
-import FarmerListComponent from "../components/adminComponents/farmer/FarmerListComponent";
+import FarmerListPage from "../pages/farmer/FarmerListPage";
+import ConsumerListPage from "../pages/consumer/ConsumerListPage";
 
 
 const router = createBrowserRouter([
@@ -20,11 +21,11 @@ const router = createBrowserRouter([
     },
     {
         path: "/farmer/list",
-        element: <FarmerListComponent></FarmerListComponent>
+        element: <FarmerListPage></FarmerListPage>
     },
     {
         path: "/consumer/list",
-        element: 
+        element: <ConsumerListPage></ConsumerListPage>
     }
 ]);
 
