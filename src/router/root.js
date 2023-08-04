@@ -23,8 +23,8 @@ const router = createBrowserRouter([
         element: <FarmerListComponent></FarmerListComponent>
     },
     {
-        path: "/consumer/list",
-        element: 
+        // path: "/consumer/list",
+        // element: 
     }
 ]);
 

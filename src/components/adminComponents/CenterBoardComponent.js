@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getConsumerList } from "../../api/adminAPI";
-
-const initState = [{
-    email: '',
-    nickname: ''
-}]
+const initState = {
+    dtoList:[],
+    end:0,
+    start:0,
+    next:false,
+    prev:false,
+    pageNums:[],
+    page:0,
+    size:0,
+    requestDTO: null,
+    cateno: 1
+  }
 
 const CenterBoard = ({queryObj, moveboardReadPage}) => {
 
@@ -15,9 +22,7 @@ const CenterBoard = ({queryObj, moveboardReadPage}) => {
 
         getConsumerList(queryObj).then(data => {
 
-            console.log("get Consumer List.....................")
-            console.log(data[0])
-
+     
             setConsumer(data)
 
         })
@@ -45,7 +50,7 @@ const CenterBoard = ({queryObj, moveboardReadPage}) => {
                         </tr>
                         </thead>
                         <tbody>
-                            {consumer.map(({email, nickname}, idx) => 
+                            {consumer.dtoList.map(({email, nickname}, idx) => 
                                 idx > 6 ? <></> : (
                                    
                                     <tr key={idx} className="hover:bg-[#f6f6f6]">

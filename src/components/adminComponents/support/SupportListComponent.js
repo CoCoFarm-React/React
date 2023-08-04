@@ -2,7 +2,18 @@ import { Link, useParams } from "react-router-dom";
 import { getFarmerList } from "../../../api/adminAPI";
 import { useEffect, useState } from "react";
 
-const initState = [{}]
+const initState = {
+    dtoList:[],
+    end:0,
+    start:0,
+    next:false,
+    prev:false,
+    pageNums:[],
+    page:0,
+    size:0,
+    requestDTO: null,
+    cateno: 1
+  }
 
 const SupportListComponent = ({queryObj , moveboardReadPage , }) => {
 
@@ -35,7 +46,7 @@ const SupportListComponent = ({queryObj , moveboardReadPage , }) => {
                 </div>
                 <div className="bg-pink-300">
                     <ul>
-                        {listData.map(({email, nickname}) => <li key={email}>{email} - {nickname} </li>)}
+                        {listData.dtoList.map(({email, nickname}) => <li key={email}>{email} - {nickname} </li>)}
                     </ul>
                 </div>
             </div>
