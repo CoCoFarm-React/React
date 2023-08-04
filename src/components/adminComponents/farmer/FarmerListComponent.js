@@ -1,7 +1,3 @@
-import { Link } from "react-router-dom";
-import Footer from "../../commonComponents/Footer";
-import AdminHeader from "../AdminHeaderComponent";
-import TopCenterBoard from "../TopCenterBoardComponent";
 import { useEffect, useState } from "react";
 import { getFarmerList } from "../../../api/adminAPI";
 const initState = {

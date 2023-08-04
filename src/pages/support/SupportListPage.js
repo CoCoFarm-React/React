@@ -8,7 +8,6 @@ const SupportListPage = () => {
 
     const { queryObj ,setSearch, moveboardReadPage } = useQueryObj();
 
-
     const movePage = (num) => {
         console.log("NUM---------------------------- " + num)
         // URL 변경시 useNavigate, setSearch 

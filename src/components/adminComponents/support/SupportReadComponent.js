@@ -16,6 +16,9 @@ const initState ={
 }
 
 
+
+
+
 const SupportReadComponent = ({bno, moveList}) => {
 
     const [board, setBoard] = useState(initState)
@@ -29,13 +32,36 @@ const SupportReadComponent = ({bno, moveList}) => {
 
     return (  
         <div>
-            <div>{board.bno}</div>
-            <div>{board.title}</div>
-            <div>{board.content}</div>
-            <div>{board.nickname}</div>
-            <div>{board.regDate}</div>
-            
+            <table className="border-2">
+                <tr>
+                    <th>asd</th>
+                    <td>asd</td>
+                </tr>
+                <tr>
+                    <th>asd</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>asd</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>asd</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>asd</th>
+                    <td></td>
+                </tr>
+                <div>{board.bno}</div>
+                <div>{board.title}</div>
+                <div>{board.content}</div>
+                <div>{board.nickname}</div>
+                <div>{board.regDate}</div>
+            </table>
+
             <button onClick={moveList}>List</button>
+
         </div>
         
     );

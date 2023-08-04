@@ -12,7 +12,7 @@ export const getConsumerList = async (queryObj) =>{
 
     const res = await axios.get(`http://192.168.0.48:8080/api/admin/consumer`)
     return res.data
-
+    
 }
 
 // 문의 게시판 관련 api
@@ -48,14 +48,21 @@ export const getMemberOne = async (mno) => {
 
     const res = await axios.get(`http://192.168.0.48:8080/api/admin/memberOne`)
     return res.data
+    
 }
 
-// export const  = async () =>{
+export const getReplyList = async (bno , page = 1 , last = false) =>{
 
-//     const res = await axios.get(`http://192.168.0.48:8080/api/admin/consumer`)
-//     return res.data
+    console.log("=====================================================================");
+    console.log(bno);
+    console.log(page);
+    console.log(last);
+    console.log("=====================================================================");
 
-// }
+    const res = await axios.get(`http://192.168.0.48:8080/api/replies/${bno}/list?page=${page}&last=${last}`)
+    return res.data
+
+}
 
 // export const  = async () =>{
 
