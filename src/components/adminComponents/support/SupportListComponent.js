@@ -1,5 +1,4 @@
-import { Link, useParams } from "react-router-dom";
-import { getBoardList, getFarmerList } from "../../../api/adminAPI";
+import { getBoardList } from "../../../api/adminAPI";
 import { useEffect, useState } from "react";
 import PagingComponent from "../../commonComponents/PagingComponent";
 const date = new Date();
@@ -20,7 +19,7 @@ const initState = {
     cateno: 1
   }
 
-const SupportListComponent = ({queryObj , moveboardReadPage , }) => {
+const SupportListComponent = ({queryObj , moveboardReadPage, movePage }) => {
 
     // 처음 목록 뿌릴 때 에러 안 나도록 initState 넣어줌
     const [listData, setListData] = useState(initState)
@@ -40,7 +39,7 @@ const SupportListComponent = ({queryObj , moveboardReadPage , }) => {
     
 
     console.log("----------------------out --------------------")
-    console.log(listData)
+    console.log(listData.dtoList)
 
 
     return (  
@@ -49,9 +48,21 @@ const SupportListComponent = ({queryObj , moveboardReadPage , }) => {
             <div className='border-2 border-black border-solid rounded-2xl m-10 mb-2 mt-0 h-[750px]'>
             
                 <div className="bg-pink-300">
-                    <ul>
-                        {listData.map(({email, nickname}) => <li key={email}>{email} - {nickname} </li>)}
-                    </ul>
+                {listData.dtoList.map(({bno, title,  rcnt, regDate} , idx) => 
+                                
+                                    
+                                    <tr key={bno} className="hover:bg-gray-200" onClick={() => moveboardReadPage(bno)}>
+                                        <td className="m-2 p-2 border-b-2 w-1/12 text-center">{bno}</td>    
+                                        <td className="m-2 p-2 border-b-2 w-6/12">{title}</td> 
+                                        <td className="m-2 p-2 border-b-2 w-1/12 text-center">{rcnt}</td>
+                                        <td className="m-2 p-2 border-b-2 w-4/12 text-center">
+                                            {regDate.slice(5,7)===(0+(month+1).toString())&&regDate.slice(8,10)===0+day.toString()? regDate.slice(11) :regDate.slice(0,10)}
+                                        </td>
+                                    </tr>
+
+                                
+                            ) 
+                            }
                 </div>
             </div>
             <PagingComponent movePage={movePage} {...listData}></PagingComponent>

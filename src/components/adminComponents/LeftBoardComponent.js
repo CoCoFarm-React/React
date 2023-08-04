@@ -2,10 +2,19 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getFarmerList } from "../../api/adminAPI";
 
-const initState = [{
-    email: '',
-    nickname: ''
-}]
+const initState = {
+    dtoList:[],
+    end:0,
+    start:0,
+    next:false,
+    prev:false,
+    pageNums:[],
+    page:0,
+    size:0,
+    requestDTO: null,
+    cateno: 0
+  }
+
 
 const LeftBoard = ({queryObj, moveMemberReadPage}) => {
 
@@ -16,7 +25,6 @@ const LeftBoard = ({queryObj, moveMemberReadPage}) => {
         getFarmerList(queryObj).then(data => {
 
             console.log("get Farmer List....................")
-            console.log([...data])
 
             setFarmer(data)
             
@@ -45,7 +53,7 @@ const LeftBoard = ({queryObj, moveMemberReadPage}) => {
                         </tr>
                         </thead>
                         <tbody>
-                            {farmer.map(({email, nickname}, idx) => 
+                            {farmer.dtoList.map(({email, nickname,mno}, idx) => 
                                 idx > 6 ? <></> : (
                                    
                                     <tr key={mno} className="hover:bg-gray-200" onClick={() => moveMemberReadPage(mno)}>

@@ -6,6 +6,8 @@ import FarmerListPage from "../pages/farmer/FarmerListPage";
 import ConsumerListPage from "../pages/consumer/ConsumerListPage";
 import SupportReadPage from "../pages/support/SupportReadPage";
 import FarmerReadPage from "../pages/farmer/FarmerReadPage";
+import FarmerListComponent from "../components/adminComponents/farmer/FarmerListComponent";
+import SupportReadComponent from "../components/adminComponents/support/SupportReadComponent";
 
 
 const router = createBrowserRouter([
@@ -31,8 +33,8 @@ const router = createBrowserRouter([
         element: <SupportListPage></SupportListPage>
     },
     {
-        path: "/support/list/:bno",
-        element: <SupportListPage></SupportListPage>
+        path: "/support/read/:bno",
+        element: <SupportReadComponent></SupportReadComponent>
     },
     {
         path: "/farmer/list",
