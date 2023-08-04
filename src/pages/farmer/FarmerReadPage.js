@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
 import AdminHeader from "../../components/adminComponents/AdminHeaderComponent";
-import FarmerListComponent from "../../components/adminComponents/farmer/FarmerListComponent";
 import FarmerReadComponent from "../../components/adminComponents/farmer/FarmerReadComponent";
 import Footer from "../../components/commonComponents/Footer";
+import { readMember } from "../../api/adminAPI";
 
 const FarmerReadPage = () => {
-
     
     return (    
         <div className="container m-auto">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 const AdminSearchComponent = ({ queryObj, moveSearch}) => {
-    const [chSize, setChSize] = useState({ size: 10 })
+    
     const [searchObj, setSearchObj] = useState({ type: '', keyword: '' })
 
     // 무한 렌더링 방지 처리
@@ -9,13 +9,11 @@ const AdminSearchComponent = ({ queryObj, moveSearch}) => {
 
         searchObj.type = queryObj.type || ''
         searchObj.keyword = queryObj.keyword || ''
-        chSize.size = queryObj.size || 10
         setSearchObj({ ...searchObj })
-        setChSize({ ...chSize })
+        
     }, [queryObj])
 
-
-    console.log(chSize.size)
+    
     return (
         <div className=" bg-blue-300 border-solid rounded-2xl m-10 mt-0 mb-0 flex justify-between h-[70px] px-96 pt-5">
             <select className="boarder-2 m-2 p-2 font-serif "

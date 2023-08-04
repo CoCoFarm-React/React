@@ -3,14 +3,22 @@ import { createSearchParams } from "react-router-dom"
 
 export const getFarmerList = async (queryObj) =>{
 
-    const res = await axios.get(`http://192.168.0.48:8080/api/admin/farmer`)
+    const parameter = createSearchParams(queryObj).toString()
+
+    console.log("parameter.........................")
+    console.log(parameter)
+    console.log(queryObj)
+
+    const res = await axios.get(`http://192.168.0.48:8080/api/admin/farmer?${parameter}`)
     return res.data
     
 }
 
 export const getConsumerList = async (queryObj) =>{
 
-    const res = await axios.get(`http://192.168.0.48:8080/api/admin/consumer`)
+    const parameter = createSearchParams(queryObj).toString()
+
+    const res = await axios.get(`http://192.168.0.48:8080/api/admin/consumer?${parameter}`)
     return res.data
 
 }
@@ -50,16 +58,16 @@ export const getMemberOne = async (mno) => {
     return res.data
 }
 
-// export const  = async () =>{
+export const readMember = async (mno) =>{
 
-//     const res = await axios.get(`http://192.168.0.48:8080/api/admin/consumer`)
-//     return res.data
+    const res = await axios.get(`http://192.168.0.48:8080/api/admin/read/${mno}`)
+    return res.data
 
-// }
+}
 
-// export const  = async () =>{
+export const deleteMember = async (mno) =>{
 
-//     const res = await axios.get(`http://192.168.0.48:8080/api/admin/consumer`)
-//     return res.data
+    const res = await axios.delete(`http://192.168.0.48:8080/api/admin/${mno}`)
+    return res.data
 
-// }
+}

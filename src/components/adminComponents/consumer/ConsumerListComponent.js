@@ -1,20 +1,27 @@
 import { useEffect, useState } from "react"
 import { getConsumerList } from "../../../api/adminAPI"
-import AdminHeader from "../AdminHeaderComponent"
-import { Link } from "react-router-dom"
+import PagingComponent from "../../commonComponents/PagingComponent"
 
-const initState = [{
-    email: '',
-    nickname: ''
-}]
+const initState = {
+    dtoList:[],
+    end:0,
+    start:0,
+    next:false,
+    prev:false,
+    pageNums:[],
+    page:0,
+    size:0,
+    requestDTO: null,
+    cateno: 1
+  }
 
-const ConsumerListComponent = () => {
+const ConsumerListComponent = ({queryObj , moveMemberReadPage, movePage, moveSearch}) => {
 
     const [consumer, setConsumer] = useState(initState)
 
     useEffect(() => {
 
-        getConsumerList().then(data => {
+        getConsumerList(queryObj).then(data => {
 
             console.log("get Consumer List....................")
             console.log(data)
@@ -23,7 +30,7 @@ const ConsumerListComponent = () => {
 
         })
 
-    }, [])
+    }, [queryObj])
 
 
     return (  
@@ -38,10 +45,10 @@ const ConsumerListComponent = () => {
                         </tr>
                         </thead>
                         <tbody>
-                            {consumer.map(({email, nickname}, idx) => 
-                                idx > 14 ? <></> : (
+                            {consumer.dtoList.map(({email, nickname, mno}, idx) => 
+                                (
                                    
-                                    <tr key={idx} className="hover:bg-gray-200">
+                                    <tr key={idx} className="hover:bg-gray-200" onClick={() => moveMemberReadPage(mno)}>
                                         <td className="m-2 p-2 border-b-2 w-4/12 text-center">{email}</td>    
                                         <td className="m-2 p-2 border-b-2 w-3/12 text-center">{nickname}</td> 
                                     </tr>
@@ -53,6 +60,7 @@ const ConsumerListComponent = () => {
                     </table>
                 </div>
                 </div>
+                <PagingComponent movePage={movePage} {...consumer}></PagingComponent>
             </div>
     );
 }

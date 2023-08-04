@@ -4,6 +4,8 @@ import AdminHeader from "../AdminHeaderComponent";
 import TopCenterBoard from "../TopCenterBoardComponent";
 import { useEffect, useState } from "react";
 import { getFarmerList } from "../../../api/adminAPI";
+import PagingComponent from "../../commonComponents/PagingComponent";
+
 const initState = {
     dtoList:[],
     end:0,
@@ -17,22 +19,21 @@ const initState = {
     cateno: 1
   }
 
-const FarmerListComponent = ({queryObj, movePage, moveMemberReadPage}) => {
+const FarmerListComponent = ({queryObj , moveMemberReadPage, movePage, moveSearch}) => {
 
     const [farmer, setFarmer] = useState(initState)
 
     useEffect(() => {
 
-        getFarmerList().then(data => {
+        getFarmerList(queryObj).then(data => {
 
             console.log("get Farmer List....................")
-
 
             setFarmer(data)
 
         })
-
-    }, [])
+        
+    }, [queryObj])
 
 
     return (
@@ -48,10 +49,10 @@ const FarmerListComponent = ({queryObj, movePage, moveMemberReadPage}) => {
                         </tr>
                         </thead>
                         <tbody>
-                            {farmer.dtoList.map(({email, nickname}, idx) => 
-                                idx > 14 ? <></> : (
+                            {farmer.dtoList.map(({email, nickname, mno}, idx) => 
+                                (
                                    
-                                    <tr key={idx} className="hover:bg-gray-200">
+                                    <tr key={idx} className="hover:bg-gray-200" onClick={() => moveMemberReadPage(mno)}>
                                         <td className="m-2 p-2 border-b-2 w-4/12 text-center">{email}</td>    
                                         <td className="m-2 p-2 border-b-2 w-3/12 text-center">{nickname}</td> 
                                     </tr>
@@ -64,6 +65,7 @@ const FarmerListComponent = ({queryObj, movePage, moveMemberReadPage}) => {
                 </div>
                 </div>
             </div>
+            <PagingComponent movePage={movePage} {...farmer}></PagingComponent>
         </div>
     );
 }
