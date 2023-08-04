@@ -4,9 +4,7 @@ import { getFarmerList } from "../../api/adminAPI";
 
 const initState = [{
     email: '',
-    nickname: '',
-    mno: 0,
-    intro: ''
+    nickname: ''
 }]
 
 const LeftBoard = ({queryObj, moveMemberReadPage}) => {
@@ -19,8 +17,6 @@ const LeftBoard = ({queryObj, moveMemberReadPage}) => {
 
             console.log("get Farmer List....................")
             console.log([...data])
-            console.log("query Obj.................")
-            console.log(queryObj)
 
             setFarmer(data)
             
@@ -49,7 +45,7 @@ const LeftBoard = ({queryObj, moveMemberReadPage}) => {
                         </tr>
                         </thead>
                         <tbody>
-                            {farmer.map(({email, nickname, mno, intro}, idx) => 
+                            {farmer.map(({email, nickname}, idx) => 
                                 idx > 6 ? <></> : (
                                    
                                     <tr key={mno} className="hover:bg-gray-200" onClick={() => moveMemberReadPage(mno)}>

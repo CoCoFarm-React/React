@@ -31,8 +31,16 @@ const router = createBrowserRouter([
         element: <SupportListPage></SupportListPage>
     },
     {
-        path: "/support/read/:bno",
-        element: <SupportReadPage></SupportReadPage>
+        path: "/support/list/:bno",
+        element: <SupportListPage></SupportListPage>
+    },
+    {
+        path: "/farmer/list",
+        element: <FarmerListComponent></FarmerListComponent>
+    },
+    {
+        // path: "/consumer/list",
+        // element: 
     }
 ]);
 

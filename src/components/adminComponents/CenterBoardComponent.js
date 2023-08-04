@@ -4,9 +4,7 @@ import { getConsumerList } from "../../api/adminAPI";
 
 const initState = [{
     email: '',
-    nickname: '',
-    mno: 0,
-    intro: ''
+    nickname: ''
 }]
 
 const CenterBoard = ({queryObj, moveMemberReadPage}) => {
@@ -17,9 +15,7 @@ const CenterBoard = ({queryObj, moveMemberReadPage}) => {
 
         getConsumerList(queryObj).then(data => {
 
-            console.log("get Consumer List.....................")
-            console.log(data[0])
-
+     
             setConsumer(data)
 
         })
@@ -47,7 +43,7 @@ const CenterBoard = ({queryObj, moveMemberReadPage}) => {
                         </tr>
                         </thead>
                         <tbody>
-                            {consumer.map(({email, nickname, mno, intro}, idx) => 
+                            {consumer.map(({email, nickname}, idx) => 
                                 idx > 6 ? <></> : (
                                    
                                     <tr key={idx} className="hover:bg-gray-200" onClick={() => moveMemberReadPage(mno)}>

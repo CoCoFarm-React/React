@@ -4,11 +4,18 @@ import AdminHeader from "../AdminHeaderComponent";
 import TopCenterBoard from "../TopCenterBoardComponent";
 import { useEffect, useState } from "react";
 import { getFarmerList } from "../../../api/adminAPI";
-
-const initState = [{
-    email: '',
-    nickname: ''
-}]
+const initState = {
+    dtoList:[],
+    end:0,
+    start:0,
+    next:false,
+    prev:false,
+    pageNums:[],
+    page:0,
+    size:0,
+    requestDTO: null,
+    cateno: 1
+  }
 
 const FarmerListComponent = ({queryObj, movePage, moveMemberReadPage}) => {
 
@@ -19,7 +26,7 @@ const FarmerListComponent = ({queryObj, movePage, moveMemberReadPage}) => {
         getFarmerList().then(data => {
 
             console.log("get Farmer List....................")
-            console.log(data)
+
 
             setFarmer(data)
 
@@ -41,7 +48,7 @@ const FarmerListComponent = ({queryObj, movePage, moveMemberReadPage}) => {
                         </tr>
                         </thead>
                         <tbody>
-                            {farmer.map(({email, nickname}, idx) => 
+                            {farmer.dtoList.map(({email, nickname}, idx) => 
                                 idx > 14 ? <></> : (
                                    
                                     <tr key={idx} className="hover:bg-gray-200">
