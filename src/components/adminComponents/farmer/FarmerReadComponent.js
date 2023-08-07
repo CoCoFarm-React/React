@@ -75,6 +75,11 @@ const FarmerReadComponent = () => {
                   
                 </div>
               </div>
+              <button className="text-2xl">
+                <Link to={"/farmer/list"}>
+                  목록으로
+                </Link>
+              </button>
           </div>
         </div>
   

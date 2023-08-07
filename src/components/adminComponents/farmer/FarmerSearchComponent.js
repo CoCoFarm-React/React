@@ -4,34 +4,25 @@ import { Link } from "react-router-dom";
 const FarmerSearchComponent = ({ queryObj, moveSearch }) => {
 
     const [searchObj, setSearchObj] = useState({ type: '', keyword: '' })
-    const [changeSize, setChangeSize] = useState({ size: 10 })
+
 
     // 랜더링 완료시 queryObj 바뀌면 내용물을 변경
     useEffect(() => {
 
         searchObj.type = queryObj.type || ''
         searchObj.keyword = queryObj.keyword || ''
-        changeSize.size = queryObj.size || 10
+
 
         setSearchObj({ ...searchObj })
-        setChangeSize({ ...changeSize })
     }, [queryObj])
 
-    const handleSize = (e) => {
-
-        changeSize.size = e.target.vlaue
-        setChangeSize(changeSize.size)
-
-    }
 
 
     return (
 
         <div>
             <div className="items-center justify-center flex container mt-5">
-                <button className="border-2 m-2 p-2 w-16 rounded-md bg-lime-400 text-white">
-                    ADD
-                </button>
+             
 
                 <select
                     className="border-2 m-2 p-2 "
@@ -67,18 +58,6 @@ const FarmerSearchComponent = ({ queryObj, moveSearch }) => {
                 </button>
 
 
-                <select className="border-2 h-10 w-20 ml-20"
-                    value={changeSize.size}
-                    onChange={e => handleSize(e)}
-                >
-                    <option value={10}>---</option>
-                    <option value={5}>5</option>
-                    <option value={10}>10</option>
-                    <option value={15}>15</option>
-                    <option value={20}>20</option>
-                    <option value={50}>50</option>
-
-                </select>
 
             </div>
         </div>

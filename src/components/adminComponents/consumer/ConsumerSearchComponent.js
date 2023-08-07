@@ -27,9 +27,7 @@ const ConsumerSearchComponent = ({ queryObj, moveSearch }) => {
     return (
         <div>
             <div className="items-center justify-center flex container mt-5">
-                <button className="border-2 m-2 p-2 w-16 rounded-md bg-lime-400 text-white">
-                    ADD
-                </button>
+             
 
                 <select
                     className="border-2 m-2 p-2 "
@@ -63,20 +61,6 @@ const ConsumerSearchComponent = ({ queryObj, moveSearch }) => {
                 > SEARCH
 
                 </button>
-
-
-                <select className="border-2 h-10 w-20 ml-20"
-                    value={changeSize.size}
-                    onChange={e => handleSize(e)}
-                >
-                    <option value={10}>---</option>
-                    <option value={5}>5</option>
-                    <option value={10}>10</option>
-                    <option value={15}>15</option>
-                    <option value={20}>20</option>
-                    <option value={50}>50</option>
-
-                </select>
 
             </div>
         </div>
