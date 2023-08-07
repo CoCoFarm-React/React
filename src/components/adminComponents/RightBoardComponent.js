@@ -47,7 +47,7 @@ const RightBoard = ({queryObj , moveboardReadPage}) => {
 
     return ( 
     <div className="w-1/3 ">
-        <div className='border-2 border-black border-solid rounded-2xl m-2  h-[400px] overflow-hidden'>
+        <div className='rounded-2xl m-2  h-[400px] overflow-hidden'>
             <div className="flex justify-between">
                 <div className="ml-6 mt-2" style={{fontSize:"20px"}}>문의게시판</div>
                 <Link to={"/support/list"}>
@@ -70,7 +70,7 @@ const RightBoard = ({queryObj , moveboardReadPage}) => {
                             {(board.dtoList).filter(board => board.cateno === 1).map(({bno, title,  rcnt, regDate} , idx) => 
                                 idx > 6 ? <></> : (
                                     
-                                    <tr key={bno} className="hover:bg-gray-200" onClick={() => moveboardReadPage(bno)}>
+                                    <tr key={bno} className="hover:bg-gray-200 hover:cursor-pointer" onClick={() => moveboardReadPage(bno)}>
                                         <td className="m-2 p-2 border-b-2 w-1/12 text-center">{bno}</td>    
                                         <td className="m-2 p-2 border-b-2 w-6/12">{title}</td> 
                                         <td className="m-2 p-2 border-b-2 w-1/12 text-center">{rcnt}</td>

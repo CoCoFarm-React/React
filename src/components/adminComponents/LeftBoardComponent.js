@@ -35,7 +35,7 @@ const LeftBoard = ({queryObj, moveMemberReadPage}) => {
 
     return ( 
         <div className="w-1/3 ">
-        <div className='border-2 border-black border-solid rounded-2xl m-2  h-[400px] overflow-hidden'>
+        <div className='rounded-2xl m-2  h-[400px] overflow-hidden'>
             <div className="flex justify-between">
                 <div className="ml-6 mt-2" style={{fontSize:"20px"}}>재배자 게시판</div>
                 <Link to={"/farmer/list"}>
@@ -56,7 +56,7 @@ const LeftBoard = ({queryObj, moveMemberReadPage}) => {
                             {farmer.dtoList.map(({email, nickname,mno}, idx) => 
                                 idx > 6 ? <></> : (
                                    
-                                    <tr key={mno} className="hover:bg-gray-200" onClick={() => moveMemberReadPage(mno)}>
+                                    <tr key={mno} className="hover:bg-gray-200 hover:cursor-pointer" onClick={() => moveMemberReadPage(mno)}>
                                         <td className="m-2 p-2 border-b-2 w-4/12 text-center">{email}</td>    
                                         <td className="m-2 p-2 border-b-2 w-3/12 text-center">{nickname}</td> 
                                     </tr>
