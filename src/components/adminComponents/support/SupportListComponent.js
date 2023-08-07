@@ -43,30 +43,73 @@ const SupportListComponent = ({queryObj , moveboardReadPage, movePage }) => {
 
 
     return (  
-        <div>
-            <h1 className="text-3xl ml-12">관리자 문의 리스트</h1>
-            <div className='border-2 border-black border-solid rounded-2xl m-10 mb-2 mt-0 h-[750px]'>
+
+      <div className="justify-center items-center container mt-3 ">
+
+      {/* <div className="w-full h-[100px] flex justify-center items-center ">
+        <div className="items-center justify-center flex">
+          <input className="rounded-sm border-2 p-2"/>          
+          <button type="submit" className="border-2 p-2 w-20 hover:bg-black hover:text-white">검색</button>
+        </div>
+      </div>       */}
+      
+      <table className="w-[1200px] items-center justify-center container m-auto">
+
+        <thead>
+          <tr className="border-b-2 border-gray-300 text-center h-12">
+            <td className="w-1/12">No</td>
+            <td className="w-7/12">Title</td>
+            <td className="w-1/12">Nickname</td>
+            <td className="w-2/12">Duedate</td>
+            <td className="w-1/12">ReplyCnt</td>          
+          </tr>
+        </thead>
+
+        <tbody>
+          {listData.dtoList.map( ({bno,title,nickname,regDate,rcnt}) => 
+            <tr className="border-b-2 border-gray-300 text-center h-12"
+                key={bno}
+                onClick={() => moveboardReadPage(bno)}
+            >
+              <td>{bno}</td>
+              <td className="text-left hover:underline hover:cursor-pointer">{title}</td>
+              <td>{nickname}</td>
+              <td>{regDate}</td>
+              <td>{rcnt}</td>
+            </tr>
+          
+          )}
+        </tbody>
+      </table>
+
+      <PagingComponent movePage={movePage} {...listData}></PagingComponent>
+
+    </div>
+
+        // <div>
+        //     <h1 className="text-3xl ml-12">관리자 문의 리스트</h1>
+        //     <div className='border-2 border-black border-solid rounded-2xl m-10 mb-2 mt-0 h-[750px]'>
             
-                <div className="bg-pink-300">
-                {listData.dtoList.map(({bno, title,  rcnt, regDate} , idx) => 
+        //         <div className="bg-pink-300">
+        //         {listData.dtoList.map(({bno, title,  rcnt, regDate} , idx) => 
                                 
                                     
-                                    <tr key={bno} className="hover:bg-gray-200" onClick={() => moveboardReadPage(bno)}>
-                                        <td className="m-2 p-2 border-b-2 w-1/12 text-center">{bno}</td>    
-                                        <td className="m-2 p-2 border-b-2 w-6/12">{title}</td> 
-                                        <td className="m-2 p-2 border-b-2 w-1/12 text-center">{rcnt}</td>
-                                        <td className="m-2 p-2 border-b-2 w-4/12 text-center">
-                                            {regDate.slice(5,7)===(0+(month+1).toString())&&regDate.slice(8,10)===0+day.toString()? regDate.slice(11) :regDate.slice(0,10)}
-                                        </td>
-                                    </tr>
+        //                             <tr key={bno} className="hover:bg-gray-200" onClick={() => moveboardReadPage(bno)}>
+        //                                 <td className="m-2 p-2 border-b-2 w-1/12 text-center">{bno}</td>    
+        //                                 <td className="m-2 p-2 border-b-2 w-6/12">{title}</td> 
+        //                                 <td className="m-2 p-2 border-b-2 w-1/12 text-center">{rcnt}</td>
+        //                                 <td className="m-2 p-2 border-b-2 w-4/12 text-center">
+        //                                     {regDate.slice(5,7)===(0+(month+1).toString())&&regDate.slice(8,10)===0+day.toString()? regDate.slice(11) :regDate.slice(0,10)}
+        //                                 </td>
+        //                             </tr>
 
                                 
-                            ) 
-                            }
-                </div>
-            </div>
-            <PagingComponent movePage={movePage} {...listData}></PagingComponent>
-        </div>
+        //                     ) 
+        //                     }
+        //         </div>
+        //     </div>
+        //     <PagingComponent movePage={movePage} {...listData}></PagingComponent>
+        // </div>
     );
 }
  

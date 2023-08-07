@@ -3,7 +3,6 @@ const BasicLayout = ({children}) => {
      <div className="container m-auto">
 
         <div>
-            --
         </div>
 
         <div>

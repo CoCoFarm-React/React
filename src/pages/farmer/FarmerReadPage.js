@@ -3,6 +3,7 @@ import AdminHeader from "../../components/adminComponents/AdminHeaderComponent";
 import FarmerReadComponent from "../../components/adminComponents/farmer/FarmerReadComponent";
 import Footer from "../../components/commonComponents/Footer";
 import { readMember } from "../../api/adminAPI";
+import FarmerDiaryComponent from "../../components/adminComponents/farmer/FarmerDiaryComponent";
 
 const FarmerReadPage = () => {
     
@@ -11,6 +12,7 @@ const FarmerReadPage = () => {
             <div>
                 <AdminHeader></AdminHeader>
                 <FarmerReadComponent></FarmerReadComponent>
+                <FarmerDiaryComponent></FarmerDiaryComponent>
                 <Footer></Footer>
             </div>
         </div>
