@@ -17,20 +17,22 @@ const AdminHeader = () => {
     <div className="w-[800px]  flex justify-center">
 
       <div className="m-5 mb-3 mt-auto text-xl hover:underline hover:scale-125">
-        <Link to={"/farmer/home"}>Home</Link>
+        <Link to={"/"}>Home</Link>
       </div>
 
       <div className="m-5 ml-20 mb-3 mt-auto text-xl hover:underline hover:scale-125">
-        <Link to={"/farmer/diary"}>Diary</Link>
+        <Link to={"/farmer/list"}>Farmer List</Link>
       </div>
 
       <div className="m-5 ml-20 mb-3 mt-auto text-xl hover:underline hover:scale-125">
-        <Link to={"/farmer/qa"}>Q&A</Link>
+        <Link to={"/consumer/list"}>Consumer List</Link>
       </div>
 
       <div className="m-5 ml-20 mb-3 mt-auto text-xl hover:underline hover:scale-125">
-        <Link to={"/farmer/subscriberlist"}>Subscriber</Link>
+        <Link to={"/support/list"}>Q&A</Link>
       </div>
+
+     
 
     </div>
 

@@ -12,7 +12,8 @@ const initState = {
     // 상태를 계속 바꾸게하기 위한 변수
     refresh: false,
     // read값의 cmd 작업을 위한 변수
-    current:0
+    current:0,
+    cmd:0
 }
 
 // bno 1개가 propertities로 내려온다
@@ -34,10 +35,6 @@ const ReplyWrapper = ({bno}) => {
 
     // page를 바꿔주는 기능 설정 num 을 받아서 변경
     const movePage =  (num) => {
-        console.log(num)
-        console.log(num)
-        console.log(num)
-        console.log(num)
         data.page = num
         // 변경이 안된다. why? last가 true값으로 고정되있기때문에 last를 false로 변경해 줘야된다.
         data.last = false
@@ -45,26 +42,32 @@ const ReplyWrapper = ({bno}) => {
         setData({...data})
     }
     
-    const refreshLast = (hide) =>{
+    const refreshLast = () =>{
         
         data.last =true
         data.refresh = !data.refresh
 
-        if(hide){
-            
-        }
         setData({...data})
     }
 
     const changeCurrent = (rno) =>{
+    
         data.current = rno
+        
         setData({...data})
     }
+
+    const changeCmd = (num) => {
+
+        data.cmd = num
+        setData({...data})
+
+    }
+
     const cancelRead = () =>{
         data.current= 0 
         setData({...data})
     }
-
 
     const refreshPage = () => {
 
@@ -73,16 +76,15 @@ const ReplyWrapper = ({bno}) => {
 
     }
 
-   
     return (  
         <div>
             <div>
-            {data.current!== 0 ? <ReplyChild bno={bno} rno={data.current} cancelRead={cancelRead} refreshLast={refreshLast}></ReplyChild> : <></>}
+                {data.current !== 0 && data.cmd == 1 ? <ReplyChild bno={bno} rno={data.current} cancelRead={cancelRead} refreshLast={refreshLast}></ReplyChild> : <></>}
             </div>
 
             <ReplyInput bno={bno} refreshLast={refreshLast}></ReplyInput>
-            {data.current!== 0 ? <ReplyRead rno={data.current} cancelRead={cancelRead} refreshPage={refreshPage}></ReplyRead>:<></>}
-            <ReplyList {...data} movePage={movePage} changeCurrent={changeCurrent}></ReplyList>
+                {data.current !== 0 && data.cmd == 2 ? <ReplyRead rno={data.current} cancelRead={cancelRead} refreshPage={refreshPage}></ReplyRead>:<></>}
+            <ReplyList {...data} movePage={movePage} changeCurrent={changeCurrent} changeCmd={changeCmd}></ReplyList>
         </div>
     );
 }

@@ -26,9 +26,9 @@ const RightBoard = ({queryObj , moveboardReadPage}) => {
     const [ board , setBoard ] = useState(initState)
     
     useEffect(() => {
-
+        
         queryObj.cateno = 1
-     
+        
         console.log("queryObj.cateno")
         console.log(queryObj.cateno)
 

@@ -14,7 +14,7 @@ const initState = {
     requestDTO: null
 }
 
-const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent}) => {
+const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent ,changeCmd}) => {
 
     // 
     console.log("============================================data");
@@ -46,10 +46,13 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent}) => {
             <div>
                 <ul>
                     {listData.dtoList.map( reply => 
+                    
                     <li 
-                    className="hover:cursor-pointer" key={reply.rno}  onClick={() => changeCurrent(reply.rno)}
+                    className="hover:cursor-pointer flex" key={reply.rno}
                     >
-                    <table className="w-[500px] m-2 bg-slate-300 border-4">
+
+                    {/* <table className="w-[500px] m-2 bg-slate-300 border-4" style={ ord == 1 ? { margin-left : "3px" } : <></>}> */}
+                    <table className="w-[500px] m-2 bg-slate-300 border-4" style={reply.ord === true ? { marginLeft: "50px" } : {}}>
                         <tr className="border-b-2">
                             <td className="w-28 ">댓글번호 : </td>
                             <td className="border-2 bg-slate-50">{reply.rno}</td>
@@ -63,6 +66,18 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent}) => {
                             <td className="border-2 bg-slate-50">{reply.nickname}</td>
                         </tr>
                     </table>
+                    
+                    { reply.delFlag === false ? 
+                        <div className="border-2 border-black">
+                        <div onClick={() => {changeCurrent(reply.rno); changeCmd(1);} }>답변하기</div>
+
+                        <br></br>
+
+                        <div onClick={() => {
+                            changeCurrent(reply.rno);  changeCmd(2);
+                        }}>수정하기</div>
+                        </div> : <></>
+                    }
 
                     
                     
