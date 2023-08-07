@@ -12,6 +12,7 @@ const initState = {
     // 상태를 계속 바꾸게하기 위한 변수
     refresh: false,
     // read값의 cmd 작업을 위한 변수
+    cmd: 0,
     current:0
 }
 
@@ -60,6 +61,7 @@ const ReplyWrapper = ({bno}) => {
         data.current = rno
         setData({...data})
     }
+
     const cancelRead = () =>{
         data.current= 0 
         setData({...data})
@@ -76,11 +78,15 @@ const ReplyWrapper = ({bno}) => {
    
     return (  
         <div>
+            {/* 대댓글 등록창 */}
             <div>
             {data.current!== 0 ? <ReplyChild bno={bno} rno={data.current} cancelRead={cancelRead} refreshLast={refreshLast}></ReplyChild> : <></>}
             </div>
 
+            {/* 댓글 등록창 */}
             <ReplyInput bno={bno} refreshLast={refreshLast}></ReplyInput>
+
+            {/* 댓글 수정창 */}
             {data.current!== 0 ? <ReplyRead rno={data.current} cancelRead={cancelRead} refreshPage={refreshPage}></ReplyRead>:<></>}
             <ReplyList {...data} movePage={movePage} changeCurrent={changeCurrent}></ReplyList>
         </div>

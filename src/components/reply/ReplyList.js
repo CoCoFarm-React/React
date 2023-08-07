@@ -47,7 +47,7 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent}) => {
                 <ul>
                     {listData.dtoList.map( reply => 
                     <li 
-                    className="hover:cursor-pointer" key={reply.rno}  onClick={() => changeCurrent(reply.rno)}
+                    className="flex bg-pink-200" key={reply.rno}  onClick={() => changeCurrent(reply.rno)}
                     >
                     <table className="w-[500px] m-2 bg-slate-300 border-4">
                         <tr className="border-b-2">
@@ -62,12 +62,20 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent}) => {
                             <td className="w-28">작성자 : </td>
                             <td className="border-2 bg-slate-50">{reply.nickname}</td>
                         </tr>
-                    </table>
-
-                    
-                    
+                        <tr className="border-b-2">
+                            <td className="w-28">작성일 : </td>
+                            <td className="border-2 bg-slate-50">{reply.regDate}</td>
+                        </tr>
+                    </table>        
+                    <div className="mt-auto mb-auto">
+                        <button className="bg-pink-300">대댓글</button>
+                    </div>
+                    <div className="mt-auto mb-auto ml-2">
+                        <button className="bg-pink-300">수정</button>
+                    </div>
                     </li>)}
                 </ul>
+                
                 <PagingComponent {...listData} movePage={movePage}></PagingComponent>
             </div>
         </div>
