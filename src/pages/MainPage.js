@@ -5,21 +5,21 @@ import BasicLayout from "../layouts/BasicLayout";
 
 const MainPage = () => {
     return ( 
-        <div>
-            <div className="w-[1400px] m-auto">
+        <div className="container m-auto">
+            <div>
                 <AdminHeaderComponent></AdminHeaderComponent>
             </div>
 
             <div className="m-auto">
                 <BasicLayout>
 
-                    <div className="bg-white w-full border-2">
+                    <div className="bg-white w-full">
                         <Outlet></Outlet>
                     </div>
                 </BasicLayout>
             </div>
 
-            <div className="w-[1400px] m-auto">
+            <div className="m-auto">
                 <Footer></Footer>
             </div>            
         </div>

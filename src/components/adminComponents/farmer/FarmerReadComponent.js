@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { deleteMember, getMemberOne, readMember } from "../../../api/adminAPI";
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import farmImage01 from "../../../public/farmerImage01.jpg"
 
 const initState = {
@@ -15,6 +15,7 @@ const FarmerReadComponent = () => {
 
     const [farmer, setFarmer] = useState(initState)
     const {mno} = useParams()
+    const navigate = useNavigate()
 
     useEffect(() => {
 
@@ -26,6 +27,17 @@ const FarmerReadComponent = () => {
         })
 
     }, [mno])
+
+    // 강제탈퇴 확인 모달
+    const handleClickDelete = () => {
+
+      console.log("click modal")
+      alert("회원이 삭제되었습니다.")
+      deleteMember(farmer.mno)
+
+      navigate('/')      
+
+    }
 
     return (  
 
@@ -44,10 +56,10 @@ const FarmerReadComponent = () => {
           <div className="m-3 w-full ">
               <div className="mt-5 ">
                 <span className="text-3xl font-semibold">{farmer.nickname} 농장</span>
-                <button onClick={() => deleteMember(farmer.mno)}
+                <button onClick={handleClickDelete}
                   className="border-gray-400 ml-28 p-1 border-2 rounded-md
                   hover:bg-black hover:text-white text-center text-sm">
-                  강제 탈퇴
+                      강제 탈퇴
                 </button>
               </div>
               <div className="mt-2">
