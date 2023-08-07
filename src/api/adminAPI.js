@@ -85,3 +85,49 @@ export const deleteMember = async (mno) =>{
     return res.data
 
 }
+
+export const insertReply = async (reply) => {
+
+    console.log(reply)
+
+
+    const res = await axios.post(`http://192.168.0.48:8080/api/replies/`, reply)
+  
+    return res.data
+  
+  }
+
+
+  
+export const getReplyOne = async (rno) => {
+
+    console.log(rno)
+
+    const res = await axios.get(`http://192.168.0.48:8080/api/replies/${rno}`)
+  
+    return res.data
+  
+  }
+
+  export const putReply = async (reply) => {
+
+    console.log(reply)
+
+    const res = await axios.put(`http://192.168.0.48:8080/api/replies/`, reply)
+  
+    return res.data
+    
+  }
+
+  export const deleteReply = async (rno) => {
+
+    console.log(rno)
+
+    const res = await axios.delete(`http://192.168.0.48:8080/api/replies/${rno}`)
+  
+    return res.data
+    
+  }
+
+  
+  

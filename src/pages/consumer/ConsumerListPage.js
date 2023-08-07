@@ -7,7 +7,7 @@ import useQueryObj from "../../hooks/useQueryObj";
 const ConsumerListPage = () => {
 
     const { queryObj ,setSearch, moveMemberReadPage } = useQueryObj();
-
+    
     const movePage = (num) => {
         console.log("NUM---------------------------- " + num)
         // URL 변경시 useNavigate, setSearch 

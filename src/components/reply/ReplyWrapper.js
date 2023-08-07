@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ReplyList from "./ReplyList";
 import ReplyInput from "./ReplyInput";
 import ReplyRead from "./ReplyRead";
+import ReplyChild from "./ReplyChild";
 
 // 상태값 초기화
 const initState = {
@@ -52,8 +53,6 @@ const ReplyWrapper = ({bno}) => {
         if(hide){
             
         }
-
-
         setData({...data})
     }
 
@@ -77,6 +76,10 @@ const ReplyWrapper = ({bno}) => {
    
     return (  
         <div>
+            <div>
+            {data.current!== 0 ? <ReplyChild bno={bno} rno={data.current} cancelRead={cancelRead} refreshLast={refreshLast}></ReplyChild> : <></>}
+            </div>
+
             <ReplyInput bno={bno} refreshLast={refreshLast}></ReplyInput>
             {data.current!== 0 ? <ReplyRead rno={data.current} cancelRead={cancelRead} refreshPage={refreshPage}></ReplyRead>:<></>}
             <ReplyList {...data} movePage={movePage} changeCurrent={changeCurrent}></ReplyList>

@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { deleteReply, getReply, putReply } from "../../api/adminAPI";
+import { deleteReply, getReply, getReplyOne, putReply } from "../../api/adminAPI";
 
 const initState = {
     rno:0,
     bno:0,
-    replyText:'',
-    replyFile:'',
-    replyer:''
+    reply:'',
+    // replyFile:'',
+    email:'',
+    nickname:''
 }
 
 const ReplyRead = ({rno,cancelRead,refreshPage}) => {
@@ -16,32 +17,36 @@ const ReplyRead = ({rno,cancelRead,refreshPage}) => {
     const [reply,setReply] = useState(initState)
 
     useEffect(() =>{
-        // getReply(rno).then(data => {
-        //     console.log(data)
-        //     setReply(data)
-        // })
+
+        console.log(rno)
+
+
+        getReplyOne(rno).then(data => {
+            console.log(data)
+            setReply(data)
+        })
     },[rno])
 
     const handleClickDelete = () => {
 
-        // deleteReply(rno).then(data => {
-        //     alert(`${data.result}번 댓글이 삭제되었습니다.`)
-        //     refreshPage(true)
-        // })
+        deleteReply(rno).then(data => {
+            alert(`${data.result}번 댓글이 삭제되었습니다.`)
+            refreshPage(true)
+        })
 
     }
 
     const handleChange = (e) => {
-        // reply[e.target.name] = e.target.value
-        // setReply({...reply})
+        reply[e.target.name] = e.target.value
+        setReply({...reply})
     }
 
     const handleClickModify = () => {
 
-        // putReply(reply).then(data => {
-        //     alert(`${data.result} 수정되었습니다`)
-        //     refreshPage(true)
-        // })
+        putReply(reply).then(data => {
+            alert(`${data.result} 수정되었습니다`)
+            refreshPage(true)
+        })
 
     }
 
@@ -54,7 +59,6 @@ const ReplyRead = ({rno,cancelRead,refreshPage}) => {
         <div className="m-8 bg-red-200 border-2">
             <div className="ml-4">댓글 수정하기 {rno}</div>
             <div>
-
                 <table className="w-[500px] m-2 bg-red-300 border-4">
                     <tr className="border-b-2">
                         <td className="w-28 ">댓글번호 : </td>
@@ -62,11 +66,11 @@ const ReplyRead = ({rno,cancelRead,refreshPage}) => {
                     </tr>
                     <tr className="border-b-2">
                         <td className="w-28">내용 : </td>
-                        <td className="border-2"><input value={reply.replyText} type="text" name="replyText" onChange={handleChange} ></input> </td>
+                        <td className="border-2"><input value={reply.reply} type="text" name="reply" onChange={handleChange} ></input> </td>
                     </tr>
                     <tr className="border-b-2">
                         <td className="w-28">작성자 : </td>
-                        <td className="border-2 "><input value={reply.writer}></input></td>
+                        <td className="border-2 "><input value={reply.nickname}></input></td>
                     </tr>
                 </table>
 

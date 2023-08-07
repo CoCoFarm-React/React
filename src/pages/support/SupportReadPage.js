@@ -18,9 +18,11 @@ const SupportReadPage = () => {
         <div className="m-auto">
                    
             <AdminHeader></AdminHeader>
-            <SupportReadComponent bno={bno} moveList={moveList}></SupportReadComponent>
 
-            <ReplyWrapper bno={bno}></ReplyWrapper>
+                <SupportReadComponent bno={bno} moveList={moveList}></SupportReadComponent>
+
+                {/* 댓글 부분 */}
+                <ReplyWrapper bno={bno}></ReplyWrapper>
             
             <Footer></Footer>
 
