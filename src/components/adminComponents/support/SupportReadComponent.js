@@ -35,29 +35,24 @@ const SupportReadComponent = ({bno, moveList}) => {
             <table className="border-2">
                 <tr>
                     <th>asd</th>
-                    <td>asd</td>
+                    <td>{board.bno}</td>
                 </tr>
                 <tr>
                     <th>asd</th>
-                    <td></td>
+                    <td>{board.title}</td>
                 </tr>
                 <tr>
                     <th>asd</th>
-                    <td></td>
+                    <td>{board.content}</td>
                 </tr>
                 <tr>
                     <th>asd</th>
-                    <td></td>
+                    <td>{board.nickname}</td>
                 </tr>
                 <tr>
                     <th>asd</th>
-                    <td></td>
+                    <td>{board.regDate}</td>
                 </tr>
-                <div>{board.bno}</div>
-                <div>{board.title}</div>
-                <div>{board.content}</div>
-                <div>{board.nickname}</div>
-                <div>{board.regDate}</div>
             </table>
 
             <button onClick={moveList}>List</button>

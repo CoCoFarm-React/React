@@ -6,7 +6,7 @@ import BasicLayout from "../layouts/BasicLayout";
 const MainPage = () => {
     return ( 
         <div>
-            <div>
+            <div className="w-[1400px] m-auto">
                 <AdminHeaderComponent></AdminHeaderComponent>
             </div>
 
@@ -19,7 +19,7 @@ const MainPage = () => {
                 </BasicLayout>
             </div>
 
-            <div>
+            <div className="w-[1400px] m-auto">
                 <Footer></Footer>
             </div>            
         </div>

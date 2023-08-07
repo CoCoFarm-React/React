@@ -25,13 +25,10 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent}) => {
 
     useEffect(() => {
 
-        
-
         getReplyList(bno ,page ,last ).then( data => {
             console.log("============================================data");
             console.log(data);
             console.log("============================================data");
-
 
             setListData(data)
         })
@@ -55,15 +52,15 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent}) => {
                     <table className="w-[500px] m-2 bg-slate-300 border-4">
                         <tr className="border-b-2">
                             <td className="w-28 ">댓글번호 : </td>
-                            <td className="border-2">{reply.rno}</td>
+                            <td className="border-2 bg-slate-50">{reply.rno}</td>
                         </tr>
                         <tr className="border-b-2">
                             <td className="w-28">내용 : </td>
-                            <td className="border-2"><input></input> </td>
+                            <td className="border-2 bg-slate-50">{reply.reply}</td>
                         </tr>
                         <tr className="border-b-2">
                             <td className="w-28">작성자 : </td>
-                            <td className="border-2"><input></input> </td>
+                            <td className="border-2 bg-slate-50">{reply.nickname}</td>
                         </tr>
                     </table>
 
