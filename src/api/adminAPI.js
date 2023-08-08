@@ -5,9 +5,15 @@ export const getFarmerList = async (queryObj) =>{
 
     const parameter = createSearchParams(queryObj).toString()
 
-    console.log("parameter.........................")
+    console.log("getFarmerList.........................")
     console.log(parameter)
     console.log(queryObj)
+    console.log(queryObj)
+    console.log(queryObj)
+    console.log(queryObj)
+    console.log(queryObj)
+    console.log(queryObj)
+
 
     const res = await axios.get(`http://192.168.0.48:8080/api/admin/farmer?${parameter}`)
     return res.data
@@ -15,6 +21,14 @@ export const getFarmerList = async (queryObj) =>{
 }
 
 export const getConsumerList = async (queryObj) =>{
+
+    console.log("getConsumerList.........................")
+    console.log(queryObj)
+    console.log(queryObj)
+    console.log(queryObj)
+    console.log(queryObj)
+    console.log(queryObj)
+    console.log(queryObj)
 
     const parameter = createSearchParams(queryObj).toString()
 
@@ -128,6 +142,21 @@ export const getReplyOne = async (rno) => {
     return res.data
     
   }
+
+
+export const postLogin = async(params) => {
+
+    let header = {
+            headers: {
+                "content-type": "application/x-www-form-urlencoded",
+            }
+    }
+
+    const res = await axios.post('http://192.168.0.48:8080/api/member/login', params, header)
+
+    return res.data
+    
+}
 
   
   

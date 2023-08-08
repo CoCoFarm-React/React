@@ -8,7 +8,7 @@ const ConsumerSearchComponent = ({ queryObj, moveSearch }) => {
 
     // 랜더링 완료시 queryObj 바뀌면 내용물을 변경
     useEffect(() => {
-
+        
         searchObj.type = queryObj.type || ''
         searchObj.keyword = queryObj.keyword || ''
         changeSize.size = queryObj.size || 10
@@ -19,7 +19,7 @@ const ConsumerSearchComponent = ({ queryObj, moveSearch }) => {
 
     const handleSize = (e) => {
 
-        changeSize.size = e.target.vlaue
+        changeSize.size = e.target.vlau
         setChangeSize(changeSize.size)
 
     }
@@ -28,7 +28,6 @@ const ConsumerSearchComponent = ({ queryObj, moveSearch }) => {
         <div>
             <div className="items-center justify-center flex container mt-5">
              
-
                 <select
                     className="border-2 m-2 p-2 "
                     value={searchObj.type}

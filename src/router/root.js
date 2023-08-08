@@ -7,24 +7,26 @@ import FarmerListPage from "../pages/farmer/FarmerListPage";
 import ConsumerListPage from "../pages/consumer/ConsumerListPage";
 import SupportReadPage from "../pages/support/SupportReadPage";
 import FarmerReadPage from "../pages/farmer/FarmerReadPage";
-import FarmerListComponent from "../components/adminComponents/farmer/FarmerListComponent";
 
+import FarmerListComponent from "../components/adminComponents/farmer/FarmerListComponent";
+import LoginComponent from "../components/login/LoginComponent";
 
 const router = createBrowserRouter([
+    
     {
         path: "",
         element: <MainPage></MainPage>,
-        children: [{
+        children: [
+        {
             path: "",
             element: <AdminPage></AdminPage>               
-        }]
-        
+        },    
+    ]
     },
-    // {
-    //     path: "",
-    //     element: <AdminPage></AdminPage>
-        
-    // },
+    {
+        path: "/login",
+        element: <LoginComponent></LoginComponent>              
+    },
     {
         path: "/farmer/list",
         element: <FarmerListPage></FarmerListPage>
