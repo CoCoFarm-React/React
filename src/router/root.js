@@ -10,6 +10,8 @@ import FarmerReadPage from "../pages/farmer/FarmerReadPage";
 
 import FarmerListComponent from "../components/adminComponents/farmer/FarmerListComponent";
 import LoginComponent from "../components/login/LoginComponent";
+import ProductListPage from "../pages/product/ProductListPage";
+import ProductReadPage from "../pages/product/ProductReadPage";
 
 const router = createBrowserRouter([
     
@@ -52,8 +54,12 @@ const router = createBrowserRouter([
         element: <FarmerListComponent></FarmerListComponent>
     },
     {
-        // path: "/consumer/list",
-        // element: 
+        path: "/products/list",
+        element: <ProductListPage></ProductListPage>
+    },
+    {
+        path: "/products/read/:pno",
+        element: <ProductReadPage></ProductReadPage>
     }
 ]);
 
