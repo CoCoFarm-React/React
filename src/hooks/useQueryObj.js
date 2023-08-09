@@ -29,7 +29,7 @@ const useQueryObj = () => {
     const size = search.get("size") || 10
     const type = search.get("type")
     const keyword = search.get("keyword")
-    const cateno = search.get("cateno")
+    const cateno = search.get("cateno") || 1
 
     // object로  묶어주기
     const queryObj = checkNull({ page, size, cateno, type, keyword })
@@ -71,8 +71,12 @@ const useQueryObj = () => {
         const queryString = createSearchParams(queryObj).toString()
         navigate(`../member/read/${mno}?${queryString}`)
     }
+    const moveMemberListPage = ()=>{
+        const queryString = createSearchParams(queryObj).toString()
+        navigate(`../farmer/list?${queryString}`)
+    }
 
-    return {queryObj, setSearch, moveboardReadPage, moveMemberReadPage,moveList}
+    return {queryObj, setSearch, moveboardReadPage, moveMemberReadPage,moveList,moveMemberListPage}
 }
 
 export default useQueryObj

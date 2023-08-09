@@ -11,7 +11,7 @@ const initState = {
     delFlag: false
 }
 
-const FarmerReadComponent = () => {
+const FarmerReadComponent = ({moveMemberListPage}) => {
 
     const [farmer, setFarmer] = useState(initState)
     const {mno} = useParams()
@@ -75,10 +75,10 @@ const FarmerReadComponent = () => {
                   
                 </div>
               </div>
-              <button className="text-2xl">
-                <Link to={"/farmer/list"}>
+              <button className="text-2xl" onClick={moveMemberListPage}>
+          
                   목록으로
-                </Link>
+    
               </button>
           </div>
         </div>
