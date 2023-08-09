@@ -1,35 +1,40 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getBoardListbyWriter } from "../../../api/adminAPI";
 
-const FarmerDiaryComponent = () => {
+
+
+const initState = {
+    dtoList:[],
+    end:0,
+    start:0,
+    next:false,
+    prev:false,
+    pageNums:[],
+    page:0,
+    size:0,
+    requestDTO: null,
+    cateno: 2,
+  }
+
+
+const FarmerDiaryComponent = ({queryObj,setSearch}) => {
     
-    const farmers = [
-        {
-          name: "당근 재배일지",
-          farmName: "농장1",
-          image: "https://images.pexels.com/photos/2694393/pexels-photo-2694393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        },
-        {
-          name: "당근 재배일지",
-          farmName: "농장1",
-          image: "https://images.pexels.com/photos/2694393/pexels-photo-2694393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        },
-        {
-          name: "당근 재배일지",
-          farmName: "농장1",
-          image: "https://images.pexels.com/photos/2694393/pexels-photo-2694393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        },
-        {
-          name: "당근 재배일지",
-          farmName: "농장1",
-          image: "https://images.pexels.com/photos/2694393/pexels-photo-2694393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        },
-        {
-          name: "당근 재배일지",
-          farmName: "농장1",
-          image: "https://images.pexels.com/photos/2694393/pexels-photo-2694393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        },
-        
-    
-      ];
+    const [writeBoard, setWriteBoard] =useState(initState)
+    const {mno} =useParams()
+    console.log(mno)
+    console.log(queryObj)
+    queryObj.cateno = 2
+    useEffect(()=>{
+
+      getBoardListbyWriter(mno,queryObj).then(data=>{
+        console.log(data)
+        setWriteBoard(data)
+      })
+
+    },[queryObj])
+
+
       return ( 
     
         <div className="flex container h-[1200px] mt-3 ">
@@ -43,12 +48,12 @@ const FarmerDiaryComponent = () => {
           
             <div className=" w-full ">
     
-              {farmers.map((farmer, index) => (
+              {writeBoard.dtoList.map((farmer, index) => (
                 <li className="flex h-auto bg-white m-2 p-2 rounded-md border-2 border-gray-400" key={index}>
                   <div className="w-36">
                     {/* <div className="text-red-500 font-extrabold">No. {index + 1}</div> */}
                     <div className="flex  items-center hover:cursor-pointer">
-                      <img src={farmer.image} alt={farmer.name} className="w-36 h-32"></img>
+                      
                     </div>
                     <div className="text-center text-black font-extrabold mt-3">
                       <div className="font-bold hover:cursor-pointer">{farmer.name}</div>
@@ -70,9 +75,7 @@ const FarmerDiaryComponent = () => {
               })} */}
     
               {/* {this.props.data.content} */}
-                      오늘은 가지를 수확했습니다!<br/>
-                      가지가 싱싱해요!<br/>
-                      구입문의 : 010-3333-5555
+                     
                       
                     </div>
                   </div>
