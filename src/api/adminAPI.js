@@ -143,6 +143,30 @@ export const getReplyOne = async (rno) => {
     
   }
 
+  // product 
+  export const getProductList = async (queryObj) => {
+
+    const parameter = createSearchParams(queryObj).toString()
+
+    const res = await axios.get(`http://192.168.0.48:8080/api/products/list?${parameter}`)
+    return res.data
+    
+  }
+
+  export const readProduct = async (pno) =>{
+
+    const res = await axios.get(`http://192.168.0.48:8080/api/products/${pno}`)
+    return res.data
+
+}
+
+    export const deleteProduct = async (pno) =>{
+
+    const res = await axios.delete(`http://192.168.0.48:8080/api/products/${pno}`)
+    return res.data
+
+}
+
 
 export const postLogin = async(params) => {
 

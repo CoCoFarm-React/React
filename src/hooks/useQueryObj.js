@@ -1,3 +1,4 @@
+
 import { createSearchParams, useNavigate, useSearchParams } from "react-router-dom"
 
 
@@ -72,7 +73,13 @@ const useQueryObj = () => {
         navigate(`../member/read/${mno}?${queryString}`)
     }
 
-    return {queryObj, setSearch, moveboardReadPage, moveMemberReadPage,moveList}
+    const moveProductReadPage = (pno) => {
+        console.log("PNO--------------------" + pno)
+        const queryString = createSearchParams(queryObj).toString()
+        navigate(`../products/read/${pno}?${queryString}`)
+    }
+
+    return {queryObj, setSearch, moveboardReadPage, moveMemberReadPage, moveList, moveProductReadPage}
 }
 
 export default useQueryObj
