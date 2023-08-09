@@ -68,21 +68,12 @@ const LoginComponent = () => {
 
     return ( 
         <div className="m-auto mt-36 w-3/5">
-                                                                                                                      
-            <div className="text-3xl bg-red-400">{loginSlice.loading ? 
-            <div className="absolute top-0 bg-gray-100 w-full h-[100vh]" style={{left:"0px"}}>
-                <div className="m-auto mt-80 w-32 h-32 border-8 border-b-slate-600 border-slate-300 rounded-full animate-spin"></div>
-                <div className="m-auto w-32 h-32 mt-8">Loding.....</div>
-            </div> : <div>{msg}</div>
-
-            }
-            </div> 
-
+                        
             {errorMsg ? <div className="text-3xl">이메일과 패스워드를 다시 확인해 주세요.</div> :<></> }
 
             <div className="m-8 ml-32 text-4xl pl-2">Login Page</div>
             <table className="m-auto">
-                <tr >
+                <tr>
                     <td>
                         <label>Email</label>
                     </td>
@@ -117,6 +108,14 @@ const LoginComponent = () => {
                 </tr>
 
             </table>
+
+            <div className="">{loginSlice.loading ? 
+            <div className="absolute top-0 bg-gray-100 w-full h-[100vh]" style={{left:"0px"}}>
+                <div className="m-auto mt-80 w-20 h-20 border-8 border-b-slate-600 border-slate-300 rounded-full animate-spin"></div>
+                <div className="m-auto w-32 h-32 mt-8">Loding.....</div>
+            </div> : <div className="text-center text-red-600 mt-3" style={{fontSize:"20px"}}>{msg}</div>
+            }
+            </div> 
         </div>
 
      );
