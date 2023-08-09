@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { setCookie , getCookis , removeCookis } from "../util/cookieUtil";
 import { postLogin } from "../api/adminAPI";
-import { Link, useNavigate } from "react-router-dom";
+
 
 
 export const postLoginThunk = createAsyncThunk('postLoginThunk', (params) => {

@@ -11,7 +11,7 @@ const initState = {
     delFlag: false
 }
 
-const FarmerReadComponent = () => {
+const FarmerReadComponent = ({moveMemberListPage}) => {
 
     const [farmer, setFarmer] = useState(initState)
     const {mno} = useParams()

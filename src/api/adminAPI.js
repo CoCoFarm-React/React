@@ -52,6 +52,18 @@ export const getBoardList = async (queryObj) =>{
 
 }
 
+export const getBoardListbyWriter = async (mno,queryObj) =>{
+
+    const parameter = createSearchParams(queryObj).toString()
+
+    console.log("--------------------111111111111111111111111----------------------" , parameter)
+
+    const res = await axios.get(`http://192.168.0.48:8080/api/board/list/${mno}?${parameter}`)
+    
+    return res.data
+}
+
+
 export const getBoardOne = async (bno) =>{
 
     const res = await axios.get(`http://192.168.0.48:8080/api/board/${bno}`)
