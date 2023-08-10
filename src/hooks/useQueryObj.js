@@ -61,7 +61,7 @@ const useQueryObj = () => {
 
     
     //값을 가지고 가는 함수
-    const moveboardReadPage = (bno) => {
+    const moveSupportReadPage = (bno) => {
         console.log("moveModify: " + bno)
         const queryString = createSearchParams(queryObj).toString()
         navigate(`../support/read/${bno}?${queryString}`)
@@ -83,7 +83,14 @@ const useQueryObj = () => {
         navigate(`../products/read/${pno}?${queryString}`)
     }
 
-    return {queryObj, setSearch, moveboardReadPage, moveMemberReadPage, moveList, moveProductReadPage}
+    const moveBoardReadPage = (bno) => {
+        console.log("bno: " + bno)
+        const queryString = createSearchParams(queryObj).toString()
+        navigate(`../board/read/${bno}?${queryString}`)
+    }
+
+
+    return {queryObj, setSearch, moveSupportReadPage, moveMemberReadPage, moveList, moveProductReadPage, moveBoardReadPage}
 }
 
 export default useQueryObj

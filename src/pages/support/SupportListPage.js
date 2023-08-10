@@ -6,7 +6,7 @@ import useQueryObj from "../../hooks/useQueryObj";
 
 const SupportListPage = () => {
 
-    const { queryObj ,setSearch, moveboardReadPage } = useQueryObj();
+    const { queryObj ,setSearch, moveSupportReadPage } = useQueryObj();
 
     const movePage = (num) => {
         console.log("NUM---------------------------- " + num)
@@ -29,7 +29,7 @@ const SupportListPage = () => {
             <div>
                 <AdminHeaderComponent></AdminHeaderComponent>
                 <AdminSearchComponent queryObj={queryObj} moveSearch={moveSearch}></AdminSearchComponent>
-                <SupportListComponent queryObj={queryObj} moveboardReadPage={moveboardReadPage} movePage={movePage} moveSearch={moveSearch} ></SupportListComponent>
+                <SupportListComponent queryObj={queryObj} moveSupportReadPage={moveSupportReadPage} movePage={movePage} moveSearch={moveSearch} ></SupportListComponent>
                 <Footer></Footer>
             </div>
         </div>

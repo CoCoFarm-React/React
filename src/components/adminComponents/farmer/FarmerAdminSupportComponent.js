@@ -32,7 +32,10 @@ const FarmerAdminSupportComponent = ({queryObj,setSearch}) => {
       })
 
     },[queryObj])
-    return ( <></> );
+
+    return ( 
+      <div>hello</div> 
+    );
 }
  
 export default FarmerAdminSupportComponent;

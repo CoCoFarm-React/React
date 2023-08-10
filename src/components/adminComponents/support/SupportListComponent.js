@@ -19,7 +19,7 @@ const initState = {
     cateno: 1
   }
 
-const SupportListComponent = ({queryObj , moveboardReadPage, movePage }) => {
+const SupportListComponent = ({queryObj , moveSupportReadPage, movePage }) => {
 
     // 처음 목록 뿌릴 때 에러 안 나도록 initState 넣어줌
     const [listData, setListData] = useState(initState)
@@ -69,7 +69,7 @@ const SupportListComponent = ({queryObj , moveboardReadPage, movePage }) => {
           {listData.dtoList.map( ({bno,title,nickname,regDate,rcnt}) => 
             <tr className="border-b-2 border-gray-300 text-center h-12"
                 key={bno}
-                onClick={() => moveboardReadPage(bno)}
+                onClick={() => moveSupportReadPage(bno)}
             >
               <td>{bno}</td>
               <td className="text-left hover:underline hover:cursor-pointer">{title}</td>
@@ -85,31 +85,6 @@ const SupportListComponent = ({queryObj , moveboardReadPage, movePage }) => {
       <PagingComponent movePage={movePage} {...listData}></PagingComponent>
 
     </div>
-
-        // <div>
-        //     <h1 className="text-3xl ml-12">관리자 문의 리스트</h1>
-        //     <div className='border-2 border-black border-solid rounded-2xl m-10 mb-2 mt-0 h-[750px]'>
-            
-        //         <div className="bg-pink-300">
-        //         {listData.dtoList.map(({bno, title,  rcnt, regDate} , idx) => 
-                                
-                                    
-        //                             <tr key={bno} className="hover:bg-gray-200" onClick={() => moveboardReadPage(bno)}>
-        //                                 <td className="m-2 p-2 border-b-2 w-1/12 text-center">{bno}</td>    
-        //                                 <td className="m-2 p-2 border-b-2 w-6/12">{title}</td> 
-        //                                 <td className="m-2 p-2 border-b-2 w-1/12 text-center">{rcnt}</td>
-        //                                 <td className="m-2 p-2 border-b-2 w-4/12 text-center">
-        //                                     {regDate.slice(5,7)===(0+(month+1).toString())&&regDate.slice(8,10)===0+day.toString()? regDate.slice(11) :regDate.slice(0,10)}
-        //                                 </td>
-        //                             </tr>
-
-                                
-        //                     ) 
-        //                     }
-        //         </div>
-        //     </div>
-        //     <PagingComponent movePage={movePage} {...listData}></PagingComponent>
-        // </div>
     );
 }
  

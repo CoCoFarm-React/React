@@ -179,6 +179,19 @@ export const getReplyOne = async (rno) => {
 
 }
 
+    export const registerProduct = async (FormData) =>{
+
+        const header = {
+            headers: {
+                    "Content-Type": "multipart/form-data",
+            }
+        }
+
+        const res = await axios.post(`http://192.168.0.48:8080/api/products/`, FormData, header)
+        return res.data
+
+}
+
 
 export const postLogin = async(params) => {
 

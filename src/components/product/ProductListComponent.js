@@ -27,15 +27,14 @@ const ProductListComponent = ({queryObj , moveProductReadPage, movePage, moveSea
             console.log(data)
 
             setProduct(data)
-
         })
 
-    }, [{...queryObj}])
+    }, [queryObj])
 
 
     return (  
         <div className="justify-center items-center container mt-3 ">
-        
+  
         <table className="w-[1200px] items-center justify-center container m-auto">
   
           <thead>

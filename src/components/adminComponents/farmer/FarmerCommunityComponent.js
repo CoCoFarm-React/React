@@ -34,7 +34,11 @@ const FarmerCommunityComponent = ({queryObj,setSearch}) => {
 
     },[queryObj])
 
-    return (  <></>);
+    return (  
+      <div>
+        Community
+      </div>
+    );
 }
  
 export default FarmerCommunityComponent;

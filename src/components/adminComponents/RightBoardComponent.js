@@ -21,7 +21,7 @@ const initState = {
   }
   
 
-const RightBoard = ({queryObj , moveboardReadPage}) => {
+const RightBoard = ({queryObj , moveSupportReadPage}) => {
 
     const [ board , setBoard ] = useState(initState)
     
@@ -70,7 +70,7 @@ const RightBoard = ({queryObj , moveboardReadPage}) => {
                             {(board.dtoList).filter(board => board.cateno === 1).map(({bno, title,  rcnt, regDate} , idx) => 
                                 idx > 6 ? <></> : (
                                     
-                                    <tr key={bno} className="hover:bg-gray-200 hover:cursor-pointer" onClick={() => moveboardReadPage(bno)}>
+                                    <tr key={bno} className="hover:bg-gray-200 hover:cursor-pointer" onClick={() => moveSupportReadPage(bno)}>
                                         <td className="m-2 p-2 border-b-2 w-1/12 text-center">{bno}</td>    
                                         <td className="m-2 p-2 border-b-2 w-6/12">{title}</td> 
                                         <td className="m-2 p-2 border-b-2 w-1/12 text-center">{rcnt}</td>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router"
-import { deleteProduct, readMember, readProduct } from "../../api/adminAPI"
-import { Link } from "react-router-dom"
+import { deleteProduct, readMember, readProduct, registerProduct } from "../../api/adminAPI"
+import { Link, createSearchParams } from "react-router-dom"
 
 const initState = {
     pno: 0,
@@ -18,7 +18,7 @@ const initState = {
     fname: ''
 }
 
-const ProductReadComponent = () => {
+const ProductReadComponent = ({queryObj}) => {
 
     const [product, setProduct] = useState(initState)
     const {pno} = useParams()
@@ -41,15 +41,71 @@ const ProductReadComponent = () => {
 
       console.log("click modal")
       alert(product.pno + "번 게시글이 삭제되었습니다.")
-      deleteProduct(product.pno)
+      deleteProduct(product.pno).then(data => {setProduct(data)
+        navigate('/products/list?' + queryString)
+    })
 
-      navigate('/products/list')      
+      const queryString = createSearchParams(queryObj).toString()
 
     }
+
+    // const handleClickUpload = () => {
+
+    //     console.log("click")
+
+    // }
+
+    // const handleChange = (e) => {
+
+    //     product[e.target.name] = e.target.value
+    //     setProduct({...product})
+
+    // }
+    
+    // mno
+    // procateno
+    // pname
+    // pdesc
+    // price
+    // member
+    // category
+    // images
+    // const handleClickSave = () => {
+	// 	const formData = new FormData()
+
+	// 	formData.append("mno", product.mno)
+	// 	// formData.append("procatename", product.procatename)
+	// 	formData.append("pname", product.pname)
+    //     formData.append("pdesc", product.pdesc)
+    //     formData.append("price", product.price)
+    //     formData.append("member", product.)
+
+	// 	console.dir(fileRef.current)
+
+	// 	const arr = fileRef.current.files
+
+	// 	for(let file of arr){
+	// 		formData.append("images", file)
+	// 	}
+
+	// 	registerProduct(formData)
+	// }
+
+	// const handleClickClear = () => {
+	// 	fileRef.current.value = ''
+	// }
 
 
     return (  
         <div>
+
+        {/* <div>
+          <input type="file" multiple name="fname" onChange={handleChange}></input>
+          <button className="bg-gray-200"
+          onClick={handleClickUpload}
+          >SUBMIT</button>
+        </div> */}
+
             <table className="border-2">
                 <tr>
                     <th>No</th>
