@@ -43,7 +43,7 @@ const FarmerDiaryComponent = ({queryObj, setSearch, moveBoardReadPage}) => {
         setWriteBoard(data)
       })
 
-    },[queryObj])
+    },[queryObj, mno])
 
 
       return ( 
@@ -51,9 +51,9 @@ const FarmerDiaryComponent = ({queryObj, setSearch, moveBoardReadPage}) => {
         <div className="container h-[1200px] mt-3">
           {/* <ul className="flex flex-wrap container items-center justify-center mt-2 "> */}
      
-            <div className="items-center justify-center flex">
+            <div>
               <input className="rounded-sm border-2 p-2"/>          
-              <button type="submit" className="border-2 p-2 w-20 hover:bg-black hover:text-white">검색</button>
+              <button type="submit" className="border-2 p-2 w-20 hover:bg-black hover:text-white">SEARCH</button>
             </div>
 
             <div className="justify-center items-center container mt-3">
@@ -76,7 +76,7 @@ const FarmerDiaryComponent = ({queryObj, setSearch, moveBoardReadPage}) => {
                       // onClick={() => moveboardReadPage(bno)}
                   >
                     <td>{bno}</td>
-                    <td className="text-left hover:underline hover:cursor-pointer" onClick={() => moveBoardReadPage(bno)}>{title}</td>
+                    <td className="text-left hover:underline hover:cursor-pointer" onClick={() => moveBoardReadPage(bno, mno)}>{title}</td>
                     <td>{regDate}</td>
                     <td>{rcnt}</td>
                   </tr>

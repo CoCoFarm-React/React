@@ -96,16 +96,19 @@ const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoard
                     List
                   </Link>
                 </button>
-                <button className="border-gray-400 p-1 border-2 rounded-md
-                    hover:bg-gray-400 hover:text-white text-center text-sm mr-2"
+                <button     className={`border-gray-400 p-1 border-2 rounded-md text-center text-sm mr-2 ${
+                show === 1 ? 'bg-gray-300 text-white hover:bg-gray-400 hover:text-gray-300' : 'bg-white hover:bg-gray-400 hover:text-white'
+                }`}
                     onClick={() => handleClickDiary(1)}>
                       Diary</button>
-                <button className="border-gray-400 p-1 border-2 rounded-md
-                    hover:bg-gray-400 hover:text-white text-center text-sm mr-2"
+                <button     className={`border-gray-400 p-1 border-2 rounded-md text-center text-sm mr-2 ${
+                show === 2 ? 'bg-gray-300 text-white hover:bg-gray-400 hover:text-gray-300' : 'bg-white hover:bg-gray-400 hover:text-white'
+                }`}
                     onClick={() => handleClickDiary(2)}>
                   Product</button>
-                <button className="border-gray-400 p-1 border-2 rounded-md
-                    hover:bg-gray-400 hover:text-white text-center text-sm"
+                <button     className={`border-gray-400 p-1 border-2 rounded-md text-center text-sm mr-2 ${
+                show === 3 ? 'bg-gray-300 text-white hover:bg-gray-400 hover:text-gray-300' : 'bg-white hover:bg-gray-400 hover:text-white'
+                }`}
                     onClick={() => handleClickDiary(3)}>
                   Q&A</button>
                 </div>

@@ -192,6 +192,14 @@ export const getReplyOne = async (rno) => {
 
 }
 
+    // board
+    export const deleteBoard = async (bno) =>{
+
+        const res = await axios.delete(`http://192.168.0.48:8080/api/board/${bno}`)
+        return res.data
+    
+    }
+
 
 export const postLogin = async(params) => {
 

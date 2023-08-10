@@ -83,10 +83,10 @@ const useQueryObj = () => {
         navigate(`../products/read/${pno}?${queryString}`)
     }
 
-    const moveBoardReadPage = (bno) => {
+    const moveBoardReadPage = (bno, mno) => {
         console.log("bno: " + bno)
         const queryString = createSearchParams(queryObj).toString()
-        navigate(`../board/read/${bno}?${queryString}`)
+        navigate(`../board/read/${bno}?${queryString}&mno=` + mno)
     }
 
 

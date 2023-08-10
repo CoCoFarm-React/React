@@ -13,10 +13,7 @@ const FarmerReadPage = () => {
         <div className="container m-auto">
             <div>
                 <AdminHeader></AdminHeader>
-                <FarmerReadComponent  moveMemberListPage={moveMemberListPage} queryObj={queryObj} setSearch={setSearch} moveBoardReadPage={moveBoardReadPage}  ></FarmerReadComponent>
-                {/* <FarmerDiaryComponent queryObj={queryObj} setSearch={setSearch}></FarmerDiaryComponent> */}
-                {/* <FarmerAdminSupportComponent queryObj={queryObj} setSearch={setSearch}></FarmerAdminSupportComponent> */}
-                {/* <FarmerCommunityComponent queryObj={queryObj} setSearch={setSearch}></FarmerCommunityComponent> */}
+                <FarmerReadComponent moveMemberListPage={moveMemberListPage} queryObj={queryObj} setSearch={setSearch} moveBoardReadPage={moveBoardReadPage}  ></FarmerReadComponent>
                 <Footer></Footer>
             </div>
         </div>
