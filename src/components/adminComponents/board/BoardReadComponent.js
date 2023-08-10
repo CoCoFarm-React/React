@@ -30,7 +30,7 @@ const BoardReadComponent = () => {
 
           console.log("----------------------- data")
           console.log(data)
-          setFarmer({data})
+          setFarmer(data)
 
         })
 
@@ -40,12 +40,14 @@ const BoardReadComponent = () => {
             console.log(data)
             setBoard(data)
             
+        }).catch(e => {
+            alert("error")
         })
         
     }, [mno, bno])
 
     console.log("-----------------------------------")
-    console.log(board.title)
+    console.log(farmer)
 
     // 강제 삭제 확인 모달
     const handleClickDelete = () => {
@@ -63,7 +65,7 @@ const BoardReadComponent = () => {
         <>
         <div className="w-[1400px] items-center justify-center container m-auto mt-5 rounded-sm border-b-2 border-b-gray-300 mb-10">
   
-                <div className="border-b border-gray-300 h-[70px] w-[1400px] relative">
+                <div className="border-gray-300 border-b-2 h-[70px] w-[1400px] relative">
                     <div className="text-4xl absolute bottom-3">{board.title}</div>
                     <div className="absolute right-8 bottom-3">
                         <button className="bg-gray-300 border-gray-400 border-2 p-1 hover:bg-white"
@@ -100,7 +102,7 @@ const BoardReadComponent = () => {
                 <div className="mt-5">
                 <button className="border-gray-400 p-1 border-2 rounded-md
                     hover:bg-gray-400 hover:text-white text-center text-sm mr-2">
-                    <Link to={"/farmer/list"}>
+                    <Link to={"/member/read/" + mno}>
                     List
                     </Link>
                 </button> 

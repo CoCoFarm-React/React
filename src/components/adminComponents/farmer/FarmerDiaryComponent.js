@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { getBoardListbyWriter } from "../../../api/adminAPI";
 import useQueryObj from "../../../hooks/useQueryObj";
 import FarmerSearchComponent from "./FarmerSearchComponent";
+import BoardSearchComponent from "../board/BoardSearchComponent";
+import PagingComponent from "../../commonComponents/PagingComponent";
 
 
 
@@ -20,7 +22,7 @@ const initState = {
   }
 
 
-const FarmerDiaryComponent = ({queryObj, setSearch, moveBoardReadPage}) => {
+const FarmerDiaryComponent = ({queryObj, setSearch, moveBoardReadPage, moveSearch, movePage}) => {
 
     // const {queryObj} = useQueryObj()
     
@@ -33,9 +35,8 @@ const FarmerDiaryComponent = ({queryObj, setSearch, moveBoardReadPage}) => {
     useEffect(()=>{
       
       queryObj.cateno = 2
-      console.log(queryObj)
 
-      getBoardListbyWriter(mno,queryObj).then(data=>{
+      getBoardListbyWriter(mno, queryObj).then(data=>{
 
         console.log("getBoardListByWriter..................")
 
@@ -45,16 +46,15 @@ const FarmerDiaryComponent = ({queryObj, setSearch, moveBoardReadPage}) => {
 
     },[queryObj, mno])
 
+    console.log(queryObj)
+
 
       return ( 
 
         <div className="container h-[1200px] mt-3">
           {/* <ul className="flex flex-wrap container items-center justify-center mt-2 "> */}
      
-            <div>
-              <input className="rounded-sm border-2 p-2"/>          
-              <button type="submit" className="border-2 p-2 w-20 hover:bg-black hover:text-white">SEARCH</button>
-            </div>
+            <BoardSearchComponent queryObj={queryObj} moveSearch={moveSearch}></BoardSearchComponent>
 
             <div className="justify-center items-center container mt-3">
       
@@ -84,6 +84,8 @@ const FarmerDiaryComponent = ({queryObj, setSearch, moveBoardReadPage}) => {
                 )}
               </tbody>
             </table>
+
+            <PagingComponent movePage={movePage} {...writeBoard}></PagingComponent>
           
             {/* <div className=" w-full">
 

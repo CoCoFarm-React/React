@@ -15,7 +15,7 @@ const initState = {
     delFlag: false
 }
 
-const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoardReadPage}) => {
+const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoardReadPage, moveSearch, movePage}) => {
 
     const [farmer, setFarmer] = useState(initState)
     const [show, setShow] = useState(1);
@@ -51,6 +51,8 @@ const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoard
       console.log("show: " + show)
 
     }
+
+    console.log("farmer.roleName" + farmer.roleName)
 
 
     return (  
@@ -96,16 +98,20 @@ const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoard
                     List
                   </Link>
                 </button>
-                <button     className={`border-gray-400 p-1 border-2 rounded-md text-center text-sm mr-2 ${
-                show === 1 ? 'bg-gray-300 text-white hover:bg-gray-400 hover:text-gray-300' : 'bg-white hover:bg-gray-400 hover:text-white'
-                }`}
-                    onClick={() => handleClickDiary(1)}>
-                      Diary</button>
+
+                {farmer.roleName == 'FARMER' ? 
+                  <button     className={`border-gray-400 p-1 border-2 rounded-md text-center text-sm mr-2 ${
+                    show === 1 ? 'bg-gray-300 text-white hover:bg-gray-400 hover:text-gray-300' : 'bg-white hover:bg-gray-400 hover:text-white'
+                    }`}
+                        onClick={() => handleClickDiary(1)}>
+                  Diary</button> : <></>}
+
+
                 <button     className={`border-gray-400 p-1 border-2 rounded-md text-center text-sm mr-2 ${
                 show === 2 ? 'bg-gray-300 text-white hover:bg-gray-400 hover:text-gray-300' : 'bg-white hover:bg-gray-400 hover:text-white'
                 }`}
                     onClick={() => handleClickDiary(2)}>
-                  Product</button>
+                  Community</button>
                 <button     className={`border-gray-400 p-1 border-2 rounded-md text-center text-sm mr-2 ${
                 show === 3 ? 'bg-gray-300 text-white hover:bg-gray-400 hover:text-gray-300' : 'bg-white hover:bg-gray-400 hover:text-white'
                 }`}
@@ -117,9 +123,9 @@ const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoard
           </div>
         </div>  
         <div className="container m-auto w-[1500px]">
-        {show == 1 ? <FarmerDiaryComponent queryObj={queryObj} setSearch={setSearch} moveBoardReadPage={moveBoardReadPage}></FarmerDiaryComponent> : <></>}
-        {show == 2 ? <FarmerAdminSupportComponent queryObj={queryObj} setSearch={setSearch}></FarmerAdminSupportComponent> : <></>}
-        {show == 3 ? <FarmerCommunityComponent queryObj={queryObj} setSearch={setSearch}></FarmerCommunityComponent> : <></>}
+        {show == 1 ? <FarmerDiaryComponent queryObj={queryObj} setSearch={setSearch} moveBoardReadPage={moveBoardReadPage} moveSearch={moveSearch} movePage={movePage}></FarmerDiaryComponent> : <></>}
+        {show == 2 ? <FarmerCommunityComponent queryObj={queryObj} setSearch={setSearch} moveBoardReadPage={moveBoardReadPage} moveSearch={moveSearch} movePage={movePage}></FarmerCommunityComponent> : <></>}
+        {show == 3 ? <FarmerAdminSupportComponent queryObj={queryObj} setSearch={setSearch} moveBoardReadPage={moveBoardReadPage} moveSearch={moveSearch} movePage={movePage}></FarmerAdminSupportComponent> : <></>}
         </div>
         </div>
     );

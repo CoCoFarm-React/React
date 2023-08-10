@@ -69,8 +69,13 @@ const useQueryObj = () => {
 
     const moveMemberReadPage = (mno) => {
         console.log("Member Number: " + mno)
-        const queryString = createSearchParams(queryObj).toString()
-        navigate(`../member/read/${mno}?${queryString}`)
+
+
+        const queryString = createSearchParams(queryObj).toString().slice(-8)
+        console.log("test.........................")
+        console.log(queryString)
+
+        navigate(`../member/read/${mno}`)
     }
     const moveMemberListPage = ()=>{
         const queryString = createSearchParams(queryObj).toString()
