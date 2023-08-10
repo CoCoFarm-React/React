@@ -39,10 +39,16 @@ const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoard
 
       console.log("click modal")
       alert("회원이 삭제되었습니다.")
-      deleteMember(farmer.mno)
 
-      navigate('/')
+      deleteMember(farmer.mno).then(() => {
 
+        if (farmer.roleName === 'FARMER') {
+          navigate('/farmer/list')
+        } else (
+          navigate('/consumer/list')
+        )
+
+      })
     }
 
     const handleClickDiary = (cmd) => {
