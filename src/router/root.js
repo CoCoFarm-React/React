@@ -13,6 +13,7 @@ import LoginComponent from "../components/login/LoginComponent";
 import ProductListPage from "../pages/product/ProductListPage";
 import ProductReadPage from "../pages/product/ProductReadPage";
 import BoardReadPage from "../pages/board/BoardReadPage";
+import ProductRegisterComponent from "../components/product/ProductRegisterComponent";
 
 const router = createBrowserRouter([
     
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
     {
         path: "/products/read/:pno",
         element: <ProductReadPage></ProductReadPage>
+    },
+    {
+        path: "/products/register",
+        element: <ProductRegisterComponent></ProductRegisterComponent>
     },
     {
         path: "/board/read/:bno",
