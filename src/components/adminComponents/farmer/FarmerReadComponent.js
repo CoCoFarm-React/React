@@ -12,7 +12,8 @@ const initState = {
     nickname: '',
     intro: '',
     roleName: '',
-    delFlag: false
+    delFlag: false,
+    profile: ''
 }
 
 const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoardReadPage, moveSearch, movePage}) => {
@@ -59,6 +60,7 @@ const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoard
     }
 
     console.log("farmer.roleName" + farmer.roleName)
+    console.log("farmer.profile " + farmer.profile)
 
 
     return (  
@@ -68,16 +70,16 @@ const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoard
           <div className="flex container h-[200px] mt-3 mb-20">
           
           <div className=" w-[300px] flex justify-center items-center">
-            <img src={farmImage01} alt="farmImage01" 
-            className="rounded-[50%] object-cover w-[180px] h-[180px] justify-center flex">
-    
-            </img>
+            {farmer.profile == null || farmer.profile.length == 0 ?
+            <img src={`http://192.168.0.48/default.jpg`} alt="No image" className="rounded-[50%] object-cover w-[180px] h-[180px] justify-center flex"></img> :
+            <img src={`http://192.168.0.48/${farmer.profile}`} alt="No image" className="rounded-[50%] object-cover w-[180px] h-[180px] justify-center flex"></img>
+            }
           </div>
     
           <div className="w-full flex">
             <div className="m-3 w-full ">
                 <div className="mt-5 ">
-                  <span className="text-3xl font-semibold">{farmer.nickname} 농장</span>
+                  <span className="text-3xl font-semibold">{farmer.nickname}</span>
                   <button onClick={handleClickDelete}
                     className="border-gray-400 ml-28 p-1 border-2 rounded-md
                     hover:bg-gray-400 hover:text-white text-center text-sm">
@@ -91,8 +93,7 @@ const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoard
                 </div>
                 <div className="mt-3">
                   <div>
-                    안녕하세요 {farmer.nickname} 농장입니다.<br/>
-                    저희 농장 페이지를 방문해 주셔서 감사합니다.<br/>
+                    {farmer.intro}<br/>
                     구입문의 {farmer.email}
                     
                   </div>

@@ -49,104 +49,113 @@ const ProductReadComponent = ({queryObj}) => {
 
     }
 
-    // const handleClickUpload = () => {
-
-    //     console.log("click")
-
-    // }
-
-    // const handleChange = (e) => {
-
-    //     product[e.target.name] = e.target.value
-    //     setProduct({...product})
-
-    // }
-    
-    // mno
-    // procateno
-    // pname
-    // pdesc
-    // price
-    // member
-    // category
-    // images
-    // const handleClickSave = () => {
-	// 	const formData = new FormData()
-
-	// 	formData.append("mno", product.mno)
-	// 	// formData.append("procatename", product.procatename)
-	// 	formData.append("pname", product.pname)
-    //     formData.append("pdesc", product.pdesc)
-    //     formData.append("price", product.price)
-    //     formData.append("member", product.)
-
-	// 	console.dir(fileRef.current)
-
-	// 	const arr = fileRef.current.files
-
-	// 	for(let file of arr){
-	// 		formData.append("images", file)
-	// 	}
-
-	// 	registerProduct(formData)
-	// }
-
-	// const handleClickClear = () => {
-	// 	fileRef.current.value = ''
-	// }
-
 
     return (  
-        <div>
 
-        {/* <div>
-          <input type="file" multiple name="fname" onChange={handleChange}></input>
-          <button className="bg-gray-200"
-          onClick={handleClickUpload}
-          >SUBMIT</button>
-        </div> */}
+        <div className="items-center justify-center container flex mt-5 mb-10">
 
-            <table className="border-2">
-                <tr>
-                    <th>No</th>
-                    <td>{product.pno}</td>
-                </tr>
-                <tr>
-                    <th>Name</th>
-                    <td>{product.pname}</td>
-                </tr>
-                <tr>
-                    <th>Desc</th>
-                    <td>{product.pdesc}</td>
-                </tr>
-                <tr>
-                    <th>Price</th>
-                    <td>{product.price}</td>
-                </tr>
-                <tr><Link to={`/member/read/${product.mno}`}>
-                    <th>Email</th>
-                    <td>{product.email}</td>
-                </Link></tr>
-                <tr>
-                    <th>Nickname</th>
-                    <td>{product.nickname}</td>
-                </tr>
-                <tr>
-                    <th>CateName</th>
-                    <td>{product.procatename}</td>
-                </tr>
-                <tr>
-                    <th>Date</th>
-                    <td>{product.modDate}</td>
-                </tr>
-            </table>
-            <div onClick={handleClickDelete}>
-                <button className="bg-red-500 text-white">Delete</button>
-            </div>
+        <table className="w-[1400px] items-center justify-center">
+          <thead className="">
+            <tr className="bg-gray-200">
+                <td className="border-2 font-medium w-32 text-center ">No</td>
+                <td className="border-2">{product.pno}</td>
+            </tr>
+  
+            <tr >
+                <td className="border-2 font-medium text-center">상품이름</td>
+                <td className="border-2">{product.pname}</td>
+            </tr>
+  
+            <tr >
+                <td className="border-2 font-medium text-center">상품설명</td>
+                <td className="border-2">{product.pdesc}</td>
+            </tr>
+  
+            <tr >
+                <td className="border-2 font-medium text-center">닉네임</td>
+                <td className="border-2">{product.nickname}</td>
+            </tr>
+  
+            <tr >
+                <td className="border-2 font-medium text-center">게시일</td>
+                <td className="border-2">{product.modDate}</td>
+            </tr>
+  
+            <tr className="border-2">
+                <td className="border-2 font-medium h-80 text-center">파일</td>
+                {/* <td className="border-2">{product.modDate}</td> */}
+                <td>
+                    <img src={`http://192.168.0.48/${product.fname}`} alt="No image"></img>
+                </td>
+            </tr>
+  
+            {/* <tr>
+              <td className="border-2 font-medium h-80 text-center">Fname</td>
+              <td className="border-2">
+                <ul>
+                  {board.fname.map( fileList => <li>{fileList}</li>
+                  )}
+                </ul>
+              </td>
+            </tr> */}
+  
+              
+          </thead>
+      
+        </table>
+  
+      </div>
 
-            {/* <button onClick={moveList}>List</button> */}
+        // <div>
 
-        </div>
+        // {/* <div>
+        //   <input type="file" multiple name="fname" onChange={handleChange}></input>
+        //   <button className="bg-gray-200"
+        //   onClick={handleClickUpload}
+        //   >SUBMIT</button>
+        // </div> */}
+
+        //     <table className="border-2">
+        //         <tr>
+        //             <th>No</th>
+        //             <td>{product.pno}</td>
+        //         </tr>
+        //         <tr>
+        //             <th>Name</th>
+        //             <td>{product.pname}</td>
+        //         </tr>
+        //         <tr>
+        //             <th>Desc</th>
+        //             <td>{product.pdesc}</td>
+        //         </tr>
+        //         <tr>
+        //             <th>Price</th>
+        //             <td>{product.price}</td>
+        //         </tr>
+        //         <tr><Link to={`/member/read/${product.mno}`}>
+        //             <th>Email</th>
+        //             <td>{product.email}</td>
+        //         </Link></tr>
+        //         <tr>
+        //             <th>Nickname</th>
+        //             <td>{product.nickname}</td>
+        //         </tr>
+        //         <tr>
+        //             <th>CateName</th>
+        //             <td>{product.procatename}</td>
+        //         </tr>
+        //         <tr>
+        //             <th>Date</th>
+        //             <td>{product.modDate}</td>
+        //         </tr>
+        //     </table>
+        //     <div onClick={handleClickDelete}>
+        //         <button className="bg-red-500 text-white">Delete</button>
+        //     </div>
+
+        //     {/* <button onClick={moveList}>List</button> */}
+
+        // </div>
     );
 }
  

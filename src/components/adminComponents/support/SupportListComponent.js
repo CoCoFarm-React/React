@@ -56,7 +56,7 @@ const SupportListComponent = ({queryObj , moveSupportReadPage, movePage }) => {
       <table className="w-[1200px] items-center justify-center container m-auto">
 
         <thead>
-          <tr className="border-b-2 border-gray-300 text-center h-12">
+          <tr className="border-b-2 border-gray-300 text-center h-12 font-bold">
             <td className="w-1/12">No</td>
             <td className="w-7/12">Title</td>
             <td className="w-1/12">Nickname</td>
