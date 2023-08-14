@@ -11,12 +11,11 @@ import BasicLayout from "../../layouts/BasicLayout";
 
 
 
-
 const AdminPage = () => {
 
     const [list , setlist] = useState({});
 
-    const { queryObj , moveboardReadPage, moveMemberReadPage } = useQueryObj();
+    const { queryObj , moveSupportReadPage, moveMemberReadPage } = useQueryObj();
     
 
 
@@ -27,7 +26,7 @@ const AdminPage = () => {
             <div className='rounded-2xl m-10 mt-2 mb-2 flex justify-between '>
                 <LeftBoardComponent queryObj={queryObj}  moveMemberReadPage={moveMemberReadPage}>  </LeftBoardComponent>
                 <CenterBoardComponent queryObj={queryObj} moveMemberReadPage={moveMemberReadPage}>  </CenterBoardComponent>
-                <RightBoardComponent queryObj={queryObj} moveboardReadPage={moveboardReadPage}> </RightBoardComponent>
+                <RightBoardComponent queryObj={queryObj} moveSupportReadPage={moveSupportReadPage}> </RightBoardComponent>
             </div>
         </BasicLayout>
      </div>

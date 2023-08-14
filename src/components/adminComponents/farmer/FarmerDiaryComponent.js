@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getBoardListbyWriter } from "../../../api/adminAPI";
+import useQueryObj from "../../../hooks/useQueryObj";
+import FarmerSearchComponent from "./FarmerSearchComponent";
+import BoardSearchComponent from "../board/BoardSearchComponent";
+import PagingComponent from "../../commonComponents/PagingComponent";
 
 
 
@@ -14,67 +18,128 @@ const initState = {
     page:0,
     size:0,
     requestDTO: null,
-    cateno: 2,
+    cateno: 2
   }
 
 
-const FarmerDiaryComponent = ({queryObj,setSearch}) => {
+const FarmerDiaryComponent = ({queryObj, setSearch, moveBoardReadPage, moveSearch, movePage}) => {
+
+    // const {queryObj} = useQueryObj()
     
     const [writeBoard, setWriteBoard] =useState(initState)
     const {mno} =useParams()
-    console.log(mno)
-    console.log(queryObj)
-    queryObj.cateno = 2
-    useEffect(()=>{
 
-      getBoardListbyWriter(mno,queryObj).then(data=>{
+    console.log("mno: " + mno)
+    console.log("query............................")
+    
+    useEffect(()=>{
+      
+      queryObj.cateno = 2
+
+      getBoardListbyWriter(mno, queryObj).then(data=>{
+
+        console.log("getBoardListByWriter..................")
+
         console.log(data)
         setWriteBoard(data)
       })
 
-    },[queryObj])
+    },[queryObj, mno])
+
+    console.log(queryObj)
 
 
       return ( 
-    
-        <div className="flex container h-[1200px] mt-3 ">
-    
-          <ul className="flex flex-wrap container items-center justify-center mt-2 ">
+
+        <div className="container h-[1200px] mt-3">
+          {/* <ul className="flex flex-wrap container items-center justify-center mt-2 "> */}
+     
+            <BoardSearchComponent queryObj={queryObj} moveSearch={moveSearch}></BoardSearchComponent>
+
+            {writeBoard !== null && writeBoard.dtoList.length > 0 ? 
             
-            {/* <div className="items-center justify-center flex">
-              <input className="rounded-sm border-2 p-2"/>          
-              <button type="submit" className="border-2 p-2 w-20 hover:bg-black hover:text-white">검색</button>
-            </div> */}
+            <div className="justify-center items-center container mt-3">
+      
+            <table className="items-center justify-center container">
+
+              <thead>
+                <tr className="border-b-2 border-gray-300 bg-gray-200 text-center h-12">
+                  <td className="w-1/12">No</td>
+                  <td className="w-6/12">Title</td>
+                  <td className="w-2/12">RegDate</td>
+                  <td className="w-1/12">ReplyCnt</td>          
+                </tr>
+              </thead>
+
+              <tbody>
+                {writeBoard.dtoList.map( ({bno,title,regDate,rcnt}) => 
+                  <tr className="border-b-2 border-gray-300 text-center h-12 hover:bg-gray-200"
+                      key={bno}
+                      // onClick={() => moveboardReadPage(bno)}
+                  >
+                    <td>{bno}</td>
+                    <td className="text-left hover:underline hover:cursor-pointer" onClick={() => moveBoardReadPage(bno, mno)}>{title}</td>
+                    <td>{regDate}</td>
+                    <td>{rcnt}</td>
+                  </tr>
+                
+                )}
+              </tbody>
+            </table>
+            </div>
+            : 
+            <div className="justify-center items-center container mt-3">
+      
+            <table className="items-center justify-center container">
+
+              <thead>
+                <tr className="border-b-2 border-gray-300 bg-gray-200 text-center h-12">
+                  <td className="w-1/12">No</td>
+                  <td className="w-6/12">Title</td>
+                  <td className="w-2/12">RegDate</td>
+                  <td className="w-1/12">ReplyCnt</td>          
+                </tr>
+              </thead>
+              </table>
+              <div className="text-center mt-5 text-gray-500">등록된 게시물이 없습니다.</div>
+              </div>}
+            
+
+            <PagingComponent movePage={movePage} {...writeBoard}></PagingComponent>
           
-            <div className=" w-full ">
+            {/* <div className=" w-full">
+
+
+              
     
-              {writeBoard.dtoList.map((farmer, index) => (
-                <li className="flex h-auto bg-white m-2 p-2 rounded-md border-2 border-gray-400" key={index}>
+    
+              {writeBoard.dtoList.map((board) => (
+                <li className="flex h-auto bg-white m-2 p-2 rounded-md border-2 border-gray-400" key={board.bno}>
                   <div className="w-36">
-                    {/* <div className="text-red-500 font-extrabold">No. {index + 1}</div> */}
+                    <div className="text-red-500 font-extrabold">No. {board.bno}</div>
                     <div className="flex  items-center hover:cursor-pointer">
                       
                     </div>
                     <div className="text-center text-black font-extrabold mt-3">
-                      <div className="font-bold hover:cursor-pointer">{farmer.name}</div>
-                      <div className="text-red-600">{farmer.farmName}</div>
-                      {/* <div>리뷰 {farmer.reviews} 평점 {farmer.rating}</div> */}
+                      <div className="font-bold hover:cursor-pointer">{board.title}</div>
+                      <div className="text-red-600">{board.farmName}</div>
+                      <div>리뷰 {board.reviews} 평점 {board.rating}</div>
                     </div>
     
                   </div>
     
                   <div className="w-full bg-sb-03 ml-5 whitespace-pre-line" >
                     <div className="ml-3">
-                    {/* {this.props.data.content.split("\n").map((line) => { //this.props.data.content: 내용
+                    {this.props.data.content.split("\n").map((line) => { //this.props.data.content: 내용
                 return (
                   <span>
                     {line}
                     <br />
                   </span>
                 );
-              })} */}
+              })}
     
-              {/* {this.props.data.content} */}
+              {this.props.data.content}
                      
                       
                     </div>
@@ -83,8 +148,8 @@ const FarmerDiaryComponent = ({queryObj,setSearch}) => {
     
               ))}
             </div>
-    
-          </ul>
+  
+          </ul> */}
         </div>
        );
     }

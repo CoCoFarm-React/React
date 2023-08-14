@@ -61,7 +61,7 @@ const useQueryObj = () => {
 
     
     //값을 가지고 가는 함수
-    const moveboardReadPage = (bno) => {
+    const moveSupportReadPage = (bno) => {
         console.log("moveModify: " + bno)
         const queryString = createSearchParams(queryObj).toString()
         navigate(`../support/read/${bno}?${queryString}`)
@@ -69,8 +69,13 @@ const useQueryObj = () => {
 
     const moveMemberReadPage = (mno) => {
         console.log("Member Number: " + mno)
-        const queryString = createSearchParams(queryObj).toString()
-        navigate(`../member/read/${mno}?${queryString}`)
+
+
+        const queryString = createSearchParams(queryObj).toString().slice(-8)
+        console.log("test.........................")
+        console.log(queryString)
+
+        navigate(`../member/read/${mno}`)
     }
     const moveMemberListPage = ()=>{
         const queryString = createSearchParams(queryObj).toString()
@@ -83,7 +88,14 @@ const useQueryObj = () => {
         navigate(`../products/read/${pno}?${queryString}`)
     }
 
-    return {queryObj, setSearch, moveboardReadPage, moveMemberReadPage, moveList, moveProductReadPage}
+    const moveBoardReadPage = (bno, mno) => {
+        console.log("bno: " + bno)
+        const queryString = createSearchParams(queryObj).toString()
+        navigate(`../board/read/${bno}?${queryString}&mno=` + mno)
+    }
+
+
+    return {queryObj, setSearch, moveSupportReadPage, moveMemberReadPage, moveList, moveProductReadPage, moveBoardReadPage}
 }
 
 export default useQueryObj

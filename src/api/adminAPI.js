@@ -179,13 +179,43 @@ export const getReplyOne = async (rno) => {
 
 }
 
+    export const registerProduct = async (FormData) =>{
 
-export const postLogin = async(params) => {
-
-    let header = {
+        const header = {
             headers: {
-                "content-type": "application/x-www-form-urlencoded",
+                    "Content-Type": "multipart/form-data",
             }
+        }
+
+        const res = await axios.post(`http://192.168.0.48:8080/api/products/`, FormData, header)
+        return res.data
+
+}
+
+    export const getListByMno = async (queryObj, mno) =>{
+
+        const parameter = createSearchParams(queryObj).toString()
+
+        const res = await axios.get(`http://localhost:8080/api/products/list/${mno}?${parameter}`)
+        return res.data
+
+}
+
+    // board
+    export const deleteBoard = async (bno) =>{
+
+        const res = await axios.delete(`http://192.168.0.48:8080/api/board/${bno}`)
+        return res.data
+    
+    }
+
+
+    export const postLogin = async(params) => {
+
+        let header = {
+                headers: {
+                    "content-type": "application/x-www-form-urlencoded",
+                }
     }
 
     const res = await axios.post('http://192.168.0.48:8080/api/member/login', params, header)
