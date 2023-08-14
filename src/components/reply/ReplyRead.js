@@ -56,22 +56,21 @@ const ReplyRead = ({rno,cancelRead,refreshPage}) => {
 
 
     return ( 
-        <div className="m-8 bg-red-200 border-2">
-            <div className="ml-4">댓글 수정하기 {rno}</div>
+        <div className="ml-20 p-3 w-[800px] bg-gray-200 rounded-md">
             <div>
-                <table className="w-[500px] m-2 bg-red-300 border-4">
-                    <tr className="border-b-2">
+                <table className="w-[500px] m-2 ">
+                    {/* <tr className="border-b-2">
                         <td className="w-28 ">댓글번호 : </td>
                         <td className="border-2"><input value={reply.rno}></input></td>
+                    </tr> */}
+                    <tr>
+                        {/* <td className="w-28">내용</td> */}
+                        <td><textarea value={reply.reply} type="text" name="reply" onChange={handleChange} className="border-2 w-[500px] h-[100px]"></textarea> </td>
                     </tr>
-                    <tr className="border-b-2">
-                        <td className="w-28">내용 : </td>
-                        <td className="border-2"><input value={reply.reply} type="text" name="reply" onChange={handleChange} ></input> </td>
-                    </tr>
-                    <tr className="border-b-2">
-                        <td className="w-28">작성자 : </td>
-                        <td className="border-2 "><input value={reply.nickname}></input></td>
-                    </tr>
+                    {/* <tr>
+                        <td className="w-28">작성자</td>
+                        <td><input value={reply.nickname}></input></td>
+                    </tr> */}
                 </table>
 
 
@@ -82,9 +81,9 @@ const ReplyRead = ({rno,cancelRead,refreshPage}) => {
                 <div>{reply.replyer}</div> */}
             </div>
             <div>
-                <button className="m-2 p-2 bg-blue-500" onClick={handleClickModify}>MODIFY</button>
-                <button className="m-2 p-2 bg-red-500" onClick={handleClickDelete}>DELETE</button>
-                <button className="m-2 p-2 bg-slate-400" onClick={cancelRead}>CANCEL</button>
+                <button className="rounded-md hover:text-white text-center text-sm m-2 p-2 bg-blue-500" onClick={handleClickModify}>MODIFY</button>
+                <button className="rounded-md hover:text-white text-center text-sm m-2 p-2 bg-red-500" onClick={handleClickDelete}>DELETE</button>
+                <button className="rounded-md hover:text-white text-center text-sm m-2 p-2 bg-slate-400" onClick={cancelRead}>CANCEL</button>
             </div>
 
         </div>

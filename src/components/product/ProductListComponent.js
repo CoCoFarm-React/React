@@ -36,9 +36,9 @@ const ProductListComponent = ({queryObj , moveProductReadPage, movePage, moveSea
     return (  
         <div className="justify-center items-center container mt-3 ">
           
-        <div className="text-3xl">
+        {/* <div className="text-3xl">
           <button><Link to={"/products/register"}>REG</Link></button>
-        </div>
+        </div> */}
   
         <table className="w-[1200px] items-center justify-center container m-auto">
   

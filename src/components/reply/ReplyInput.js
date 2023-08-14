@@ -53,7 +53,10 @@ const ReplyInput = ({ bno,refreshLast }) => {
 
     return (
 
-        <div className="m-8 bg-orange-50 border-3 ">
+        <div className="m-8 border-3 w-[1400px] container m-auto mt-10">
+            <div className="ml-4 font-bold text-2xl">
+                댓글
+            </div>
             {/* <div>Reply Input</div> */}
             <div className="flex">
                 <div className="m-2 flex">
@@ -62,9 +65,10 @@ const ReplyInput = ({ bno,refreshLast }) => {
                     {/* <div><input type="text" className="border-2 w-44" name="replyer" value={reply.replyer} onChange={handleChange}></input></div> */}
                 </div>
                 <div>
-                    <button onClick={handleClickRegister} className="bg-yellow-200 p-5 pt-1 pb-1 rounded-xl mt-10" style={{fontSize:"20px"}}>
+                <button onClick={handleClickRegister} className="border-gray-400 p-2 border-2 rounded-md mt-10
+                    hover:bg-gray-400 hover:text-white text-center text-sm">
                         등록
-                    </button>
+                </button>
                 </div>
             </div>
         </div>
