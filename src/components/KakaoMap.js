@@ -28,7 +28,6 @@ const KakaoMap = () => {
 
         const geocoder = new kakao.maps.services.Geocoder();
 
-        
         // 주소로 좌표를 검색합니다.
         geocoder.addressSearch(selectedAddress.address ? selectedAddress.address : '한천로713' , function (result, status) {
 
@@ -47,6 +46,7 @@ const KakaoMap = () => {
           var infowindow = new kakao.maps.InfoWindow({
             content: '<div style="width:150px;color:red;text-align:center;padding:6px 0;">현재 위치</div>'
           });
+
           infowindow.open(map, marker);
     
           // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
@@ -54,10 +54,10 @@ const KakaoMap = () => {
         }
       })
 
-    } , [selectedAddress ])
+    } , [selectedAddress])
 
 
-    return (     
+    return (
         <div className="relative">
             KakaoMap
             <div id="map" className="border-2 w-[500px] h-[500px]"></div>
