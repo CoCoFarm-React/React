@@ -56,7 +56,7 @@ const ReplyRead = ({rno,cancelRead,refreshPage}) => {
 
 
     return ( 
-        <div className="m-8 m-auto w-[1400px] bg-gray-200">
+        <div className="ml-20 p-3 w-[800px] bg-gray-200 rounded-md">
             <div>
                 <table className="w-[500px] m-2 ">
                     {/* <tr className="border-b-2">
@@ -64,8 +64,8 @@ const ReplyRead = ({rno,cancelRead,refreshPage}) => {
                         <td className="border-2"><input value={reply.rno}></input></td>
                     </tr> */}
                     <tr>
-                        <td className="w-28">내용</td>
-                        <td><input value={reply.reply} type="text" name="reply" onChange={handleChange} ></input> </td>
+                        {/* <td className="w-28">내용</td> */}
+                        <td><textarea value={reply.reply} type="text" name="reply" onChange={handleChange} className="border-2 w-[500px] h-[100px]"></textarea> </td>
                     </tr>
                     {/* <tr>
                         <td className="w-28">작성자</td>

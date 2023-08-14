@@ -49,21 +49,23 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent ,changeCm
                     >
 
                     {/* <table className="w-[500px] m-2 bg-slate-300 border-4" style={ ord == 1 ? { margin-left : "3px" } : <></>}> */}
-                    <table className="w-[500px] m-5 bg-slate-300" style={reply.ord === true ? { marginLeft: "50px" } : {}}>
+                    <table className="w-[1000px] m-5 p-2" style={reply.ord === true ? { marginLeft: "50px" } : {}}>
                         {/* <tr className="border-b-2">
                             <td className="w-28 ">댓글번호 : </td>
                             <td className="border-2 bg-slate-50">{reply.rno}</td>
                         </tr> */}
-                        <tr className="font-bold">
+                        <tr className="font-bold text-gray-500">
                             <td className="bg-slate-50">{reply.nickname}</td>
                         </tr>
-                        <tr className="">
+                        <tr>
                             <td className="bg-slate-50">{reply.reply}</td>
+                            <button className="rounded-md hover:text-white text-center text-sm m-2 p-2 bg-green-200">MOD</button>
+                        </tr>
+                        <tr>
+                            <button className="mb-5">↳ 대댓글 달기</button>
+                            <div className=" border-b-gray-300 border-b"></div>
                         </tr>
                     </table>
-
-                    
-                    
                     </li>)}
                 </ul>
                 

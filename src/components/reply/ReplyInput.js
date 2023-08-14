@@ -68,7 +68,7 @@ const ReplyInput = ({ bno,refreshLast }) => {
                 <button onClick={handleClickRegister} className="border-gray-400 p-2 border-2 rounded-md mt-10
                     hover:bg-gray-400 hover:text-white text-center text-sm">
                         등록
-                    </button>
+                </button>
                 </div>
             </div>
         </div>
