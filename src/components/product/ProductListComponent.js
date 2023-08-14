@@ -50,11 +50,12 @@ const ProductListComponent = ({queryObj , moveProductReadPage, movePage, moveSea
                 <th className="w-1/12">Price</th>    
                 <th className="w-2/12">Email</th>    
                 <th className="w-2/12">Time</th>
+                <th className="w-1/12">View</th>
             </tr>
           </thead>
   
           <tbody>
-            {product.dtoList.map( ({pno, pname, price, modDate, email, fname}) => 
+            {product.dtoList.map( ({pno, pname, price, modDate, email, fname, view}) => 
               <tr className="border-b-2 border-gray-300 text-center h-12"
                   key={pno}
                   onClick={() => moveProductReadPage(pno)}
@@ -67,6 +68,7 @@ const ProductListComponent = ({queryObj , moveProductReadPage, movePage, moveSea
                 <td>{price}</td>
                 <td>{email}</td>
                 <td>{modDate}</td>
+                <td>{view}</td>
               </tr>
             
             )}

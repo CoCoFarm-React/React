@@ -5,6 +5,7 @@ import farmImage01 from "../../../public/farmerImage01.jpg"
 import FarmerDiaryComponent from "./FarmerDiaryComponent";
 import FarmerAdminSupportComponent from "./FarmerAdminSupportComponent";
 import FarmerCommunityComponent from "./FarmerCommunityComponent";
+import FarmerProductListComponent from "./FarmerProductsListComponent";
 
 const initState = {
     mno: 0,
@@ -113,12 +114,19 @@ const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoard
                         onClick={() => handleClickDiary(1)}>
                   Diary</button> : <></>}
 
-
                 <button     className={`border-gray-400 p-1 border-2 rounded-md text-center text-sm mr-2 ${
                 show === 2 ? 'bg-gray-300 text-white hover:bg-gray-400 hover:text-gray-300' : 'bg-white hover:bg-gray-400 hover:text-white'
                 }`}
                     onClick={() => handleClickDiary(2)}>
                   Community</button>
+
+                {farmer.roleName == 'FARMER' ? 
+                <button     className={`border-gray-400 p-1 border-2 rounded-md text-center text-sm mr-2 ${
+                  show === 4 ? 'bg-gray-300 text-white hover:bg-gray-400 hover:text-gray-300' : 'bg-white hover:bg-gray-400 hover:text-white'
+                  }`}
+                      onClick={() => handleClickDiary(4)}>
+                Products</button> : <></>}
+
                 <button     className={`border-gray-400 p-1 border-2 rounded-md text-center text-sm mr-2 ${
                 show === 3 ? 'bg-gray-300 text-white hover:bg-gray-400 hover:text-gray-300' : 'bg-white hover:bg-gray-400 hover:text-white'
                 }`}
@@ -133,6 +141,7 @@ const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoard
         {show == 1 ? <FarmerDiaryComponent queryObj={queryObj} setSearch={setSearch} moveBoardReadPage={moveBoardReadPage} moveSearch={moveSearch} movePage={movePage}></FarmerDiaryComponent> : <></>}
         {show == 2 ? <FarmerCommunityComponent queryObj={queryObj} setSearch={setSearch} moveBoardReadPage={moveBoardReadPage} moveSearch={moveSearch} movePage={movePage}></FarmerCommunityComponent> : <></>}
         {show == 3 ? <FarmerAdminSupportComponent queryObj={queryObj} setSearch={setSearch} moveBoardReadPage={moveBoardReadPage} moveSearch={moveSearch} movePage={movePage}></FarmerAdminSupportComponent> : <></>}
+        {show == 4 ? <FarmerProductListComponent queryObj={queryObj} setSearch={setSearch} moveBoardReadPage={moveBoardReadPage} moveSearch={moveSearch} movePage={movePage} mno={mno}></FarmerProductListComponent> : <></>}
         </div>
         </div>
     );

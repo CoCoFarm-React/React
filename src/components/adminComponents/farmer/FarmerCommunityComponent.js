@@ -47,38 +47,56 @@ const FarmerCommunityComponent = ({queryObj, setSearch, moveBoardReadPage, moveS
  
         <BoardSearchComponent queryObj={queryObj} moveSearch={moveSearch}></BoardSearchComponent>
 
-        <div className="justify-center items-center container mt-3">
-  
-        <table className="items-center justify-center container">
-
-          <thead>
-            <tr className="border-b-2 border-gray-300 bg-gray-200 text-center h-12">
-              <td className="w-1/12">No</td>
-              <td className="w-6/12">Title</td>
-              <td className="w-2/12">RegDate</td>
-              <td className="w-1/12">ReplyCnt</td>          
-            </tr>
-          </thead>
-
-          <tbody>
-            {writeBoard.dtoList.map( ({bno,title,regDate,rcnt}) => 
-              <tr className="border-b-2 border-gray-300 text-center h-12 hover:bg-gray-200"
-                  key={bno}
-                  // onClick={() => moveboardReadPage(bno)}
-              >
-                <td>{bno}</td>
-                <td className="text-left hover:underline hover:cursor-pointer" onClick={() => moveBoardReadPage(bno, mno)}>{title}</td>
-                <td>{regDate}</td>
-                <td>{rcnt}</td>
-              </tr>
+        {writeBoard !== null && writeBoard.dtoList.length > 0 ? 
             
-            )}
-          </tbody>
-        </table>
+            <div className="justify-center items-center container mt-3">
+      
+            <table className="items-center justify-center container">
+
+              <thead>
+                <tr className="border-b-2 border-gray-300 bg-gray-200 text-center h-12">
+                  <td className="w-1/12">No</td>
+                  <td className="w-6/12">Title</td>
+                  <td className="w-2/12">RegDate</td>
+                  <td className="w-1/12">ReplyCnt</td>          
+                </tr>
+              </thead>
+
+              <tbody>
+                {writeBoard.dtoList.map( ({bno,title,regDate,rcnt}) => 
+                  <tr className="border-b-2 border-gray-300 text-center h-12 hover:bg-gray-200"
+                      key={bno}
+                      // onClick={() => moveboardReadPage(bno)}
+                  >
+                    <td>{bno}</td>
+                    <td className="text-left hover:underline hover:cursor-pointer" onClick={() => moveBoardReadPage(bno, mno)}>{title}</td>
+                    <td>{regDate}</td>
+                    <td>{rcnt}</td>
+                  </tr>
+                
+                )}
+              </tbody>
+            </table>
+            </div>
+            : 
+            <div className="justify-center items-center container mt-3">
+      
+            <table className="items-center justify-center container">
+
+              <thead>
+                <tr className="border-b-2 border-gray-300 bg-gray-200 text-center h-12">
+                  <td className="w-1/12">No</td>
+                  <td className="w-6/12">Title</td>
+                  <td className="w-2/12">RegDate</td>
+                  <td className="w-1/12">ReplyCnt</td>          
+                </tr>
+              </thead>
+              </table>
+              <div className="text-center mt-5 text-gray-500">등록된 게시물이 없습니다.</div>
+              </div>}
 
         <PagingComponent movePage={movePage} {...writeBoard}></PagingComponent>
 
-        </div>
         </div>
     );
 }

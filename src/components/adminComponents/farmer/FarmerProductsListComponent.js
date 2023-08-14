@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getBoardListbyWriter } from "../../../api/adminAPI";
 import BoardSearchComponent from "../board/BoardSearchComponent";
 import PagingComponent from "../../commonComponents/PagingComponent";
-
-
+import { getListByMno } from "../../../api/adminAPI";
 
 const initState = {
     dtoList:[],
@@ -19,32 +16,29 @@ const initState = {
     cateno: 1,
   }
 
+const FarmerProductListComponent = ({queryObj, setSearch, moveBoardReadPage, moveSearch, movePage, mno}) => {
 
-const FarmerAdminSupportComponent = ({queryObj, setSearch, moveBoardReadPage, moveSearch, movePage}) => {
+    const [products, setProducts] = useState()
 
-    const [writeBoard, setWriteBoard] =useState(initState)
-    const {mno} =useParams()
+    useEffect(() => {
 
-    useEffect(()=>{
-      
-      queryObj.cateno = 1
+        getListByMno(queryObj, mno).then(data => {
 
-      getBoardListbyWriter(mno,queryObj).then(data=>{
+            console.log("get List By Mno........................")
+            console.log(data)
 
-        console.log(data)
-        setWriteBoard(data)
+        })
 
-      })
+    }, [queryObj])
 
-    },[queryObj])
 
-    return ( 
-      <div className="container h-[1200px] mt-3">
-      {/* <ul className="flex flex-wrap container items-center justify-center mt-2 "> */}
+    return (     
+        <div className="container h-[1200px] mt-3">
+      {/* <ul className="flex flex-wrap container items-center justify-center mt-2 "> */} */}
  
-        <BoardSearchComponent queryObj={queryObj} moveSearch={moveSearch}></BoardSearchComponent>
+        {/* <BoardSearchComponent queryObj={queryObj} moveSearch={moveSearch}></BoardSearchComponent>
 
-        {writeBoard !== null && writeBoard.dtoList.length > 0 ? 
+        {products !== null && products.dtoList.length > 0 ? 
             
         <div className="justify-center items-center container mt-3">
   
@@ -60,7 +54,7 @@ const FarmerAdminSupportComponent = ({queryObj, setSearch, moveBoardReadPage, mo
           </thead>
 
           <tbody>
-            {writeBoard.dtoList.map( ({bno,title,regDate,rcnt}) => 
+            {products.dtoList.map( ({bno,title,regDate,rcnt}) => 
               <tr className="border-b-2 border-gray-300 text-center h-12 hover:bg-gray-200"
                   key={bno}
                   // onClick={() => moveboardReadPage(bno)}
@@ -75,7 +69,9 @@ const FarmerAdminSupportComponent = ({queryObj, setSearch, moveBoardReadPage, mo
           </tbody>
         </table>
         </div>
+
         : 
+
         <div className="justify-center items-center container mt-3">
   
         <table className="items-center justify-center container">
@@ -92,10 +88,10 @@ const FarmerAdminSupportComponent = ({queryObj, setSearch, moveBoardReadPage, mo
           <div className="text-center mt-5 text-gray-500">등록된 게시물이 없습니다.</div>
           </div>}
 
-        <PagingComponent movePage={movePage} {...writeBoard}></PagingComponent>
+        <PagingComponent movePage={movePage} {...products}></PagingComponent> */}
 
         </div>
     );
 }
  
-export default FarmerAdminSupportComponent;
+export default FarmerProductListComponent;

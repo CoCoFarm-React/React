@@ -192,6 +192,15 @@ export const getReplyOne = async (rno) => {
 
 }
 
+    export const getListByMno = async (queryObj, mno) =>{
+
+        const parameter = createSearchParams(queryObj).toString()
+
+        const res = await axios.get(`http://localhost:8080/api/products/list/${mno}?${parameter}`)
+        return res.data
+
+}
+
     // board
     export const deleteBoard = async (bno) =>{
 

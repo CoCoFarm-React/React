@@ -56,6 +56,8 @@ const FarmerDiaryComponent = ({queryObj, setSearch, moveBoardReadPage, moveSearc
      
             <BoardSearchComponent queryObj={queryObj} moveSearch={moveSearch}></BoardSearchComponent>
 
+            {writeBoard !== null && writeBoard.dtoList.length > 0 ? 
+            
             <div className="justify-center items-center container mt-3">
       
             <table className="items-center justify-center container">
@@ -84,6 +86,24 @@ const FarmerDiaryComponent = ({queryObj, setSearch, moveBoardReadPage, moveSearc
                 )}
               </tbody>
             </table>
+            </div>
+            : 
+            <div className="justify-center items-center container mt-3">
+      
+            <table className="items-center justify-center container">
+
+              <thead>
+                <tr className="border-b-2 border-gray-300 bg-gray-200 text-center h-12">
+                  <td className="w-1/12">No</td>
+                  <td className="w-6/12">Title</td>
+                  <td className="w-2/12">RegDate</td>
+                  <td className="w-1/12">ReplyCnt</td>          
+                </tr>
+              </thead>
+              </table>
+              <div className="text-center mt-5 text-gray-500">등록된 게시물이 없습니다.</div>
+              </div>}
+            
 
             <PagingComponent movePage={movePage} {...writeBoard}></PagingComponent>
           
@@ -130,7 +150,6 @@ const FarmerDiaryComponent = ({queryObj, setSearch, moveBoardReadPage, moveSearc
             </div>
   
           </ul> */}
-        </div>
         </div>
        );
     }
