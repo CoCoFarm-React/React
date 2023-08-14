@@ -81,10 +81,12 @@ const LoginComponent = () => {
                         <input type="text" name="username" value={loginInfo.username} onChange={handleChange}></input>
                     </td>
                 </tr>
+
                 <tr>
                     <td>
                     </td>
                 </tr>
+                
                 <tr>
                     <td>
                         <label>Password</label>
@@ -95,13 +97,14 @@ const LoginComponent = () => {
                 </tr>
                 <tr>
                     <td className="">
+
                     </td>
                     <td className=" pt-2 pl-0">
                         {/* <button className="border-4 border-gray-600 p-2 rounded-xl" onClick={() => {dispatch(postLoginThunk(loginInfo)) }}> */}
                         <button className="border-4 border-gray-600 p-2 rounded-xl" onClick={handleLogin}>
                             Login
                         </button>
-                        <button className="ml-2 border-4 border-gray-600 p-2 rounded-xl" onClick={() => {}}>
+                        <button className="ml-2 border-4 border-gray-600 p-2 rounded-xl" onClick={() => { {} }}>
                             Sign up
                         </button>
                     </td>
