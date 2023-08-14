@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router"
-import { deleteProduct, readMember, readProduct } from "../../api/adminAPI"
-import { Link } from "react-router-dom"
+import { deleteProduct, readMember, readProduct, registerProduct } from "../../api/adminAPI"
+import { Link, createSearchParams } from "react-router-dom"
 
 const initState = {
     pno: 0,
@@ -18,7 +18,7 @@ const initState = {
     fname: ''
 }
 
-const ProductReadComponent = () => {
+const ProductReadComponent = ({queryObj}) => {
 
     const [product, setProduct] = useState(initState)
     const {pno} = useParams()
@@ -41,56 +41,121 @@ const ProductReadComponent = () => {
 
       console.log("click modal")
       alert(product.pno + "번 게시글이 삭제되었습니다.")
-      deleteProduct(product.pno)
+      deleteProduct(product.pno).then(data => {setProduct(data)
+        navigate('/products/list?' + queryString)
+    })
 
-      navigate('/products/list')      
+      const queryString = createSearchParams(queryObj).toString()
 
     }
 
 
     return (  
-        <div>
-            <table className="border-2">
-                <tr>
-                    <th>No</th>
-                    <td>{product.pno}</td>
-                </tr>
-                <tr>
-                    <th>Name</th>
-                    <td>{product.pname}</td>
-                </tr>
-                <tr>
-                    <th>Desc</th>
-                    <td>{product.pdesc}</td>
-                </tr>
-                <tr>
-                    <th>Price</th>
-                    <td>{product.price}</td>
-                </tr>
-                <tr><Link to={`/member/read/${product.mno}`}>
-                    <th>Email</th>
-                    <td>{product.email}</td>
-                </Link></tr>
-                <tr>
-                    <th>Nickname</th>
-                    <td>{product.nickname}</td>
-                </tr>
-                <tr>
-                    <th>CateName</th>
-                    <td>{product.procatename}</td>
-                </tr>
-                <tr>
-                    <th>Date</th>
-                    <td>{product.modDate}</td>
-                </tr>
-            </table>
-            <div onClick={handleClickDelete}>
-                <button className="bg-red-500 text-white">Delete</button>
-            </div>
 
-            {/* <button onClick={moveList}>List</button> */}
+        <div className="items-center justify-center container flex mt-5 mb-10">
 
-        </div>
+        <table className="w-[1400px] items-center justify-center">
+          <thead className="">
+            <tr className="bg-gray-200">
+                <td className="border-2 font-medium w-32 text-center ">No</td>
+                <td className="border-2">{product.pno}</td>
+            </tr>
+  
+            <tr >
+                <td className="border-2 font-medium text-center">상품이름</td>
+                <td className="border-2">{product.pname}</td>
+            </tr>
+  
+            <tr >
+                <td className="border-2 font-medium text-center">상품설명</td>
+                <td className="border-2">{product.pdesc}</td>
+            </tr>
+  
+            <tr >
+                <td className="border-2 font-medium text-center">닉네임</td>
+                <td className="border-2">{product.nickname}</td>
+            </tr>
+  
+            <tr >
+                <td className="border-2 font-medium text-center">게시일</td>
+                <td className="border-2">{product.modDate}</td>
+            </tr>
+  
+            <tr className="border-2">
+                <td className="border-2 font-medium h-80 text-center">파일</td>
+                {/* <td className="border-2">{product.modDate}</td> */}
+                <td>
+                    <img src={`http://192.168.0.48/${product.fname}`} alt="No image"></img>
+                </td>
+            </tr>
+  
+            {/* <tr>
+              <td className="border-2 font-medium h-80 text-center">Fname</td>
+              <td className="border-2">
+                <ul>
+                  {board.fname.map( fileList => <li>{fileList}</li>
+                  )}
+                </ul>
+              </td>
+            </tr> */}
+  
+              
+          </thead>
+      
+        </table>
+  
+      </div>
+
+        // <div>
+
+        // {/* <div>
+        //   <input type="file" multiple name="fname" onChange={handleChange}></input>
+        //   <button className="bg-gray-200"
+        //   onClick={handleClickUpload}
+        //   >SUBMIT</button>
+        // </div> */}
+
+        //     <table className="border-2">
+        //         <tr>
+        //             <th>No</th>
+        //             <td>{product.pno}</td>
+        //         </tr>
+        //         <tr>
+        //             <th>Name</th>
+        //             <td>{product.pname}</td>
+        //         </tr>
+        //         <tr>
+        //             <th>Desc</th>
+        //             <td>{product.pdesc}</td>
+        //         </tr>
+        //         <tr>
+        //             <th>Price</th>
+        //             <td>{product.price}</td>
+        //         </tr>
+        //         <tr><Link to={`/member/read/${product.mno}`}>
+        //             <th>Email</th>
+        //             <td>{product.email}</td>
+        //         </Link></tr>
+        //         <tr>
+        //             <th>Nickname</th>
+        //             <td>{product.nickname}</td>
+        //         </tr>
+        //         <tr>
+        //             <th>CateName</th>
+        //             <td>{product.procatename}</td>
+        //         </tr>
+        //         <tr>
+        //             <th>Date</th>
+        //             <td>{product.modDate}</td>
+        //         </tr>
+        //     </table>
+        //     <div onClick={handleClickDelete}>
+        //         <button className="bg-red-500 text-white">Delete</button>
+        //     </div>
+
+        //     {/* <button onClick={moveList}>List</button> */}
+
+        // </div>
     );
 }
  

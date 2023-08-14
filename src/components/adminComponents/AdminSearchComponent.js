@@ -28,9 +28,6 @@ const AdminSearchComponent = ({ queryObj, moveSearch }) => {
 
         <div>
             <div className="items-center justify-center flex container mt-5">
-                <button className="border-2 m-2 p-2 w-16 rounded-md bg-lime-400 text-white">
-                    ADD
-                </button>
 
                 <select
                     className="border-2 m-2 p-2 "
@@ -69,7 +66,7 @@ const AdminSearchComponent = ({ queryObj, moveSearch }) => {
                 </button>
 
 
-                <select className="border-2 h-10 w-20 ml-20"
+                {/* <select className="border-2 h-10 w-20 ml-20"
                     value={changeSize.size}
                     onChange={e => handleSize(e)}
                 >
@@ -80,7 +77,7 @@ const AdminSearchComponent = ({ queryObj, moveSearch }) => {
                     <option value={20}>20</option>
                     <option value={50}>50</option>
 
-                </select>
+                </select> */}
 
             </div>
         </div>
