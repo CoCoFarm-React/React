@@ -51,8 +51,7 @@ const ProductReadComponent = ({queryObj}) => {
 
 
     return (  
-
-        <div className="items-center justify-center container flex mt-5 mb-10">
+        <div className="items-center justify-center container flex mt-5 mb-3">
 
         <table className="w-[1400px] items-center justify-center">
           <thead className="">
@@ -61,28 +60,28 @@ const ProductReadComponent = ({queryObj}) => {
                 <td className="border-2">{product.pno}</td>
             </tr>
   
-            <tr >
-                <td className="border-2 font-medium text-center">상품이름</td>
-                <td className="border-2">{product.pname}</td>
+            <tr>
+                <td className="border-2 font-medium text-center p-3 m-3">상품이름</td>
+                <td className="border-2 p-2 m-2">{product.pname}</td>
             </tr>
   
             <tr >
-                <td className="border-2 font-medium text-center">상품설명</td>
+                <td className="border-2 font-medium text-center p-3 m-3">상품설명</td>
                 <td className="border-2">{product.pdesc}</td>
             </tr>
   
             <tr >
-                <td className="border-2 font-medium text-center">닉네임</td>
+                <td className="border-2 font-medium text-center p-3 m-3">닉네임</td>
                 <td className="border-2">{product.nickname}</td>
             </tr>
   
             <tr >
-                <td className="border-2 font-medium text-center">게시일</td>
+                <td className="border-2 font-medium text-center p-3 m-3">게시일</td>
                 <td className="border-2">{product.modDate}</td>
             </tr>
   
             <tr className="border-2">
-                <td className="border-2 font-medium h-80 text-center">파일</td>
+                <td className="border-2 font-medium h-80 text-center p-3 m-3">파일</td>
                 {/* <td className="border-2">{product.modDate}</td> */}
                 <td>
                     <img src={`http://192.168.0.48/${product.fname}`} alt="No image"></img>
@@ -99,12 +98,19 @@ const ProductReadComponent = ({queryObj}) => {
               </td>
             </tr> */}
   
+      <div className="">
+        <button onClick={handleClickDelete}
+                    className="border-gray-400 p-1 border-2 rounded-md mt-2
+                    hover:bg-gray-400 hover:text-white text-center text-sm">
+                        강제 삭제
+        </button>
+      </div>
               
           </thead>
       
         </table>
+        </div>
   
-      </div>
 
         // <div>
 

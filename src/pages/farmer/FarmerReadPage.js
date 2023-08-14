@@ -6,7 +6,7 @@ import useQueryObj from "../../hooks/useQueryObj";
 
 const FarmerReadPage = () => {
     
-    const {queryObj, setSearch, moveMemberListPage, moveBoardReadPage} = useQueryObj();
+    const {queryObj, setSearch, moveMemberListPage, moveBoardReadPage, moveProductReadPage} = useQueryObj();
 
     const movePage = (num) => {
         console.log("num-----------------------------", num)
@@ -31,7 +31,7 @@ const FarmerReadPage = () => {
         <div className="container m-auto">
             <div>
                 <AdminHeader></AdminHeader>
-                <FarmerReadComponent moveMemberListPage={moveMemberListPage} queryObj={queryObj} setSearch={setSearch} moveBoardReadPage={moveBoardReadPage} moveSearch={moveSearch} movePage={movePage}  ></FarmerReadComponent>
+                <FarmerReadComponent moveMemberListPage={moveMemberListPage} queryObj={queryObj} setSearch={setSearch} moveBoardReadPage={moveBoardReadPage} moveSearch={moveSearch} movePage={movePage} moveProductReadPage={moveProductReadPage}></FarmerReadComponent>
                 <Footer></Footer>
             </div>
         </div>

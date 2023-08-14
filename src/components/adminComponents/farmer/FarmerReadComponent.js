@@ -17,7 +17,7 @@ const initState = {
     profile: ''
 }
 
-const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoardReadPage, moveSearch, movePage}) => {
+const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoardReadPage, moveSearch, movePage, moveProductReadPage}) => {
 
     const [farmer, setFarmer] = useState(initState)
     const [show, setShow] = useState(1);
@@ -141,7 +141,7 @@ const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoard
         {show == 1 ? <FarmerDiaryComponent queryObj={queryObj} setSearch={setSearch} moveBoardReadPage={moveBoardReadPage} moveSearch={moveSearch} movePage={movePage}></FarmerDiaryComponent> : <></>}
         {show == 2 ? <FarmerCommunityComponent queryObj={queryObj} setSearch={setSearch} moveBoardReadPage={moveBoardReadPage} moveSearch={moveSearch} movePage={movePage}></FarmerCommunityComponent> : <></>}
         {show == 3 ? <FarmerAdminSupportComponent queryObj={queryObj} setSearch={setSearch} moveBoardReadPage={moveBoardReadPage} moveSearch={moveSearch} movePage={movePage}></FarmerAdminSupportComponent> : <></>}
-        {show == 4 ? <FarmerProductListComponent queryObj={queryObj} setSearch={setSearch} moveBoardReadPage={moveBoardReadPage} moveSearch={moveSearch} movePage={movePage} mno={mno}></FarmerProductListComponent> : <></>}
+        {show == 4 ? <FarmerProductListComponent queryObj={queryObj} setSearch={setSearch} moveProductReadPage={moveProductReadPage} moveSearch={moveSearch} movePage={movePage} mno={mno}></FarmerProductListComponent> : <></>}
         </div>
         </div>
     );

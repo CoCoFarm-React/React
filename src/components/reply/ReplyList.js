@@ -39,10 +39,7 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent ,changeCm
 
     return (
 
-        <div className="ml-4">
-            <div className="ml-4 text-2xl">
-                댓글 목록
-            </div>
+        <div className="container mt-5 m-auto w-[1400px]">
             <div>
                 <ul>
                     {listData.dtoList.map( reply => 
@@ -52,18 +49,16 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent ,changeCm
                     >
 
                     {/* <table className="w-[500px] m-2 bg-slate-300 border-4" style={ ord == 1 ? { margin-left : "3px" } : <></>}> */}
-                    <table className="w-[500px] m-2 bg-slate-300 border-4" style={reply.ord === true ? { marginLeft: "50px" } : {}}>
-                        <tr className="border-b-2">
+                    <table className="w-[500px] m-5 bg-slate-300" style={reply.ord === true ? { marginLeft: "50px" } : {}}>
+                        {/* <tr className="border-b-2">
                             <td className="w-28 ">댓글번호 : </td>
                             <td className="border-2 bg-slate-50">{reply.rno}</td>
+                        </tr> */}
+                        <tr className="font-bold">
+                            <td className="bg-slate-50">{reply.nickname}</td>
                         </tr>
-                        <tr className="border-b-2">
-                            <td className="w-28">내용 : </td>
-                            <td className="border-2 bg-slate-50">{reply.reply}</td>
-                        </tr>
-                        <tr className="border-b-2">
-                            <td className="w-28">작성자 : </td>
-                            <td className="border-2 bg-slate-50">{reply.nickname}</td>
+                        <tr className="">
+                            <td className="bg-slate-50">{reply.reply}</td>
                         </tr>
                     </table>
 
