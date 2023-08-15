@@ -47,7 +47,7 @@ const RightBoard = ({queryObj , moveSupportReadPage}) => {
 
     return ( 
     <div className="w-1/3 ">
-        <div className='rounded-2xl m-2  h-[400px] overflow-hidden'>
+        <div className='rounded-2xl m-2 h-[400px] overflow-hidden'>
             <div className="flex justify-between">
                 <div className="ml-6 mt-2" style={{fontSize:"20px"}}>문의게시판</div>
                 <Link to={"/support/list"}>

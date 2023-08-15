@@ -23,7 +23,8 @@ const AdminPage = () => {
      <div className="container m-auto">
         <BasicLayout>
             <TopCenterBoardComponent></TopCenterBoardComponent> 
-            <div className='rounded-2xl m-10 mt-2 mb-2 flex justify-between '>
+
+            <div className='rounded-2xl mt-2 mb-2 flex justify-between'>
                 <LeftBoardComponent queryObj={queryObj}  moveMemberReadPage={moveMemberReadPage}>  </LeftBoardComponent>
                 <CenterBoardComponent queryObj={queryObj} moveMemberReadPage={moveMemberReadPage}>  </CenterBoardComponent>
                 <RightBoardComponent queryObj={queryObj} moveSupportReadPage={moveSupportReadPage}> </RightBoardComponent>
