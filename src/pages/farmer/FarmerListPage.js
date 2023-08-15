@@ -31,11 +31,12 @@ const FarmerListPage = () => {
 
     return (  
         <div className="container m-auto">
+            
             <div>
-                <AdminHeader></AdminHeader>
+                {/* <AdminHeader></AdminHeader> */}
                 <FarmerSearchComponent queryObj={queryObj} moveSearch={moveSearch}></FarmerSearchComponent>
                 <FarmerListComponent queryObj={queryObj} moveMemberReadPage={moveMemberReadPage} movePage={movePage} moveSearch={moveSearch}></FarmerListComponent>
-                <Footer></Footer>
+                {/* <Footer></Footer> */}
             </div>
         </div>
     );

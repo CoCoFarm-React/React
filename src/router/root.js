@@ -25,16 +25,17 @@ const router = createBrowserRouter([
             path: "",
             element: <AdminPage></AdminPage>               
         },    
+        {
+            path: "/farmer/list",
+            element: <FarmerListPage></FarmerListPage>
+        },
     ]
     },
     {
         path: "/login",
         element: <LoginComponent></LoginComponent>              
     },
-    {
-        path: "/farmer/list",
-        element: <FarmerListPage></FarmerListPage>
-    },
+
     {
         path: "/member/read/:mno",
         element: <FarmerReadPage></FarmerReadPage>

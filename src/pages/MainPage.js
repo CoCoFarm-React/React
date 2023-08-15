@@ -17,23 +17,19 @@ const MainPage = () => {
 
 
     return ( 
-        <div className="container m-auto">
-            <div>
-                <AdminHeaderComponent></AdminHeaderComponent>
-            </div>
-
-            <div className="m-auto">
-                <BasicLayout>
-
-                    <div className="bg-white w-full">
-                        <Outlet></Outlet>
+        <div className="container m-auto scrollbar-hide">
+            <div className="">
+                    <AdminHeaderComponent></AdminHeaderComponent>
+                    <div>
+                    <BasicLayout>
+                        <div className="bg-white">
+                            <Outlet></Outlet>
+                        </div>
+                    </BasicLayout>
                     </div>
-                </BasicLayout>
+                    
+                    <Footer></Footer>
             </div>
-
-            <div className="m-auto">
-                <Footer></Footer>
-            </div>            
         </div>
     );
 }
