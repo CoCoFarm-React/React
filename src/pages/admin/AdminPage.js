@@ -20,7 +20,7 @@ const AdminPage = () => {
 
 
     return ( 
-     <div className="container m-auto">
+     <div className="container m-auto scrollbar-hide">
         <BasicLayout>
             <TopCenterBoardComponent></TopCenterBoardComponent> 
 
