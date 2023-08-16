@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getReplyList } from "../../api/adminAPI";
 import PagingComponent from "../commonComponents/PagingComponent";
+import ReplyChild from "./ReplyChild";
 
 const initState = {
     dtoList: [],
@@ -18,6 +19,7 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent ,changeCm
 
     // 
     console.log("============================================data");
+    const [replyAnswer, setReplyAnswer] = useState(false)
     
 
     // rendering시 에러방지
@@ -35,6 +37,12 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent ,changeCm
 
 
     }, [bno,page,last,refresh])
+
+    const handleClickReplyAnswer = () => {
+
+        setReplyAnswer(!replyAnswer)
+
+    }
 
 
     return (
@@ -59,10 +67,11 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent ,changeCm
                         </tr>
                         <tr>
                             <td className="bg-slate-50">{reply.reply}</td>
-                            <button className="rounded-md hover:text-white text-center text-sm m-2 p-2 bg-green-200">MOD</button>
+                            <button className="rounded-md hover:text-white text-center text-sm m-2 p-2 bg-blue-200">MOD</button>
                         </tr>
                         <tr>
-                            <button className="mb-5">↳ 대댓글 달기</button>
+                            <button className="mb-5" onClick={handleClickReplyAnswer}>↳ 대댓글 달기</button>
+                            {replyAnswer ? <ReplyChild></ReplyChild> : <></>}
                             <div className=" border-b-gray-300 border-b"></div>
                         </tr>
                     </table>
