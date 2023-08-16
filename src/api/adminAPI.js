@@ -242,5 +242,48 @@ export const getReplyOne = async (rno) => {
     
   }
 
-  
-  
+    // review
+    export const getReviewList = async (pno, page) =>{
+
+        console.log("APIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
+        console.log(pno)
+        console.log(page)
+
+        const res = await axios.get(`http://localhost:8080/api/reviews/${pno}/list?page=${page}`)
+        return res.data
+
+}
+
+    export const registerReview = async (formData) =>{
+
+        const header = {
+            headers: {
+                    "Content-Type": "multipart/form-data",
+            }
+        }
+
+        const res = await axios.post(`http://localhost:8080/api/reviews`, formData, header)
+        return res.data
+
+}
+
+    export const readReview = async (rno) =>{
+
+        const res = await axios.get(`http://localhost:8080/api/reviews/${rno}`)
+        return res.data
+
+}
+
+    export const deleteReview = async (rno) =>{
+
+        const res = await axios.delete(`http://localhost:8080/api/reviews/${rno}`)
+        return res.data
+
+}
+
+    export const modifyReview = async (review) =>{
+
+        const res = await axios.put(`http://localhost:8080/api/reviews`, review)
+        return res.data
+
+}

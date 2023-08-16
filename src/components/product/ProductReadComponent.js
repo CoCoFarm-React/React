@@ -51,7 +51,8 @@ const ProductReadComponent = ({queryObj}) => {
 
 
     return (  
-        <div className="items-center justify-center container flex mt-5 mb-3">
+      <>
+        <div className="items-center justify-center container flex mt-5">
 
         <table className="w-[1400px] items-center justify-center">
           <thead className="">
@@ -98,18 +99,19 @@ const ProductReadComponent = ({queryObj}) => {
               </td>
             </tr> */}
   
-      <div className="">
-        <button onClick={handleClickDelete}
-                    className="border-gray-400 p-1 border-2 rounded-md mt-2
-                    hover:bg-gray-400 hover:text-white text-center text-sm">
-                        강제 삭제
-        </button>
-      </div>
               
           </thead>
       
         </table>
         </div>
+      <div className="flex justify-end">
+        <button onClick={handleClickDelete}
+                    className="border-gray-400 p-1 border-2 rounded-md mt-2 bg-red-500 text-white font-bold mr-20
+                    hover:bg-white hover:text-black text-sm">
+                        DELETE
+        </button>
+      </div>
+      </>
   
 
         // <div>
