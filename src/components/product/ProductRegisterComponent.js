@@ -133,9 +133,11 @@ const ProductRegisterComponent = () => {
                 </tr>
 
                 <tr >
+                    
                     <td>
                         <label>*상품사진</label>
                     </td>
+
                     <td className="border-2 bg-white">
                         <input type="file" multiple name="images" ref={fileRef} onChange={handleChange}></input>
                     </td>

@@ -6,6 +6,7 @@ import FarmerDiaryComponent from "./FarmerDiaryComponent";
 import FarmerAdminSupportComponent from "./FarmerAdminSupportComponent";
 import FarmerCommunityComponent from "./FarmerCommunityComponent";
 import FarmerProductListComponent from "./FarmerProductsListComponent";
+import KakaoMap from "../../KakaoMap";
 
 const initState = {
     mno: 0,
@@ -67,7 +68,7 @@ const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoard
     return (  
 
           <div>
-
+              
           <div className="flex container h-[200px] mt-3 mb-20">
           
           <div className=" w-[300px] flex justify-center items-center">
@@ -76,7 +77,7 @@ const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoard
             <img src={`http://192.168.0.48/${farmer.profile}`} alt="No image" className="rounded-[50%] object-cover w-[180px] h-[180px] justify-center flex"></img>
             }
           </div>
-    
+              
           <div className="w-full flex">
             <div className="m-3 w-full ">
                 <div className="mt-5 ">
@@ -136,6 +137,12 @@ const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoard
                 
               </div>
           </div>
+
+              <div>
+                <KakaoMap address={farmer.address}></KakaoMap>
+              </div>
+
+
         </div>  
         <div className="container m-auto w-[1500px]">
         {show == 1 ? <FarmerDiaryComponent queryObj={queryObj} setSearch={setSearch} moveBoardReadPage={moveBoardReadPage} moveSearch={moveSearch} movePage={movePage}></FarmerDiaryComponent> : <></>}

@@ -4,10 +4,7 @@ import Footer from "../components/commonComponents/Footer";
 import BasicLayout from "../layouts/BasicLayout";
 import { useEffect } from "react";
 
-
-
 const MainPage = () => {
-
 
     // useEffect(() => {
 
@@ -15,25 +12,19 @@ const MainPage = () => {
 
     // }, [queryObj])
 
-
     return ( 
         <div className="container m-auto">
-            <div>
+            <div className="">
                 <AdminHeaderComponent></AdminHeaderComponent>
-            </div>
-
-            <div className="m-auto">
+                <div>
                 <BasicLayout>
-
-                    <div className="bg-white w-full">
+                    <div className="bg-white">
                         <Outlet></Outlet>
                     </div>
                 </BasicLayout>
-            </div>
-
-            <div className="m-auto">
+                </div>
                 <Footer></Footer>
-            </div>            
+            </div>
         </div>
     );
 }
