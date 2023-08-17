@@ -7,7 +7,8 @@ const initState = {
     review:'',
     fname:'',
     email:'',
-    nickname:''
+    nickname:'',
+    file: []
 }
 
 const ReviewRead = ({rno, cancelRead, refreshPage}) => {
@@ -22,7 +23,16 @@ const ReviewRead = ({rno, cancelRead, refreshPage}) => {
         readReview(rno).then(data => {
 
             console.log(data)
+            console.log(data.fname)
+
             setReview(data)
+
+            const files = data.fname.split(",")
+            console.log("filesssssssssssssssssssss")
+            console.log(files)
+
+            review.file = files
+            setReview({...review})
 
         })
 
@@ -53,10 +63,13 @@ const ReviewRead = ({rno, cancelRead, refreshPage}) => {
         formData.append("mno", review.mno)
         formData.append("review", review.review)
         
-        const arr = fileRef.current.files
+        // 파일이 있을 때
+        if(review.files != null){
+            const arr = fileRef.current.files
 
-        for(let file of arr) {
-            formData.append("files", file)
+            for(let file of arr) {
+                formData.append("files", file)
+            }
         }
 
         modifyReview(formData).then(data => {
@@ -69,18 +82,28 @@ const ReviewRead = ({rno, cancelRead, refreshPage}) => {
     //     return <></>
     // }
 
+    console.log(review.file)
+    
     
     return (  
         <div className="ml-20 p-3 w-[800px] bg-gray-200 rounded-md">
             <div>
-                <table className="w-[500px] m-2 ">
+                <table className="w-[500px] m-2">
                     {/* <tr className="border-b-2">
                         <td className="w-28 ">댓글번호 : </td>
                         <td className="border-2"><input value={reply.rno}></input></td>
                     </tr> */}
                     <tr>
                         {/* <td className="w-28">내용</td> */}
+                        <td><input type="file" multiple></input></td>
+                    </tr>
+                    <tr>
                         <td><textarea value={review.review} type="text" name="review" onChange={handleChange} className="border-2 w-[500px] h-[100px]"></textarea> </td>
+                    </tr>
+                    <tr className="flex">
+                        {review.file.map(img =>     
+                            <td className="m-1"><img src={`http://192.168.0.48/${img}`}></img></td>
+                        )}
                     </tr>
                     {/* <tr>
                         <td className="w-28">작성자</td>

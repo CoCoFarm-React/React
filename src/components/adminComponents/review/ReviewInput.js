@@ -51,6 +51,8 @@ const ReviewInput = ({pno, refreshPage}) => {
         registerReview(formData).then(data =>{
             
             console.log(data)
+            e.target.value = ''
+            setReview({...initState})
             refreshPage()
 
         })
@@ -69,7 +71,7 @@ const ReviewInput = ({pno, refreshPage}) => {
             {/* <div>Reply Input</div> */}
             <div className="flex">
                 <div className="m-2">
-                    <div><input type="file" ref={fileRef} multiple name="files" value={review.files} onChange={handleChange}></input></div>
+                    <div><input type="file" ref={fileRef} multiple name="files" value={review.files} onChange={handleChange} className="mb-2 mt-3"></input></div>
                     <div><textarea className="border-2 w-[700px] h-[100px]" name="review" value={review.review} onChange={handleChange}></textarea></div>
                     {/* type="hidden" 예정 */}
                     {/* <div><input type="text" className="border-2 w-44" name="replyer" value={reply.replyer} onChange={handleChange}></input></div> */}

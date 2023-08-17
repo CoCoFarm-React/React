@@ -65,7 +65,7 @@ const ProductListComponent = ({queryObj , moveProductReadPage, movePage, moveSea
                   <img src={`http://192.168.0.48/s_${fname}`} className="w-20 h-20"  alt="No image"></img>
                 </td>
                 <td className="hover:underline hover:cursor-pointer">{pname}</td>
-                <td>{price}</td>
+                <td>{price}원</td>
                 <td>{email}</td>
                 <td>{modDate}</td>
                 <td>{view}</td>

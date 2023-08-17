@@ -40,7 +40,7 @@ const ReviewList = ({pno, page, refresh, movePage, changeCurrent}) => {
                     {listData.dtoList.map( review => 
                     
                     <li 
-                    className="hover:cursor-pointer" key={review.rno}  onClick={() => changeCurrent(review.rno)}
+                    className="hover:cursor-pointer" key={review.rno}
                     >
 
                     {/* <table className="w-[500px] m-2 bg-slate-300 border-4" style={ ord == 1 ? { margin-left : "3px" } : <></>}> */}
@@ -61,9 +61,12 @@ const ReviewList = ({pno, page, refresh, movePage, changeCurrent}) => {
                             </td>
                         </tr>
                         <tr>
-                            <button className="mb-5 hover:text-gray-400">↳ 대댓글 달기</button>
+                            <td className="bg-slate-50 text-sm text-gray-400">{review.modDate}</td>
+                        </tr>
+                        <tr>
+                            {/* <button className="mb-5 hover:text-gray-400">↳ 대댓글 달기</button> */}
                             {/* {replyAnswer ? <ReplyChild></ReplyChild> : <></>} */}
-                            <button className="rounded-md hover:text-white text-center text-sm m-2 p-1 bg-blue-200">MOD</button>
+                            <button className="rounded-md hover:text-white text-center text-sm m-2 ml-0 p-1 bg-blue-200" onClick={() => changeCurrent(review.rno)}>MOD</button>
                             <div className=" border-b-gray-300 border-b"></div>
                         </tr>
                     </table>

@@ -1,4 +1,4 @@
-import main from "../../public/main_slider04.jpg"
+import main from "../../public/main_slider05.jpg"
 
 const TopCenterBoard = () => {
 

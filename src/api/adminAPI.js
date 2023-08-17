@@ -196,7 +196,7 @@ export const getReplyOne = async (rno) => {
 
         const parameter = createSearchParams(queryObj).toString()
 
-        const res = await axios.get(`http://localhost:8080/api/products/list/${mno}?${parameter}`)
+        const res = await axios.get(`http://192.168.0.48:8080/api/products/list/${mno}?${parameter}`)
         return res.data
 
 }
@@ -231,7 +231,7 @@ export const getReplyOne = async (rno) => {
         console.log(pno)
         console.log(page)
 
-        const res = await axios.get(`http://localhost:8080/api/reviews/${pno}/list?page=${page}`)
+        const res = await axios.get(`http://192.168.0.48:8080/api/reviews/${pno}/list?page=${page}`)
         return res.data
 
 }
@@ -244,28 +244,28 @@ export const getReplyOne = async (rno) => {
             }
         }
 
-        const res = await axios.post(`http://localhost:8080/api/reviews`, formData, header)
+        const res = await axios.post(`http://192.168.0.48:8080/api/reviews`, formData, header)
         return res.data
 
 }
 
     export const readReview = async (rno) =>{
 
-        const res = await axios.get(`http://localhost:8080/api/reviews/${rno}`)
+        const res = await axios.get(`http://192.168.0.48:8080/api/reviews/${rno}`)
         return res.data
 
 }
 
     export const deleteReview = async (rno) =>{
 
-        const res = await axios.delete(`http://localhost:8080/api/reviews/${rno}`)
+        const res = await axios.delete(`http://192.168.0.48:8080/api/reviews/${rno}`)
         return res.data
 
 }
 
-    export const modifyReview = async (review) =>{
+    export const modifyReview = async (formData) =>{
 
-        const res = await axios.put(`http://localhost:8080/api/reviews`, review)
+        const res = await axios.put(`http://192.168.0.48:8080/api/reviews`, formData)
         return res.data
 
 }

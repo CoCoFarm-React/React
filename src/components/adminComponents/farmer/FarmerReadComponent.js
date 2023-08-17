@@ -138,9 +138,11 @@ const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoard
               </div>
           </div>
 
-              <div>
-                <KakaoMap address={farmer.address}></KakaoMap>
-              </div>
+              {farmer.roleName == 'FARMER' ? 
+                <div>
+                  <KakaoMap address={farmer.address}></KakaoMap>
+                </div> : <></>
+              }
 
 
         </div>  

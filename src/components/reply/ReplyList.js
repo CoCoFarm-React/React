@@ -15,12 +15,14 @@ const initState = {
     requestDTO: null
 }
 
-const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent ,changeCmd}) => {
+
+
+const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent, cancelRead, refreshPage}) => {
 
     // 
-    console.log("============================================data");
-    const [replyAnswer, setReplyAnswer] = useState(false)
+    //console.log("============================================data");
     
+    const [current, setCurrent] = useState({rno:0, replyAnswer:false})
 
     // rendering시 에러방지
     const [listData, setListData] = useState(initState)
@@ -28,9 +30,9 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent ,changeCm
     useEffect(() => {
 
         getReplyList(bno ,page ,last ).then( data => {
-            console.log("============================================data");
-            console.log(data);
-            console.log("============================================data");
+            // console.log("============================================data");
+            // console.log(data);
+            // console.log("============================================data");
 
             setListData(data)
         })
@@ -38,10 +40,27 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent ,changeCm
 
     }, [bno,page,last,refresh])
 
-    const handleClickReplyAnswer = () => {
+    const handleClickReplyAnswer = (targetRno) => {
 
-        setReplyAnswer(!replyAnswer)
+        console.log("click reply answer")
+        console.log("targetRno: " + targetRno)
+        current.rno = targetRno
+        current.replyAnswer = !current.replyAnswer
+        setCurrent({...current})
 
+        if(!current.replyAnswer) {
+            setTimeout(() => {
+                current.rno = targetRno
+                current.replyAnswer = true
+                setCurrent({...current})
+            }, 100)
+        }
+
+    }
+
+    const handleClickForceClose = () => {
+
+        setCurrent({rno:current.rno, replyAnswer:false})
     }
 
 
@@ -53,7 +72,7 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent ,changeCm
                     {listData.dtoList.map( reply => 
                     
                     <li 
-                    className="hover:cursor-pointer" key={reply.rno}  onClick={() => changeCurrent(reply.rno)}
+                    className="hover:cursor-pointer" key={reply.rno}
                     >
 
                     {/* <table className="w-[500px] m-2 bg-slate-300 border-4" style={ ord == 1 ? { margin-left : "3px" } : <></>}> */}
@@ -66,13 +85,27 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent ,changeCm
                             <td className="bg-slate-50">{reply.nickname}</td>
                         </tr>
                         <tr>
-                            <td className="bg-slate-50">{reply.reply}</td>
-                            <button className="rounded-md hover:text-white text-center text-sm m-2 p-2 bg-blue-200">MOD</button>
+                            <td className="bg-slate-50">
+                                {reply.reply}
+                            </td>
                         </tr>
                         <tr>
-                            <button className="mb-5" onClick={handleClickReplyAnswer}>↳ 대댓글 달기</button>
-                            {replyAnswer ? <ReplyChild></ReplyChild> : <></>}
+                            <td>
+                            {reply.gno === reply.rno ? 
+                            <div>
+                            <button className="mb-5 hover:text-gray-500" onClick={() =>handleClickReplyAnswer(reply.rno)}>↳ 답글 달기</button>
+                            <button className="rounded-md hover:text-white text-center text-sm m-2 p-1 bg-blue-200" onClick={() => changeCurrent(reply.rno)}>MOD</button>
+                            </div>
+                            : 
+                            <button className="rounded-md hover:text-white text-center text-sm m-2 ml-0 p-1 bg-blue-200" onClick={() => changeCurrent(reply.rno)}>MOD</button>
+                            }
+                            {current.replyAnswer ? 
+                                <ReplyChild bno={bno} rno={current.rno} refreshLast={reply.refreshLast} handleClickForceClose={handleClickForceClose} handleClickReplyAnswer={handleClickReplyAnswer} refreshPage={refreshPage}></ReplyChild> 
+                                : 
+                                <></>
+                            }
                             <div className=" border-b-gray-300 border-b"></div>
+                            </td>
                         </tr>
                     </table>
                     </li>)}

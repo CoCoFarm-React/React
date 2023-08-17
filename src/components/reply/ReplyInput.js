@@ -25,6 +25,11 @@ const ReplyInput = ({ bno,refreshLast }) => {
 
     const handleClickRegister = (e) =>{
 
+        if(reply.reply == null || reply.reply == '') {
+            alert("내용을 입력해주세요.")
+            return
+        }
+
         reply.bno = bno;
 
         // 나중에 바꿔야함
