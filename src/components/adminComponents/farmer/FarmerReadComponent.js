@@ -26,7 +26,7 @@ const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoard
     const navigate = useNavigate()
 
     useEffect(() => {
-
+        
         readMember(mno).then(data => {
 
           console.log("----------------------- data")

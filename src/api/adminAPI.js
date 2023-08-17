@@ -222,7 +222,25 @@ export const getReplyOne = async (rno) => {
 
     return res.data
     
-}
+    }
+
+
+    export const signupMember = async(params) => {
+
+    let header = {
+      headers: {
+          "content-type": "multipart/form-data",
+      }
+    }
+    console.log("===========================================")
+    console.log(params);
+    console.log("===========================================")
+  
+    const res = await axios.post('http://192.168.0.48:8080/api/admin',params,header)
+  
+    return res.data
+    
+  }
 
     // review
     export const getReviewList = async (pno, page) =>{
