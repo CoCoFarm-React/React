@@ -90,22 +90,33 @@ const FarmerReadComponent = ({moveMemberListPage, queryObj, setSearch, moveBoard
                 </div>
                 <div className="mt-2">
                   <span className="">@{farmer.email}</span>
-                  <span className="ml-5">구독자 1.2만명</span>
-                  <span className="ml-5">게시글 120개</span>
+                  {farmer.roleName == 'FARMER' ? 
+                  <><span className="ml-5">구독자 1.2만명</span>
+                  <span className="ml-5">게시글 120개</span></>
+                  : <></>
+                  }
                 </div>
                 <div className="mt-3">
                   <div>
                     {farmer.intro}<br/>
-                    구입문의 {farmer.email}
+                    {farmer.roleName == 'FARMER' ? 
+                      <>구입문의 {farmer.email}</> : <></>
+                    }
                     
                   </div>
                 </div>
                 <div className="mt-5">
                 <button className="border-gray-400 p-1 border-2 rounded-md
                     hover:bg-gray-400 hover:text-white text-center text-sm mr-2">
-                  <Link to={"/farmer/list"}>
+                  {farmer.roleName == 'FARMER' ? 
+                    <Link to={"/farmer/list"}>
+                      List
+                    </Link>
+                    :
+                    <Link to={"/consumer/list"}>
                     List
-                  </Link>
+                    </Link>
+                  }
                 </button>
 
                 {farmer.roleName == 'FARMER' ? 

@@ -41,7 +41,7 @@ const KakaoMap = ({address}) => {
     
           // 인포윈도우로 장소에 대한 설명을 표시합니다
           var infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:150px;color:red;text-align:center;padding:6px 0;">현재 위치</div>'
+            content: '<div style="width:150px;color:red;text-align:center;padding:6px 0;">농장 위치</div>'
           });
 
           infowindow.open(map, marker);
@@ -57,8 +57,7 @@ const KakaoMap = ({address}) => {
 
 
     return (
-        <div className="mr-36">
-            KakaoMap
+        <div className="mr-30 mt-3">
             <div id="map" className="border-2 w-[300px] h-[300px]"></div>
   
         </div>

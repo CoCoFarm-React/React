@@ -93,13 +93,13 @@ const ReviewRead = ({rno, cancelRead, refreshPage}) => {
                         <td className="w-28 ">댓글번호 : </td>
                         <td className="border-2"><input value={reply.rno}></input></td>
                     </tr> */}
-                    <tr>
+                    {/* <tr> */}
                         {/* <td className="w-28">내용</td> */}
-                        <td><input type="file" multiple></input></td>
-                    </tr>
-                    <tr>
-                        <td><textarea value={review.review} type="text" name="review" onChange={handleChange} className="border-2 w-[500px] h-[100px]"></textarea> </td>
-                    </tr>
+                        {/* <td><input type="file" multiple></input></td>
+                    </tr> */}
+                    {/* <tr>
+                        <td><div value={review.review} type="text" name="review" onChange={handleChange} className="border-2 w-[500px] h-[100px]"></div> </td>
+                    </tr> */}
                     <tr className="flex">
                         {review.file.map(img =>     
                             <td className="m-1"><img src={`http://192.168.0.48/${img}`}></img></td>
@@ -119,7 +119,7 @@ const ReviewRead = ({rno, cancelRead, refreshPage}) => {
                 <div>{reply.replyer}</div> */}
             </div>
             <div>
-                <button className="rounded-md hover:text-white text-center text-sm m-2 p-2 bg-blue-500" onClick={handleClickModify}>MODIFY</button>
+                {/* <button className="rounded-md hover:text-white text-center text-sm m-2 p-2 bg-blue-500" onClick={handleClickModify}>MODIFY</button> */}
                 <button className="rounded-md hover:text-white text-center text-sm m-2 p-2 bg-red-500" onClick={handleClickDelete}>DELETE</button>
                 <button className="rounded-md hover:text-white text-center text-sm m-2 p-2 bg-slate-400" onClick={cancelRead}>CANCEL</button>
             </div>

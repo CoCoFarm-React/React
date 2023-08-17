@@ -39,33 +39,33 @@ const SupportReadComponent = ({bno, moveList}) => {
       <table className="w-[1400px] items-center justify-center">
         <thead className="">
           <tr className="bg-gray-200">
-              <td className="border-2 font-medium w-32 text-center ">No</td>
-              <td className="border-2">{board.bno}</td>
+              <td className="border-2 font-medium w-32 text-center p-2">No</td>
+              <td className="border-2 p-2">{board.bno}</td>
           </tr>
 
           <tr >
-              <td className="border-2 font-medium text-center">제목</td>
-              <td className="border-2">{board.title}</td>
+              <td className="border-2 font-medium text-center p-3">제목</td>
+              <td className="border-2 p-3">{board.title}</td>
           </tr>
 
           <tr >
-              <td className="border-2 font-medium text-center">내용</td>
-              <td className="border-2">{board.content}</td>
+              <td className="border-2 font-medium text-center p-3">내용</td>
+              <td className="border-2 p-3">{board.content}</td>
           </tr>
 
           <tr >
-              <td className="border-2 font-medium text-center">닉네임</td>
-              <td className="border-2">{board.nickname}</td>
+              <td className="border-2 font-medium text-center p-3">닉네임</td>
+              <td className="border-2 p-3">{board.nickname}</td>
           </tr>
 
           <tr >
-              <td className="border-2 font-medium text-center">Date</td>
-              <td className="border-2">{board.regDate}</td>
+              <td className="border-2 font-medium text-center p-3">게시일</td>
+              <td className="border-2 p-3">{board.regDate}</td>
           </tr>
 
           <tr >
-              <td className="border-2 font-medium h-80 text-center">Fname</td>
-              <td className="border-2">{board.fname}</td>             
+              <td className="border-2 font-medium h-80 text-center p-3">Fname</td>
+              <td className="border-2 p-3">{board.fname}</td>             
           </tr>
 
           {/* <tr>
