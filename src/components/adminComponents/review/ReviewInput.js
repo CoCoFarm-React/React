@@ -21,6 +21,9 @@ const ReviewInput = ({pno, refreshPage}) => {
 
     }   
 
+
+
+    
     const handleClickRegister = (e) =>{
 
         let num = parseInt(pno)

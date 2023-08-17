@@ -24,15 +24,11 @@ const router = createBrowserRouter([
         {
             path: "",
             element: <AdminPage></AdminPage>               
-        },    
+        },
         {
             path: "/farmer/list",
             element: <FarmerListPage></FarmerListPage>
         },
-        // {
-        //     path: "/farmer/list",
-        //     element: <FarmerListComponent></FarmerListComponent>
-        // },
     ]
     },
     {
