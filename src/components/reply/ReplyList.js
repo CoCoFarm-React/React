@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getReplyList } from "../../api/adminAPI";
 import PagingComponent from "../commonComponents/PagingComponent";
 import ReplyChild from "./ReplyChild";
+import { getCookis } from "../../util/cookieUtil";
 
 const initState = {
     dtoList: [],
@@ -15,25 +16,17 @@ const initState = {
     requestDTO: null
 }
 
-
-
 const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent, cancelRead, refreshPage}) => {
-
-    // 
-    //console.log("============================================data");
     
     const [current, setCurrent] = useState({rno:0, replyAnswer:false})
 
     // rendering시 에러방지
     const [listData, setListData] = useState(initState)
+    const cookie = getCookis('login')
 
     useEffect(() => {
 
-        getReplyList(bno ,page ,last ).then( data => {
-            // console.log("============================================data");
-            // console.log(data);
-            // console.log("============================================data");
-
+        getReplyList(bno, page, last).then( data => {
             setListData(data)
         })
 
@@ -55,7 +48,6 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent, cancelRe
                 setCurrent({...current})
             }, 100)
         }
-
     }
 
     const handleClickForceClose = () => {
@@ -63,6 +55,8 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent, cancelRe
         setCurrent({rno:current.rno, replyAnswer:false})
     }
 
+    console.log("mnooooooooooooooooooooooooooo")
+    console.log(cookie.mno)
 
     return (
 
@@ -91,13 +85,29 @@ const ReplyList = ({ bno, page, last, refresh, movePage, changeCurrent, cancelRe
                         </tr>
                         <tr>
                             <td>
-                            {reply.gno === reply.rno ? 
-                            <div>
-                            <button className="mb-5 hover:text-gray-500" onClick={() =>handleClickReplyAnswer(reply.rno)}>↳ 답글 달기</button>
-                            <button className="rounded-md hover:text-white text-center text-sm m-2 p-1 bg-blue-200" onClick={() => changeCurrent(reply.rno)}>MOD</button>
-                            </div>
-                            : 
+                            {/* {reply.gno === reply.rno ? 
+                                (reply.mno == cookie.mno ?
+                                <button className="mb-5 hover:text-gray-500" onClick={() =>handleClickReplyAnswer(reply.rno)}>↳ 답글 달기</button>
+                                : 
+                                <div>
+                                <button className="mb-5 hover:text-gray-500" onClick={() =>handleClickReplyAnswer(reply.rno)}>↳ 답글 달기</button>
+                                <button className="rounded-md hover:text-white text-center text-sm m-2 p-1 bg-blue-200" onClick={() => changeCurrent(reply.rno)}>MOD</button>
+                                </div>)
+                            :
                             <button className="rounded-md hover:text-white text-center text-sm m-2 ml-0 p-1 bg-blue-200" onClick={() => changeCurrent(reply.rno)}>MOD</button>
+                            } */}
+                            
+                            {reply.gno === reply.rno ?
+                                    <button className="mb-2 hover:text-gray-500" onClick={() =>handleClickReplyAnswer(reply.rno)}>↳ 답글 달기</button>
+                                : 
+                                <></>
+                            }
+
+                            {reply.mno === cookie.mno  ? 
+                            
+                            <button className={`rounded-md hover:text-white text-center text-sm ${reply.gno === reply.rno ? "m-2" : "ml-0 mb-2"} p-1 bg-blue-200`} onClick={() => changeCurrent(reply.rno)}>MOD</button>
+                            :
+                            <></>
                             }
                             {current.replyAnswer ? 
                                 <ReplyChild bno={bno} rno={current.rno} refreshLast={reply.refreshLast} handleClickForceClose={handleClickForceClose} handleClickReplyAnswer={handleClickReplyAnswer} refreshPage={refreshPage}></ReplyChild> 

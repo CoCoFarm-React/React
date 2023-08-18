@@ -105,10 +105,9 @@ const ProductReadComponent = ({queryObj}) => {
         </table>
         </div>
       <div className="flex justify-end">
-        <button onClick={handleClickDelete}
-                    className="border-gray-400 p-1 border-2 rounded-md mt-2 bg-red-500 text-white font-bold mr-20
-                    hover:bg-white hover:text-black text-sm">
-                        DELETE
+        <button onClick={handleClickDelete} className="border-gray-400 p-1 border-2 rounded-md mt-2 mr-20
+                    hover:bg-red-600 hover:text-white text-center text-sm">
+                        강제삭제
         </button>
       </div>
       </>

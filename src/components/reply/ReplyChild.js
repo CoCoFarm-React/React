@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { insertReply } from "../../api/adminAPI";
+import { getCookis } from "../../util/cookieUtil";
 
 const initState = {
     bno: 0,
@@ -16,6 +17,7 @@ const ReplyChild = ({ bno, rno, refreshLast, handleClickForceClose,handleClickRe
 
     console.log("ReplyChild---------------------------------------1")
     console.log(rno)
+    const {mno} = getCookis('login')
     
 
 
@@ -37,7 +39,7 @@ const ReplyChild = ({ bno, rno, refreshLast, handleClickForceClose,handleClickRe
         reply.gno = rno  !== 0 ? rno : null 
 
         // 나중에 바꿔야함
-        reply.mno = 11;
+        reply.mno = mno;
         // reply.replyText = '';
         reply.email = '나중에 쿠키값 들어감';
 
@@ -54,7 +56,7 @@ const ReplyChild = ({ bno, rno, refreshLast, handleClickForceClose,handleClickRe
 
             // inputTag내 데이터들을 삭제
             setReply({...initState})
-            handleClickReplyAnswer()
+            handleClickForceClose()
 
         })
 

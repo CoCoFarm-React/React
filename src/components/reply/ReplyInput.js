@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { insertReply } from "../../api/adminAPI";
+import { getCookis } from "../../util/cookieUtil";
 
 
 const initState = {
@@ -14,6 +15,7 @@ const initState = {
 const ReplyInput = ({ bno,refreshLast }) => {
 
     const [reply, setReply] = useState({...initState})
+    const {mno} = getCookis('login')
 
 
 
@@ -33,7 +35,7 @@ const ReplyInput = ({ bno,refreshLast }) => {
         reply.bno = bno;
 
         // 나중에 바꿔야함
-        reply.mno = 11;
+        reply.mno = mno;
         // reply.replyText = '';
         reply.email = '나중에 쿠키값 들어감';
         

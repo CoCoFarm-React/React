@@ -120,8 +120,8 @@ const ReviewRead = ({rno, cancelRead, refreshPage}) => {
             </div>
             <div>
                 {/* <button className="rounded-md hover:text-white text-center text-sm m-2 p-2 bg-blue-500" onClick={handleClickModify}>MODIFY</button> */}
-                <button className="rounded-md hover:text-white text-center text-sm m-2 p-2 bg-red-500" onClick={handleClickDelete}>DELETE</button>
-                <button className="rounded-md hover:text-white text-center text-sm m-2 p-2 bg-slate-400" onClick={cancelRead}>CANCEL</button>
+                <button className="rounded-md hover:text-white text-center text-sm m-1 p-2 bg-red-500" onClick={handleClickDelete}>강제삭제</button>
+                <button className="rounded-md hover:text-white text-center text-sm m-1 p-2 bg-slate-400" onClick={cancelRead}>취소</button>
             </div>
 
         </div>

@@ -37,7 +37,7 @@ const LeftBoard = ({queryObj, moveMemberReadPage}) => {
         <div className="w-1/3 ">
         <div className='rounded-2xl m-2  h-[400px] overflow-hidden'>
             <div className="flex justify-between">
-                <div className="ml-6 mt-2" style={{fontSize:"20px"}}>재배자 게시판</div>
+                <div className="ml-6 mt-2" style={{fontSize:"20px"}}>재배자 회원 리스트</div>
                 <Link to={"/farmer/list"}>
                     <button className="mt-1 mr-6 text-gray-400">
                         more+      
